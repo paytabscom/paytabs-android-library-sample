@@ -27,6 +27,12 @@ implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 implementation 'com.google.code.gson:gson:2.8.5'
 implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 ```
+Proguard
+--------
+If you are using ProGuard you might need to exclude library classes till we update with R8 proguard rules
+```java
+-keep class com.paytabs.paytabs_sdk.** { *; }
+```
 
 Pay now
 --------
