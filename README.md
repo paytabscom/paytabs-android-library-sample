@@ -21,11 +21,20 @@ Library requires at minimum Java 7 or Android 4.0.
 
 You have to include the following dependencies:
 ```groovy
+allprojects {
+	repositories {
+	    ...
+	    maven { url 'https://jitpack.io' }
+	}
+}
+```
+```groovy
 implementation 'com.android.support:design:28.0.0'
 implementation 'com.android.support:appcompat-v7:28.0.0'
 implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 implementation 'com.google.code.gson:gson:2.8.5'
 implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
 ```
 Proguard
 --------
