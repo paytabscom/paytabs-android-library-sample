@@ -1,6 +1,6 @@
 Paytabs android library sample
 ========
-![Paytabs-android-library-v4.0.0](https://img.shields.io/badge/Paytabs%20android%20library-v4.0.0-green.svg)
+![Paytabs-android-library-v4.0.0](https://img.shields.io/badge/Paytabs/android/library-v4.0.0-green.svg)
 
 For more information please see [the website][1].
 
