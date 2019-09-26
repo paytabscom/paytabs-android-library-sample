@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.paytabs.sample.paytabstestsample"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -31,9 +31,9 @@ dependencies {
     // Require Paytabs dependencies
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
-
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation project(':paytabs_sdk-v3.0.0')
+    implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
+    implementation project(':paytabs_sdk-v4.0.0')
 }

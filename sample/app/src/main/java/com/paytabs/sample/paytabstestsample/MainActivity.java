@@ -3,6 +3,7 @@ package com.paytabs.sample.paytabstestsample;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity;
@@ -24,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void goPayment() {
       Intent in = new Intent(getApplicationContext(), PayTabActivity.class);
-      in.putExtra(PaymentParams.MERCHANT_EMAIL, "merchant-email@example.com");
-      in.putExtra(PaymentParams.SECRET_KEY,"secret key");//Add your Secret Key Here
+      in.putExtra(PaymentParams.MERCHANT_EMAIL, "jhamza@paytabs.com");
+      in.putExtra(PaymentParams.SECRET_KEY,"vJCwKS9K9qDAZt69Qg2AiBe2YxY70QovA02kSb42CICBcJL2ZODipRknpjvqaTVKUY4Ma9PMRso4b96bYKtnBNL17grhan14l6Rw");//Add your Secret Key Here
       in.putExtra(PaymentParams.LANGUAGE,PaymentParams.ENGLISH);
       in.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library");
       in.putExtra(PaymentParams.AMOUNT, 5.0);
@@ -52,10 +53,23 @@ public class MainActivity extends AppCompatActivity {
 
       //Payment Page Style
       in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#2474bc");
-      in.putExtra(PaymentParams.THEME, PaymentParams.THEME_LIGHT);
 
       //Tokenization
       in.putExtra(PaymentParams.IS_TOKENIZATION, true);
       startActivityForResult(in, PaymentParams.PAYMENT_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
+            Log.e("Tag", data.getStringExtra(PaymentParams.RESPONSE_CODE));
+            Log.e("Tag", data.getStringExtra(PaymentParams.TRANSACTION_ID));
+            if (data.hasExtra(PaymentParams.TOKEN) && !data.getStringExtra(PaymentParams.TOKEN).isEmpty()) {
+                Log.e("Tag", data.getStringExtra(PaymentParams.TOKEN));
+                Log.e("Tag", data.getStringExtra(PaymentParams.CUSTOMER_EMAIL));
+                Log.e("Tag", data.getStringExtra(PaymentParams.CUSTOMER_PASSWORD));
+            }
+        }
     }
 }
