@@ -1,5 +1,6 @@
 package com.paytabs.sample.kotlin
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,13 @@ import android.view.View
 import android.widget.Button
 import com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity
 import com.paytabs.paytabs_sdk.utils.PaymentParams
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.util.Log
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -60,5 +68,18 @@ class MainActivity : AppCompatActivity() {
         //Tokenization
         intent.putExtra(PaymentParams.IS_TOKENIZATION, true)
         startActivityForResult(intent, PaymentParams.PAYMENT_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
+            Log.e("Tag", data!!.getStringExtra(PaymentParams.RESPONSE_CODE))
+            Log.e("Tag", data.getStringExtra(PaymentParams.TRANSACTION_ID))
+            if (data.hasExtra(PaymentParams.TOKEN) && !data.getStringExtra(PaymentParams.TOKEN)!!.isEmpty()) {
+                Log.e("Tag", data.getStringExtra(PaymentParams.TOKEN))
+                Log.e("Tag", data.getStringExtra(PaymentParams.CUSTOMER_EMAIL))
+                Log.e("Tag", data.getStringExtra(PaymentParams.CUSTOMER_PASSWORD))
+            }
+        }
     }
 }
