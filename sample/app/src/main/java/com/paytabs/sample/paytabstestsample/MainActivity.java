@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void goPayment() {
       Intent in = new Intent(getApplicationContext(), PayTabActivity.class);
-      in.putExtra(PaymentParams.MERCHANT_EMAIL, "jhamza@paytabs.com");
-      in.putExtra(PaymentParams.SECRET_KEY,"vJCwKS9K9qDAZt69Qg2AiBe2YxY70QovA02kSb42CICBcJL2ZODipRknpjvqaTVKUY4Ma9PMRso4b96bYKtnBNL17grhan14l6Rw");//Add your Secret Key Here
+      in.putExtra(PaymentParams.MERCHANT_EMAIL, "");
+      in.putExtra(PaymentParams.SECRET_KEY,"");//Add your Secret Key Here
       in.putExtra(PaymentParams.LANGUAGE,PaymentParams.ENGLISH);
       in.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library");
       in.putExtra(PaymentParams.AMOUNT, 5.0);
