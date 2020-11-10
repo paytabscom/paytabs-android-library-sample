@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.paytabs.paytabs_sdk"
+    android:versionCode="4"
+    android:versionName="4.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="28" />
+
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application android:supportsRtl="true" >
+        <activity
+            android:name="com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PaytabsAppTheme.NoActionBar" />
+        <activity
+            android:name="com.paytabs.paytabs_sdk.payment.ui.activities.SecurePaymentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PaytabsAppTheme.NoActionBar" />
+    </application>
+
+</manifest>

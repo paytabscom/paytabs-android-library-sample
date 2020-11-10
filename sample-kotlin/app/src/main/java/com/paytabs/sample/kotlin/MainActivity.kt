@@ -15,6 +15,7 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
 
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, PayTabActivity::class.java)
         intent.putExtra(PaymentParams.MERCHANT_EMAIL, "")
         intent.putExtra(
-                PaymentParams.SECRET_KEY,
-                ""
+            PaymentParams.SECRET_KEY,
+            ""
         )//Add your Secret Key Here
         intent.putExtra(PaymentParams.LANGUAGE, PaymentParams.ENGLISH)
         intent.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library")
@@ -47,8 +48,8 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(PaymentParams.STATE_BILLING, "Manama")
         intent.putExtra(PaymentParams.COUNTRY_BILLING, "BHR")
         intent.putExtra(
-                PaymentParams.POSTAL_CODE_BILLING,
-                "00973"
+            PaymentParams.POSTAL_CODE_BILLING,
+            "00973"
         ) //Put Country Phone code if Postal code not available '00973'
 
         //Shipping Address
@@ -57,24 +58,12 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(PaymentParams.STATE_SHIPPING, "Manama")
         intent.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR")
         intent.putExtra(
-                PaymentParams.POSTAL_CODE_SHIPPING,
-                "00973"
+            PaymentParams.POSTAL_CODE_SHIPPING,
+            "00973"
         ) //Put Country Phone code if Postal code not available '00973'
 
         //Payment Page Style
         intent.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#2474bc")
-
-        //Region
-
-        //Region
-        intent.putExtra(PaymentParams.REGION_ENDPOINT, PaymentParams.UAE_REGION)
-
-        // for Samsung pay integration
-
-        // for Samsung pay integration
-
-        /*intent.putExtra(PaymentParams.SAMSUNG_PAY_JSON, samPaytoken)
-        intent.putExtra(PaymentParams.CUSTOMER_NAME, customerName)*/
 
         //Tokenization
         intent.putExtra(PaymentParams.IS_TOKENIZATION, true)
@@ -86,8 +75,6 @@ class MainActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
             Log.e("Tag", data!!.getStringExtra(PaymentParams.RESPONSE_CODE))
             Log.e("Tag", data.getStringExtra(PaymentParams.TRANSACTION_ID))
-            Log.e("Tag STATEMENT_REFERENCE", data.getStringExtra(PaymentParams.STATEMENT_REFERENCE).toString() + "")
-            Log.e("Tag TRACE_CODE", data.getStringExtra(PaymentParams.TRACE_CODE).toString() + "")
             if (data.hasExtra(PaymentParams.TOKEN) && !data.getStringExtra(PaymentParams.TOKEN)!!.isEmpty()) {
                 Log.e("Tag", data.getStringExtra(PaymentParams.TOKEN))
                 Log.e("Tag", data.getStringExtra(PaymentParams.CUSTOMER_EMAIL))

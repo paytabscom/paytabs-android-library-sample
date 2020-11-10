@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cvv">CVV</string>
+    <string name="expiry_date">تاريخ الانتهاء</string>
+    <string name="make_a_payment">اتمام عملية الدفع</string>
+    <string name="paytabs_and">الى</string>
+    <string name="paytabs_authorize">Authorize</string>
+    <string name="paytabs_card_exp_month">شهر</string>
+    <string name="paytabs_card_exp_year">عام</string>
+    <string name="paytabs_card_holder_name">اسم صاحب البطاقة</string>
+    <string name="paytabs_card_number">رقم البطاقة</string>
+    <string name="paytabs_err_amount">الكمية يجب ان تكون من</string>
+    <string name="paytabs_err_auth">بيانات التاجر غير صحيحه</string>
+    <string name="paytabs_err_card_cvv">من فضلك قم بادخال الـ CVV</string>
+    <string name="paytabs_err_card_exp">من فضلك قم بادخال تاريخ انتهاء بطاقة صحيح</string>
+    <string name="paytabs_err_card_name">من فضلك قم بادخال الاسم الموجود علي البطاقة</string>
+    <string name="paytabs_err_card_no">من فضلك قم بادخال رقم بطاقة صحيح</string>
+    <string name="paytabs_err_no_internet">من فضلك تأكد من الاتصال بالانترنت</string>
+    <string name="paytabs_err_timeout">انتهت مهلة العملية</string>
+    <string name="paytabs_err_unknown">خطأ غير محدد</string>
+    <string name="paytabs_error">خطأ</string>
+    <string name="paytabs_invalid_amount">كمية غير صحيحه</string>
+    <string name="paytabs_msg_payment_in_progress">جاري الدفع</string>
+    <string name="paytabs_msg_please_wait">انتظر من فضلك</string>
+    <string name="paytabs_msg_preparing_for_payments">جارى تحضير عملية الدفع</string>
+    <string name="paytabs_ok">موافق</string>
+    <string name="paytabs_pay_now">ادفع الان</string>
+    <string name="paytabs_start_payment_process">بدء عملية الدفع</string>
+    <string name="powered_by">مدعوم من</string>
+    <string name="wocr_button_enter_card_number">أدخل تفاصيل البطاقة يدويا</string>
+    <string name="wocr_hint_position_card_in_frame">ضع بطاقتك في هذا الإطار</string>
+    <string name="wocr_powered_by_pay_cards"/>
+    <string name="wocr_toggle_flash"/>
+</resources>
