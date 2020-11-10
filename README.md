@@ -1,4 +1,4 @@
-Paytabs android library sample( PT2 Version)
+Paytabs android library sample
 ========
 ![Paytabs-android-library-v4.0.1](https://img.shields.io/badge/Paytabs/android/library-v4.0.1-green.svg)
 
@@ -8,13 +8,13 @@ For more information please see [the website][1].
 Download
 --------
 
-Download [the latest AAR](sdk/paytabs_sdk-v5.0.0.aar):
+Download [the latest AAR](sdk/paytabs_sdk-v4.0.1.aar):
 
 Read the documentation to know how to integrate your application with the library
 [documentation](https://dev.paytabs.com/docs/android/)
 
 ```groovy
-implementation project(':paytabs_sdk-v5.0.0')
+implementation project(':paytabs_sdk-v4.0.1')
 ```
 
 Library requires at minimum Java 7 or Android 4.0.
@@ -81,23 +81,6 @@ in.putExtra(PaymentParams.IS_TOKENIZATION, false);
 //PreAuth
 in.putExtra(PaymentParams.IS_PREAUTH, false);
 
-//SamsungPay Feature ->
-// merchant must integrate with samsung pay and pass the returned success token and merchant name to paytabs sdk.
- in.putExtra(PaymentParams.SAMSUNG_PAY_JSON, samPaytoken)
- in.putExtra(PaymentParams.CUSTOMER_NAME, merchantName)
-
-//Region Based url->
-//merchant should pass the region using one of those values
- PaymentParams.EGYPT_REGION
- PaymentParams.OMAN_REGION
- PaymentParams.UAE_REGION
- PaymentParams.SAUDI_REGION
- PaymentParams.JORDAN_REGION
- PaymentParams.DEMO
- PaymentParams.GLOBAL_REGION
-// example:
- in.putExtra(PaymentParams.REGION_ENDPOINT,PaymentParams.UAE_REGION);
- 
 startActivityForResult(in, PaymentParams.PAYMENT_REQUEST_CODE);
 ```
 

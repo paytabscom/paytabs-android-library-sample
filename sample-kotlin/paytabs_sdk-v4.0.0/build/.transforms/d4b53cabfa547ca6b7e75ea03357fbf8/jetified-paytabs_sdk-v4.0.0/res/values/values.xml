@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="below_header">135dp</dimen>
+    <dimen name="edit_text_font_size">18dp</dimen>
+    <dimen name="header_height">180dp</dimen>
+    <dimen name="logo_bottom_marign">40dp</dimen>
+    <dimen name="paytabs_amount_margin_bottom">20dp</dimen>
+    <dimen name="paytabs_amount_margin_top">25dp</dimen>
+    <dimen name="paytabs_edittext_height">40dp</dimen>
+    <dimen name="paytabs_pay_button_font_size">20dp</dimen>
+    <dimen name="paytabs_payment_button_height">60dp</dimen>
+    <dimen name="paytabs_payment_padding">30dp</dimen>
+    <dimen name="white_height">500dp</dimen>
+    <dimen name="white_margin">-155dp</dimen>
+    <string name="cvv">CVV</string>
+    <string name="expiry_date">Expiry date</string>
+    <string name="make_a_payment">Make a Payment</string>
+    <string name="paytabs_and">and</string>
+    <string name="paytabs_authorize">Authorize</string>
+    <string name="paytabs_card_exp_month">MM</string>
+    <string name="paytabs_card_exp_year">YY</string>
+    <string name="paytabs_card_holder_name">Name on card</string>
+    <string name="paytabs_card_number">Card number</string>
+    <string name="paytabs_err_amount">Amount must be between</string>
+    <string name="paytabs_err_auth">Invalid merchant credentials</string>
+    <string name="paytabs_err_card_cvv">Invalid card cvv</string>
+    <string name="paytabs_err_card_exp">Invalid expiration date</string>
+    <string name="paytabs_err_card_name">Please enter the same name as on the card</string>
+    <string name="paytabs_err_card_no">Invalid card number</string>
+    <string name="paytabs_err_no_internet">Please Connect to Internet!</string>
+    <string name="paytabs_err_timeout">Operation timed out</string>
+    <string name="paytabs_err_unknown">Unknown error occurred</string>
+    <string name="paytabs_error">Error</string>
+    <string name="paytabs_invalid_amount">Invalid Amount</string>
+    <string name="paytabs_msg_payment_in_progress">Payment In Progress</string>
+    <string name="paytabs_msg_please_wait">Please Wait</string>
+    <string name="paytabs_msg_preparing_for_payments">Preparing For Payment \nPlease wait</string>
+    <string name="paytabs_ok">OK</string>
+    <string name="paytabs_pay_now">PAY NOW</string>
+    <string name="paytabs_start_payment_process">Starting payment process</string>
+    <string name="powered_by">Powered By</string>
+    <string name="wocr_button_enter_card_number">Enter card details manually</string>
+    <string name="wocr_hint_position_card_in_frame">Position your card in this frame</string>
+    <string name="wocr_powered_by_pay_cards"/>
+    <string name="wocr_toggle_flash"/>
+    <style name="PaytabsAppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#000000</item>
+        <item name="android:editTextStyle">@style/PaytabsEditTextStyle</item>
+    </style>
+    <style name="PaytabsAppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="PaytabsAppThemeDark" parent="Theme.AppCompat">
+        <item name="colorAccent">#000000</item>
+        <item name="android:editTextStyle">@style/PaytabsEditTextStyle</item>
+    </style>
+    <style name="PaytabsAppThemeDark.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="PaytabsEditTextStyle" parent="android:Widget.EditText">
+        <item name="android:textSize">@dimen/edit_text_font_size</item>
+    </style>
+</resources>
