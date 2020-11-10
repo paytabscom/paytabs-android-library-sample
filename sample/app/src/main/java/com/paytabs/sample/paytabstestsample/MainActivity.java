@@ -51,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
       in.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR");
       in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
 
+      //Region
+      in.putExtra(PaymentParams.REGION_ENDPOINT, PaymentParams.UAE_REGION);
+
+      // for Samsung pay integration
+     /* in.putExtra(PaymentParams.SAMSUNG_PAY_JSON, samPaytoken);
+      in.putExtra(PaymentParams.CUSTOMER_NAME, customerName);*/
+
       //Payment Page Style
       in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#2474bc");
 
@@ -65,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == PaymentParams.PAYMENT_REQUEST_CODE) {
             Log.e("Tag", data.getStringExtra(PaymentParams.RESPONSE_CODE));
             Log.e("Tag", data.getStringExtra(PaymentParams.TRANSACTION_ID));
+            Log.e("Tag STATEMENT_REFERENCE", data.getStringExtra(PaymentParams.STATEMENT_REFERENCE)+"");
+            Log.e("Tag TRACE_CODE", data.getStringExtra(PaymentParams.TRACE_CODE)+"");
             if (data.hasExtra(PaymentParams.TOKEN) && !data.getStringExtra(PaymentParams.TOKEN).isEmpty()) {
                 Log.e("Tag", data.getStringExtra(PaymentParams.TOKEN));
                 Log.e("Tag", data.getStringExtra(PaymentParams.CUSTOMER_EMAIL));
