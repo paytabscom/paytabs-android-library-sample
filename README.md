@@ -81,6 +81,23 @@ in.putExtra(PaymentParams.IS_TOKENIZATION, false);
 //PreAuth
 in.putExtra(PaymentParams.IS_PREAUTH, false);
 
+//SamsungPay Feature ->
+// merchant must integrate with samsung pay and pass the returned success token and merchant name to paytabs sdk.
+ in.putExtra(PaymentParams.SAMSUNG_PAY_JSON, samPaytoken)
+ in.putExtra(PaymentParams.CUSTOMER_NAME, merchantName)
+
+//Region Based url->
+//merchant should pass the region using one of those values
+ PaymentParams.EGYPT_REGION
+ PaymentParams.OMAN_REGION
+ PaymentParams.UAE_REGION
+ PaymentParams.SAUDI_REGION
+ PaymentParams.JORDAN_REGION
+ PaymentParams.DEMO
+ PaymentParams.GLOBAL_REGION
+// example:
+ in.putExtra(PaymentParams.REGION_ENDPOINT,PaymentParams.UAE_REGION);
+ 
 startActivityForResult(in, PaymentParams.PAYMENT_REQUEST_CODE);
 ```
 
