@@ -1,6 +1,6 @@
 Paytabs android library sample ( PT1 Version)
 ========
-HINT: for PT2 clients please checkout "pt2_emulated" branch
+HINT: for PT2 clients please checkout [pt2_emulated branch](https://github.com/paytabscom/paytabs-android-library-sample/tree/pt2_emulated):
 
 ![Paytabs-android-library-v4.0.1](https://img.shields.io/badge/Paytabs/android/library-v4.0.1-green.svg)
 
