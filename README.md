@@ -14,7 +14,7 @@ Read the documentation to know how to integrate your application with the librar
 [documentation](https://dev.paytabs.com/docs/android/)
 
 ```groovy
-implementation project(':paytabs_sdk-v5.0.0')
+implementation project(':paytabs_sdk-v5.0.1')
 ```
 
 Library requires at minimum Java 7 or Android 4.0.
