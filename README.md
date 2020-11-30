@@ -8,13 +8,13 @@ For more information please see [the website][1].
 Download
 --------
 
-Download [the latest AAR](sdk/paytabs_sdk-v5.0.2.aar):
+Download [the latest AAR](sdk/paytabs_sdk-v5.0.3.aar):
 
 Read the documentation to know how to integrate your application with the library
 [documentation](https://dev.paytabs.com/docs/android/)
 
 ```groovy
-implementation project(':paytabs_sdk-v5.0.2')
+implementation project(':paytabs_sdk-v5.0.3')
 ```
 
 Library requires at minimum Java 7 or Android 4.0.
