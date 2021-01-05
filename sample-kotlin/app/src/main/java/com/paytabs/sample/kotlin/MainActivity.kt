@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         ) //Put Country Phone code if Postal code not available '00973'
 
         // force shipping data validation
-        // force shipping data validation
         intent.putExtra(PaymentParams.FORCE_SHIPPING_VALIDATION, true)
 
         //Payment Page Style
