@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
       in.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR");
       in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
 
+
+       // force shipping data validation
+        in.putExtra(PaymentParams.FORCE_SHIPPING_VALIDATION, true);
+
       //Region
       in.putExtra(PaymentParams.REGION_ENDPOINT, PaymentParams.UAE_REGION);
 

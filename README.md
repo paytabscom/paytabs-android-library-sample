@@ -8,13 +8,13 @@ For more information please see [the website][1].
 Download
 --------
 
-Download [the latest AAR](sdk/paytabs_sdk-v5.0.3.aar):
+Download [the latest AAR](sdk/paytabs_sdk-v5.0.4.aar):
 
 Read the documentation to know how to integrate your application with the library
 [documentation](https://dev.paytabs.com/docs/android/)
 
 ```groovy
-implementation project(':paytabs_sdk-v5.0.3')
+implementation project(':paytabs_sdk-v5.0.4')
 ```
 
 Library requires at minimum Java 7 or Android 4.0.
@@ -72,6 +72,10 @@ in.putExtra(PaymentParams.CITY_SHIPPING, "Manama");
 in.putExtra(PaymentParams.STATE_SHIPPING, "Manama");
 in.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR");
 in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
+
+
+// force shipping data validation
+in.putExtra(PaymentParams.FORCE_SHIPPING_VALIDATION, true);
 
 //Payment Page Style
 in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#2474bc");
