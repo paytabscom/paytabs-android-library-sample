@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c75b8c65-804a-449b-8f86-53a96d8d1c1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample-kotlin/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample-kotlin/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample-kotlin/app/src/main/java/com/paytabs/sample/kotlin/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/sample-kotlin/app/src/main/java/com/paytabs/sample/kotlin/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample-kotlin/paytabs_sdk-v5.0.1/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample-kotlin/paytabs_sdk-v5.0.1/paytabs_sdk-v5.0.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample-kotlin/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample-kotlin/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/app/src/main/java/com/paytabs/sample/paytabstestsample/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/sample/app/src/main/java/com/paytabs/sample/paytabstestsample/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/paytabs_sdk-v5.0.1/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/paytabs_sdk-v5.0.1/paytabs_sdk-v5.0.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdk/paytabs_sdk-v5.0.3.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample-kotlin/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sample-kotlin/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample-kotlin/paytabs_sdk-v5.0.4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sample-kotlin/paytabs_sdk-v5.0.4/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
