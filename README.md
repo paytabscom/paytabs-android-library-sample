@@ -35,6 +35,9 @@ implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 implementation 'com.google.code.gson:gson:2.8.5'
 implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
+// in case you need to support card scanning add this line
+implementation 'cards.pay:paycardsrecognizer:1.1.0'
+
 ```
 Proguard
 --------
