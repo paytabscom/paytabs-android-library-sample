@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c75b8c65-804a-449b-8f86-53a96d8d1c1b" name="Default Changelist" comment="upgrade to v5.0.3 =&gt; solved crash in fragment manager in android 11" />
+    <list default="true" id="c75b8c65-804a-449b-8f86-53a96d8d1c1b" name="Default Changelist" comment="upgrade to v5.0.3 =&gt; solved crash in fragment manager in android 11">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sdk/paytabs_sdk-v5.0.4.aar" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +35,7 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -129,10 +133,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="266" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1609864573882" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1604588936130">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1611488218254">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1604588936130" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1611488218254" />
     <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1606727365941">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

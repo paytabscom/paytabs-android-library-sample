@@ -1,2 +1,2 @@
-include ':paytabs_sdk-v5.0.4'
+include ':paytabs_sdk-v5.0.5'
 include ':app'
