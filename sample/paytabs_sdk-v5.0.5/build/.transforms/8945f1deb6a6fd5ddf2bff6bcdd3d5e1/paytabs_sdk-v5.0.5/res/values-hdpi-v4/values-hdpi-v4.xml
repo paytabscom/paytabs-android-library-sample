@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="adcb_logo_height">80dp</dimen>
+    <dimen name="adcb_logo_width">220dp</dimen>
+    <dimen name="below_header">75dp</dimen>
+    <dimen name="edit_text_font_size">12dp</dimen>
+    <dimen name="header_height">110dp</dimen>
+    <dimen name="logo_bottom_marign">5dp</dimen>
+    <dimen name="paytabs_amount_margin_bottom">5dp</dimen>
+    <dimen name="paytabs_amount_margin_top">10dp</dimen>
+    <dimen name="paytabs_edittext_height">35dp</dimen>
+    <dimen name="paytabs_pay_button_font_size">12dp</dimen>
+    <dimen name="paytabs_payment_button_height">40dp</dimen>
+    <dimen name="paytabs_payment_padding">15dp</dimen>
+    <dimen name="text_font_size">17dp</dimen>
+    <dimen name="white_height">500dp</dimen>
+    <dimen name="white_margin">-155dp</dimen>
+</resources>
