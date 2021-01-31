@@ -1,6 +1,6 @@
 Paytabs android library sample( PT2 Version)
 ========
-![Paytabs-android-library-v4.0.1](https://img.shields.io/badge/Paytabs/android/library-v4.0.1-green.svg)
+![Paytabs-android-library-v5.0.5](https://img.shields.io/badge/Paytabs/android/library-v5.0.5-green.svg)
 
 For more information please see [the website][1].
 
@@ -48,7 +48,7 @@ If you are using ProGuard you might need to exclude library classes till we upda
 
 Pay now
 --------
-```java
+```Java
 Intent in = new Intent(getApplicationContext(), PayTabActivity.class);
 in.putExtra(PaymentParams.MERCHANT_EMAIL, "merchant-email@example.com"); //this a demo account for testing the sdk
 in.putExtra(PaymentParams.SECRET_KEY,"secret key");//Add your Secret Key Here
