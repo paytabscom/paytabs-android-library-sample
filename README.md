@@ -1,6 +1,6 @@
 Paytabs android library sample( PT2 Version)
 ========
-![Paytabs-android-library-v6.0.1](https://img.shields.io/badge/Paytabs/android/library-v6.0.1-green.svg)
+![Paytabs-android-library-v6.0.1-beta04](https://img.shields.io/badge/Paytabs/android/library-v6.0.1-beta04-green.svg)
 
 For more information please see [the website][1].
 
@@ -28,7 +28,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:pt2sdk:6.0.1'
+    implementation 'com.paytabs:pt2sdk:6.0.1-beta04'
    
 
 ```
@@ -42,7 +42,7 @@ If you are using ProGuard you might need to exclude the library classes.
 Pay now
 --------
 ```kotlin
-val profileId = "12345"
+val profileId = "PROFILE_ID"
 val serverKey = "SERVER_KEY"
 val clientLey = "CLIENT_KEY"
 val locale = PaytabsLanguageCode.EN or PaytabsLanguageCode.AR
@@ -90,7 +90,7 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
  .setLanguageCode(locale)
  .setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_amex))
  .setBillingData(billingData)
- .setMerchantCountryCode("AE")
+ .setMerchantCountryCode("AE") // ISO alpha 2
  .setTransactionType(transType)
  .setTransactionClass(transClass)
  .setShippingData(shippingData)
@@ -104,6 +104,8 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
  .setServerIp("255.255.255.255")
  .build()
 startCardPayment(this, configData, callback=this)
+or
+startSamsungPayment(this, configData, "samsungpay token",this)
 
 
 override fun onError(error: PaytabsError) {
@@ -133,12 +135,15 @@ override fun onPaymentCancel() {
  
  to override strings, colors or dimens 
  add the resource you need to override from below resources with the value you want
- 
+
+## Theme
+Use the following guide to cusomize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
+
+![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
+
 ````xml
 <resourse>
-   // to override strings
-   
-   // to override colors
+  // to override colors
      <color name="paytabs_primary_color">#5C13DF</color>
      <color name="paytabs_secondary_color">#FFC107</color>
      <color name="paytabs_primary_font_color">#111112</color>
@@ -174,3 +179,5 @@ Paytabs
  [2]: https://www.paytabs.com/en/support/
  [3]: https://www.paytabs.com/en/terms-of-use/
  [4]: https://www.paytabs.com/en/privacy-policy/
+ [englishstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml
+ [arabicstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml
