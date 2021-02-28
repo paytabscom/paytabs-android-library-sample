@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
         }
 
-        b.mid.setText("49611")
-        b.secret.setText("SRJNLTR2L6-HZZR2KTGRM-MRZ6ZWRBK9")
+        b.mid.setText("PROFILE_ID")
+        b.serverKey.setText("SERVER_KEY")
         b.amount.setText("20")
         b.currency.setSelection(6)
         b.language.setSelection(1)
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
 
     private fun generatePaytabsConfigurationDetails(): PaytabsConfigurationDetails {
         val profileId = b.mid.text.toString()
-        val secret = b.secret.text.toString()
+        val serverKey = b.serverKey.text.toString()
         val locale = getLocale()
         val transactionTitle = b.transactionTitle.text.toString()
         val orderId = b.cartId.text.toString()
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
             b.shippingPhone.text.toString(), b.state.text.toString(),
             b.street.text.toString(), b.postalCode.text.toString()
         )
-        val configData = PtConfigBuilder(profileId, secret,b.clientSecret.text.toString() ,amount, currency)
+        val configData = PtConfigBuilder(profileId, serverKey,b.clientKey.text.toString() ,amount, currency)
             .setCartDescription(cartDesc)
             .setLanguageCode(locale)
             .setBillingData(billingData)

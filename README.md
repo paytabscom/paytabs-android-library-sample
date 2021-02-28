@@ -99,8 +99,6 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
 startCardPayment(this, configData, callback=this)
 or
 startSamsungPayment(this, configData, "samsungpay token",this)
-
-
 override fun onError(error: PaytabsError) {
  Log.d(TAG_PAYTABS, "onError: $error")
  Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
