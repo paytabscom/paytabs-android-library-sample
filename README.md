@@ -51,10 +51,6 @@ val cartId = "123456"
 val cartDesc = "cart description"
 val currency = "AED"
 val amount = 20.0
-val transType = PaytabsTransactionType.SALE  
-val transClass = PaytabsTransactionClass.ECOM 
-                 or PaytabsTransactionClass.RECURRING  
-
 
 val tokeniseType = PaytabsTokenise.NONE // tokenise is off
                    or PaytabsTokenise.USER_OPTIONAL // tokenise if optional as per user approval
@@ -91,8 +87,6 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
  .setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_amex))
  .setBillingData(billingData)
  .setMerchantCountryCode("AE") // ISO alpha 2
- .setTransactionType(transType)
- .setTransactionClass(transClass)
  .setShippingData(shippingData)
  .setCartId(orderId)
  .setTokenisationData(token = "", transactionReference = "")
@@ -101,7 +95,6 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
  .showShippingInfo(true)
  .forceShippingInfo(true)
  .setScreenTitle(screenTitle)
- .setServerIp("255.255.255.255")
  .build()
 startCardPayment(this, configData, callback=this)
 or
@@ -137,13 +130,14 @@ override fun onPaymentCancel() {
  add the resource you need to override from below resources with the value you want
 
 ## Theme
-Use the following guide to cusomize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
+Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
 ![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
 
-##override strings
-![englishstrings]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
-![arabicstrings](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+## Override strings
+To override string you can find the keys with the default values below
+![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
+![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
 
 ````xml
 <resourse>
