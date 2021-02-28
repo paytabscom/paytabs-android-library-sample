@@ -59,7 +59,7 @@ val transClass = PaytabsTransactionClass.ECOM
 val tokeniseType = PaytabsTokenise.NONE // tokenise is off
                    or PaytabsTokenise.USER_OPTIONAL // tokenise if optional as per user approval
                    or PaytabsTokenise.USER_MANDATORY // tokenise is forced as per user approval
-                   or PaytabsTokenise.MERCHANT_MANDATORY // tokenise is forced
+                   or PaytabsTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
 
 val tokenFormat =  PaytabsTokenFormat.Hex32Format() 
                    or PaytabsTokenFormat.NoneFormat() 
@@ -141,6 +141,10 @@ Use the following guide to cusomize the colors, font, and logo by configuring th
 
 ![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
 
+##override strings
+[englishstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml
+[arabicstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml
+
 ````xml
 <resourse>
   // to override colors
@@ -179,5 +183,3 @@ Paytabs
  [2]: https://www.paytabs.com/en/support/
  [3]: https://www.paytabs.com/en/terms-of-use/
  [4]: https://www.paytabs.com/en/privacy-policy/
- [englishstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml
- [arabicstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml
