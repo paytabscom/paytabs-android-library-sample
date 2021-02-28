@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cart_id">Cart Id</string>
+    <string name="product_name">Product name</string>
+    <string name="show_merchant_logo">Show Merchant Logo</string>
+    <string name="complete_billing_info">Show Billing Info</string>
+    <string name="force_shipping_validation">Force Shipping Validation</string>
+    <string name="select_tokenise_type">Select Tokenise Type</string>
+    <string name="tokenisation_type">tokenization type</string>
+    <string name="client_secret">Client secret</string>
+</resources>

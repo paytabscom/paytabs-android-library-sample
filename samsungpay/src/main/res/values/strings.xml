@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Paytabs Android SDK Demo</string>
+    <string-array name="currencies">
+        <item>BHD</item>
+        <item>USD</item>
+        <item>SAR</item>
+        <item>KWD</item>
+        <item>OMR</item>
+        <item>EGP</item>
+        <item>AED</item>
+        <item>INR</item>
+
+    </string-array>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+    <string name="merchant_email">Merchant Email</string>
+    <string name="merchant_secret">Merchant Secret</string>
+    <string name="merchant_options">Merchant Options</string>
+    <string name="transaction_options">Transaction Options</string>
+    <string name="amount">Amount</string>
+    <string name="customer_email">Customer Email</string>
+    <string name="select_currency">Select Currency</string>
+    <string name="tokenisation_option">Tokenization Options</string>
+    <string name="currency">Currency</string>
+    <string name="use_tokenisation">Use Tokenization</string>
+    <string name="use_pre_auth">Use Pre Auth</string>
+    <string name="is_existing_customer">Is Existing Customer?</string>
+    <string name="token">Token</string>
+    <string name="token_email">Token Email</string>
+    <string name="token_password">Token Password</string>
+    <string name="sam_pay">SAMSUNG PAY</string>
+
+    <!-- SnackBar messages -->
+    <string name="provide_email">Please provide your email</string>
+    <string name="provide_secret">Please provide your secret key</string>
+    <string name="provide_valid_email">Please provide valid merchant email address</string>
+    <string name="provide_valid_amount">Please provide valid amount</string>
+    <string name="provide_customer_email">Please provide customer email address</string>
+    <string name="provide_valid_customer_email">Please provide valid customer email address</string>
+    <string name="provide_currency">Please provide currency</string>
+    <string name="provide_token">Please provide your token</string>
+    <string name="provide_token_password">Please provide your token password</string>
+    <string name="provide_token_email">Please provide token email address</string>
+    <string name="provide_valid_token_email">Please provide valid token email address</string>
+
+    <string name="enter_email">Enter email</string>
+    <string name="enter_valid_email">Enter valid email</string>
+    <string name="enter_secret">Enter secret key</string>
+    <string name="enter_valid_amount">Enter valid amount</string>
+    <string name="enter_token">Enter token</string>
+    <string name="enter_token_password">Enter token password</string>
+    <string name="button_bar_background_color">Button/Bar Background Color</string>
+    <string name="theme">Select activity theme</string>
+    <string name="theme_options">Theme options</string>
+    <string name="customer_address">Customer shipping address</string>
+    <string name="customer_shipping_address">Shipping address</string>
+    <string name="customer_shipping_city">Shipping city</string>
+    <string name="customer_shipping_state">Shipping state</string>
+    <string name="customer_shipping_country">Shipping country</string>
+    <string name="customer_shipping_postal_code">Shipping postal code</string>
+    <string name="enter_address">Enter valid address</string>
+    <string name="enter_country">Enter valid country</string>
+    <string name="enter_city">Enter valid city</string>
+    <string name="enter_state">Enter valid state</string>
+    <string name="enter_postal_code">Enter valid postal code</string>
+    <string name="select_language">Select Language</string>
+    <string name="language">Language</string>
+</resources>
