@@ -98,7 +98,7 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
  .build()
 startCardPayment(this, configData, callback=this)
 or
-startSamsungPayment(this, configData, "samsungpay token",this)
+startSamsungPayment(this, configData, "samsungpay token",callback=this)
 override fun onError(error: PaytabsError) {
  Log.d(TAG_PAYTABS, "onError: $error")
  Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
@@ -133,7 +133,7 @@ Use the following guide to customize the colors, font, and logo by configuring t
 ![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
 
 ## Override strings
-To override string you can find the keys with the default values below
+To override string you can find the keys with the default values here
 ![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
 ![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
 
