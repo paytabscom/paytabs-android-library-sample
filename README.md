@@ -142,8 +142,8 @@ Use the following guide to cusomize the colors, font, and logo by configuring th
 ![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
 
 ##override strings
-[englishstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml
-[arabicstrings]: https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml
+![englishstrings]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
+![arabicstrings](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
 
 ````xml
 <resourse>
