@@ -3,7 +3,7 @@ Paytabs android library sample( PT2 Version)
 
 Install
 --------
-##Requirements
+## Requirements
 
 Library requires at minimum Java 7 or Android 5.1.
 
@@ -84,8 +84,6 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
  .setMerchantCountryCode("AE") // ISO alpha 2
  .setShippingData(shippingData)
  .setCartId(orderId)
- .setTokenisationData(token = "", transactionReference = "")
- .setTokenise(tokeniseType, tokenFormat)
  .showBillingInfo(false)
  .showShippingInfo(true)
  .forceShippingInfo(true)
@@ -94,6 +92,7 @@ val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0,
 startCardPayment(this, configData, callback=this)
 or
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
+
 override fun onError(error: PaytabsError) {
  Log.d(TAG_PAYTABS, "onError: $error")
  Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
@@ -112,7 +111,21 @@ override fun onPaymentCancel() {
 }
 
 ```
- Overriding Resources:
+## Tokenisation
+To enable tokenisation please follow the below instructions
+```kotlin
+ // to request token and transaction reference
+.setTokenise(PaytabsTokenise.NONE,PaytabsTokenFormat.Hex32Format()) 
+ // to pass the token and transaction reference returned from sdk
+.setTokenisationData(token = "", transactionReference = "") 
+```
+
+## SamsungPay 
+To enable pay with samsungpay you need to use this method
+```kotlin
+startSamsungPayment(this, configData, "samsungpay token",callback=this)
+```
+## Overriding Resources:
  
  to override fonts 
  Please add your custom fonts files with these names
