@@ -181,6 +181,6 @@ Paytabs
 
 
  [1]: https://dev.paytabs.com/docs/android/
- [2]: https://www.paytabs.com/en/support/
+ [2]: https://support.paytabs.com
  [3]: https://www.paytabs.com/en/terms-of-use/
  [4]: https://www.paytabs.com/en/privacy-policy/
