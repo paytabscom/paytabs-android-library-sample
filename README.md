@@ -1,14 +1,9 @@
 Paytabs android library sample( PT2 Version)
 ========
-![Paytabs-android-library-v6.0.1-beta04](https://img.shields.io/badge/Paytabs/android/library-v6.0.1-beta04-green.svg)
 
-For more information please see [the website][1].
-
-
-Download
+Install
 --------
-Read the documentation to know how to integrate your application with the library
-[documentation](https://dev.paytabs.com/docs/android/)
+##Requirements
 
 Library requires at minimum Java 7 or Android 5.1.
 
