@@ -114,8 +114,8 @@ override fun onPaymentCancel() {
 ## Tokenisation
 To enable tokenisation please follow the below instructions
 ```kotlin
- // to request token and transaction reference
-.setTokenise(PaytabsTokenise.NONE,PaytabsTokenFormat.Hex32Format()) 
+ // to request token and transaction reference pass tokeniseType and Format
+.setTokenise(PaytabsTokenise.MERCHANT_MANDATORY,PaytabsTokenFormat.Hex32Format()) 
  // to pass the token and transaction reference returned from sdk
 .setTokenisationData(token = "", transactionReference = "") 
 ```
