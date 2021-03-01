@@ -116,7 +116,8 @@ To enable tokenisation please follow the below instructions
 ```kotlin
  // to request token and transaction reference pass tokeniseType and Format
 .setTokenise(PaytabsTokenise.MERCHANT_MANDATORY,PaytabsTokenFormat.Hex32Format()) 
- // to pass the token and transaction reference returned from sdk
+ // you will receive token and reference after the first transaction       
+ // to pass the token and transaction reference returned from sdk 
 .setTokenisationData(token = "", transactionReference = "") 
 ```
 
