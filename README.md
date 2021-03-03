@@ -31,7 +31,7 @@ Proguard
 --------
 If you are using ProGuard you might need to exclude the library classes.
 ```java
--keep class com.paytabs.pt2sdk.** { *; }
+-keep public class com.payment.paymentsdk.**{*}
 ```
 
 Pay now
@@ -40,26 +40,26 @@ Pay now
 val profileId = "PROFILE_ID"
 val serverKey = "SERVER_KEY"
 val clientLey = "CLIENT_KEY"
-val locale = PaytabsLanguageCode.EN or PaytabsLanguageCode.AR
+val locale = PaymentSdkLanguageCode.EN or PaymentSdkLanguageCode.AR
 val screenTitle = "Test SDK"
 val cartId = "123456"
 val cartDesc = "cart description"
 val currency = "AED"
 val amount = 20.0
 
-val tokeniseType = PaytabsTokenise.NONE // tokenise is off
-                   or PaytabsTokenise.USER_OPTIONAL // tokenise if optional as per user approval
-                   or PaytabsTokenise.USER_MANDATORY // tokenise is forced as per user approval
-                   or PaytabsTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
+                   or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
+                   or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
+                   or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
 
-val tokenFormat =  PaytabsTokenFormat.Hex32Format() 
-                   or PaytabsTokenFormat.NoneFormat() 
-                   or PaytabsTokenFormat.AlphaNum20Format() 
-                   or PaytabsTokenFormat.Digit22Format()
-                   or PaytabsTokenFormat.Digit16Format()
-                   or PaytabsTokenFormat.AlphaNum32Format()
+val tokenFormat =  PaymentSdkTokenFormat.Hex32Format() 
+                   or PaymentSdkTokenFormat.NoneFormat() 
+                   or PaymentSdkTokenFormat.AlphaNum20Format() 
+                   or PaymentSdkTokenFormat.Digit22Format()
+                   or PaymentSdkTokenFormat.Digit16Format()
+                   or PaymentSdkTokenFormat.AlphaNum32Format()
 
-val billingData = PaytabsBillingDetails(
+val billingData = PaymentSdkBillingDetails(
  "City",
  "Country",
  "email1@domain.com",
@@ -68,7 +68,7 @@ val billingData = PaytabsBillingDetails(
  "address street", "zip"
 )
 
-val shippingData = PaytabsShippingDetails(
+val shippingData = PaymentSdkShippingDetails(
  "City",
  "Country",
  "email1@domain.com",
@@ -76,7 +76,7 @@ val shippingData = PaytabsShippingDetails(
  "phone", "state",
  "address street", "zip"
 )
-val configData = PtConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0, currency)
+val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0, currency)
  .setCartDescription(cartDesc)
  .setLanguageCode(locale)
  .setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_amex))
@@ -93,7 +93,7 @@ startCardPayment(this, configData, callback=this)
 or
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
 
-override fun onError(error: PaytabsError) {
+override fun onError(error: PaymentSdkError) {
  Log.d(TAG_PAYTABS, "onError: $error")
  Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
 }
@@ -115,7 +115,7 @@ override fun onPaymentCancel() {
 To enable tokenisation please follow the below instructions
 ```kotlin
  // to request token and transaction reference pass tokeniseType and Format
-.setTokenise(PaytabsTokenise.MERCHANT_MANDATORY,PaytabsTokenFormat.Hex32Format()) 
+.setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY,PaymentSdkTokenFormat.Hex32Format()) 
  // you will receive token and reference after the first transaction       
  // to pass the token and transaction reference returned from sdk 
 .setTokenisationData(token = "", transactionReference = "") 
@@ -131,7 +131,7 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
  to override fonts 
  Please add your custom fonts files with these names
  
- paytabs_primary_font.tff && paytabs_secondary_font.tff
+ payment_sdk_primary_font.tff && payment_sdk_secondary_font.tff
  
  to override strings, colors or dimens 
  add the resource you need to override from below resources with the value you want
@@ -149,31 +149,31 @@ To override string you can find the keys with the default values here
 ````xml
 <resourse>
   // to override colors
-     <color name="paytabs_primary_color">#5C13DF</color>
-     <color name="paytabs_secondary_color">#FFC107</color>
-     <color name="paytabs_primary_font_color">#111112</color>
-     <color name="paytabs_secondary_font_color">#6D6C70</color>
-     <color name="paytabs_separators_color">#FFC107</color>
-     <color name="paytabs_stroke_color">#673AB7</color>
-     <color name="paytabs_button_text_color">#FFF</color>
-     <color name="paytabs_title_text_color">#FFF</color>
-     <color name="paytabs_button_background_color">#3F51B5</color>
-     <color name="paytabs_background_color">#F9FAFD</color>
-     <color name="paytabs_card_background_color">#F9FAFD</color> 
+     <color name="payment_sdk_primary_color">#5C13DF</color>
+     <color name="payment_sdk_secondary_color">#FFC107</color>
+     <color name="payment_sdk_primary_font_color">#111112</color>
+     <color name="payment_sdk_secondary_font_color">#6D6C70</color>
+     <color name="payment_sdk_separators_color">#FFC107</color>
+     <color name="payment_sdk_stroke_color">#673AB7</color>
+     <color name="payment_sdk_button_text_color">#FFF</color>
+     <color name="payment_sdk_title_text_color">#FFF</color>
+     <color name="payment_sdk_button_background_color">#3F51B5</color>
+     <color name="payment_sdk_background_color">#F9FAFD</color>
+     <color name="payment_sdk_card_background_color">#F9FAFD</color> 
    
   // to override dimens
-     <dimen name="paytabs_primary_font_size">17sp</dimen>
-     <dimen name="paytabs_secondary_font_size">15sp</dimen>
-     <dimen name="paytabs_separator_thickness">1dp</dimen>
-     <dimen name="paytabs_stroke_thickness">.5dp</dimen>
-     <dimen name="paytabs_input_corner_radius">8dp</dimen>
-     <dimen name="paytabs_button_corner_radius">8dp</dimen>
+     <dimen name="payment_sdk_primary_font_size">17sp</dimen>
+     <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
+     <dimen name="payment_sdk_separator_thickness">1dp</dimen>
+     <dimen name="payment_sdk_stroke_thickness">.5dp</dimen>
+     <dimen name="payment_sdk_input_corner_radius">8dp</dimen>
+     <dimen name="payment_sdk_button_corner_radius">8dp</dimen>
      
 </resourse>
 ````
 
 
-Paytabs
+PaymentSdk
 --------
 [Support][2] | [Terms of Use][3] | [Privacy Policy][4]
 
