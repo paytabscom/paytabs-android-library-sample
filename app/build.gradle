@@ -63,6 +63,7 @@ dependencies {
     }
     implementation 'androidx.fragment:fragment-ktx:1.3.0'
     implementation project(":samsungpay")
-    implementation 'com.paytabs:payment-sdk:6.0.1-beta04'
+    implementation 'com.alinma:clickpaysdk:6.0.1-beta04'
+
 
 }

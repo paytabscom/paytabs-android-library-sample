@@ -14,7 +14,7 @@ allprojects {
 	    ...
      maven { url "http://pay.cards/maven" }
      maven {
-      url  "https://dl.bintray.com/paytabsandroidsdk/paytabs-sdk"
+      url  "https://dl.bintray.com/alinma/alinma-repo"
      }
 	}
 }
@@ -23,7 +23,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.1-beta04'
+    implementation 'com.alinma:clickpaysdk:6.0.1-beta04'
    
 
 ```
