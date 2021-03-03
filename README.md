@@ -14,7 +14,7 @@ allprojects {
 	    ...
      maven { url "http://pay.cards/maven" }
      maven {
-       url  "https://paytabs.bintray.com/paytabs_pt2sdk"
+      url  "https://dl.bintray.com/paytabsandroidsdk/paytabs-sdk"
      }
 	}
 }
@@ -23,7 +23,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:pt2sdk:6.0.1-beta04'
+    implementation 'com.paytabs:payment-sdk:6.0.1-beta04'
    
 
 ```

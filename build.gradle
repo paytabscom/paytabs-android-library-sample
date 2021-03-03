@@ -4,9 +4,8 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven { url "http://pay.cards/maven" }
         maven {
-            url  "https://paytabs.bintray.com/paytabs_pt2sdk"
+            url  "https://dl.bintray.com/paytabsandroidsdk/paytabs-sdk"
         }
     }
     dependencies {
@@ -24,7 +23,7 @@ allprojects {
         jcenter()
         maven { url "http://pay.cards/maven" }
         maven {
-            url  "https://paytabs.bintray.com/paytabs_pt2sdk"
+            url  "https://dl.bintray.com/paytabsandroidsdk/paytabs-sdk"
         }
     }
 }

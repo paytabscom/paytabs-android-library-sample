@@ -1,24 +1,17 @@
 package com.khairy.pt2sampleapp
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.khairy.pt2sampleapp.databinding.ActivityMainBinding
-import com.paytabs.pt2sdk.PaytabsActivity.Companion.startCardPayment
-import com.paytabs.pt2sdk.PtConfigBuilder
-import com.paytabs.pt2sdk.integrationmodels.*
-import com.paytabs.pt2sdk.sharedclasses.interfaces.PaytabsPaymentInterface
+import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
+import com.payment.paymentsdk.PaymentSdkConfigBuilder
+import com.payment.paymentsdk.integrationmodels.*
+import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
 import com.paytabs.samsungpay.sample.SamsungPayActivity
-import fr.ganfra.materialspinner.MaterialSpinner
 
-class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
+class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
     private var token: String? = null
     private var transRef: String? = null
     private lateinit var b: ActivityMainBinding
@@ -70,7 +63,7 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
         startCardPayment(this, configData, this)
     }
 
-    private fun generatePaytabsConfigurationDetails(): PaytabsConfigurationDetails {
+    private fun generatePaytabsConfigurationDetails(): PaymentSdkConfigurationDetails {
         val profileId = b.mid.text.toString()
         val serverKey = b.serverKey.text.toString()
         val locale = getLocale()
@@ -80,19 +73,19 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
         val cartDesc = b.cartDesc.text.toString()
         val currency = b.currency.selectedItem.toString()
         val amount = b.amount.text?.toString()?.toDoubleOrNull() ?: 0.0
-        val billingData = PaytabsBillingDetails(
+        val billingData = PaymentSdkBillingDetails(
             b.cityBilling.text.toString(), b.countryBilling.text.toString(),
             b.billingEmail.text.toString(), b.billingName.text.toString(),
             b.billingPhone.text.toString(), b.stateBilling.text.toString(),
             b.streetBilling.text.toString(), b.postalCodeBilling.text.toString()
         )
-        val shippingData = PaytabsShippingDetails(
+        val shippingData = PaymentSdkShippingDetails(
             b.city.text.toString(), b.country.text.toString(),
             b.shippingEmail.text.toString(), b.shippingName.text.toString(),
             b.shippingPhone.text.toString(), b.state.text.toString(),
             b.street.text.toString(), b.postalCode.text.toString()
         )
-        val configData = PtConfigBuilder(profileId, serverKey,b.clientKey.text.toString() ,amount, currency)
+        val configData = PaymentSdkConfigBuilder(profileId, serverKey,b.clientKey.text.toString() ,amount, currency)
             .setCartDescription(cartDesc)
             .setLanguageCode(locale)
             .setBillingData(billingData)
@@ -107,29 +100,29 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
             .setScreenTitle(transactionTitle)
 
         return if (b.showMerchantLogo.isChecked) {
-            configData.setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_unionpay)).build()
+            configData.setMerchantIcon(resources.getDrawable(R.drawable.payment_sdk_adcb_logo)).build()
         } else
             configData.build()
     }
 
-    private fun getTokeniseType(): PaytabsTokenise {
+    private fun getTokeniseType(): PaymentSdkTokenise {
        return when(b.tokeniseType.selectedItemPosition){
-            1 -> PaytabsTokenise.NONE
-            2 -> PaytabsTokenise.MERCHANT_MANDATORY
-            3 -> PaytabsTokenise.USER_MANDATORY
-            4 -> PaytabsTokenise.USER_OPTIONAL
-            else->PaytabsTokenise.NONE
+            1 -> PaymentSdkTokenise.NONE
+            2 -> PaymentSdkTokenise.MERCHANT_MANDATORY
+            3 -> PaymentSdkTokenise.USER_MANDATORY
+            4 -> PaymentSdkTokenise.USER_OPTIONAL
+            else-> PaymentSdkTokenise.NONE
         }
     }
 
     private fun getLocale() =
         when (b.language.selectedItemPosition) {
-            1 -> PaytabsLanguageCode.EN
-            2 -> PaytabsLanguageCode.AR
-            else -> PaytabsLanguageCode.DEFAULT
+            1 -> PaymentSdkLanguageCode.EN
+            2 -> PaymentSdkLanguageCode.AR
+            else -> PaymentSdkLanguageCode.DEFAULT
         }
 
-    override fun onError(error: PaytabsError) {
+    override fun onError(error: PaymentSdkError) {
         Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
     }
 
@@ -138,7 +131,7 @@ class MainActivity : AppCompatActivity(), PaytabsPaymentInterface {
 
     }
 
-    override fun onPaymentFinish(payTabsTransactionDetails: PayTabsTransactionDetails) {
+    override fun onPaymentFinish(payTabsTransactionDetails: PaymentSdkTransactionDetails) {
         token = payTabsTransactionDetails.token
         transRef = payTabsTransactionDetails.transactionReference
         Toast.makeText(

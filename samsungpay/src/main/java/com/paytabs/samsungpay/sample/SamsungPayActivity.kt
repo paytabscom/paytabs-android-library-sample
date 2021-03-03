@@ -5,11 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import com.paytabs.pt2sdk.PaytabsActivity
-import com.paytabs.pt2sdk.integrationmodels.PayTabsTransactionDetails
-import com.paytabs.pt2sdk.integrationmodels.PaytabsConfigurationDetails
-import com.paytabs.pt2sdk.integrationmodels.PaytabsError
-import com.paytabs.pt2sdk.sharedclasses.interfaces.PaytabsPaymentInterface
+import com.payment.paymentsdk.PaymentSdkActivity
+import com.payment.paymentsdk.integrationmodels.PaymentSdkConfigurationDetails
+import com.payment.paymentsdk.integrationmodels.PaymentSdkError
+import com.payment.paymentsdk.integrationmodels.PaymentSdkTransactionDetails
+import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
+
 import com.samsung.android.sdk.samsungpay.v2.PartnerInfo
 import com.samsung.android.sdk.samsungpay.v2.SamsungPay
 import com.samsung.android.sdk.samsungpay.v2.SpaySdk
@@ -22,7 +23,7 @@ import com.samsung.android.sdk.samsungpay.v2.payment.sheet.CustomSheet
 import java.util.*
 
 class SamsungPayActivity : Activity(), PaymentManager.CustomSheetTransactionInfoListener,
-    PaytabsPaymentInterface {
+    CallbackPaymentInterface {
     private val TAG = "SampleMerchantActivity"
     private val AMOUNT_CONTROL_ID = "amount_control_id"
     private var paymentManager: PaymentManager? = null
@@ -136,12 +137,12 @@ class SamsungPayActivity : Activity(), PaymentManager.CustomSheetTransactionInfo
     }
 
     private fun startPaymentProcess(samPaytoken: String, customerName: String) {
-        val ptConfig = intent.getParcelableExtra<PaytabsConfigurationDetails>("ptConfig")
-        PaytabsActivity.startSamsungPayment(this, ptConfig!!, samPaytoken, this)
+        val ptConfig = intent.getParcelableExtra<PaymentSdkConfigurationDetails>("ptConfig")
+        PaymentSdkActivity.startSamsungPayment(this, ptConfig!!, samPaytoken, this)
     }
 
     companion object {
-        fun start(activity: Activity, configurationDetails: PaytabsConfigurationDetails) {
+        fun start(activity: Activity, configurationDetails: PaymentSdkConfigurationDetails) {
             val intent = Intent(activity, SamsungPayActivity::class.java).apply {
                 putExtra("ptConfig", configurationDetails)
             }
@@ -149,7 +150,7 @@ class SamsungPayActivity : Activity(), PaymentManager.CustomSheetTransactionInfo
         }
     }
 
-    override fun onError(error: PaytabsError) {
+    override fun onError(error: PaymentSdkError) {
         Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
         finish()
     }
@@ -159,7 +160,7 @@ class SamsungPayActivity : Activity(), PaymentManager.CustomSheetTransactionInfo
          finish()
     }
 
-    override fun onPaymentFinish(payTabsTransactionDetails: PayTabsTransactionDetails) {
+    override fun onPaymentFinish(payTabsTransactionDetails: PaymentSdkTransactionDetails) {
         Toast.makeText(
             this,
             "${payTabsTransactionDetails.paymentResult?.responseMessage}",
