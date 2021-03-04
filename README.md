@@ -23,7 +23,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.1-beta04'
+    implementation 'com.paytabs:payment-sdk:6.0.1-beta05'
    
 
 ```
@@ -98,9 +98,9 @@ override fun onError(error: PaymentSdkError) {
  Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
 }
 
-override fun onPaymentFinish(payTabsTransactionDetails: PayTabsTransactionDetails) {
- Toast.makeText(this, "${payTabsTransactionDetails.paymentResult?.responseMessage}", Toast.LENGTH_SHORT).show()
- Log.d(TAG_PAYTABS, "onPaymentFinish: $payTabsTransactionDetails")
+override fun onPaymentFinish(PaymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
+ Toast.makeText(this, "${paymentSdkTransactionDetails.paymentResult?.responseMessage}", Toast.LENGTH_SHORT).show()
+ Log.d(TAG_PAYTABS, "onPaymentFinish: $paymentSdkTransactionDetails")
 
 }
 
