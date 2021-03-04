@@ -23,7 +23,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.alinma:clickpaysdk:6.0.1-beta04'
+    implementation 'com.alinma:clickpaysdk:6.0.1-beta05'
    
 
 ```
