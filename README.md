@@ -23,7 +23,7 @@ You have to include the following dependencies:
 ```groovy
 allprojects {
 	repositories {
-	    ...
+	    maven { url "http://pay.cards/maven" }
 	    maven { url 'https://jitpack.io' }
 	}
 }
