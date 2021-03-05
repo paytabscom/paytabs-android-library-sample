@@ -5,6 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\Administrator\\StudioProjects\\paytabs-android-library-sample\\sample-kotlin\\release_signing\\release.jks')
+            storePassword '7386889'
+            keyAlias 'release_kotlin_sample'
+            keyPassword '7386889'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.paytabs.sample.kotlin"
@@ -13,10 +21,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,5 +47,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
-    implementation project(':paytabs_sdk-v5.0.5')
+    implementation project(':paytabs_sdk-v5.0.6')
 }

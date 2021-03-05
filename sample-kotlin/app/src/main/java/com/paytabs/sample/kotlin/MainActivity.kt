@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        findViewById<Button>(R.id.pay).setOnClickListener(View.OnClickListener { goPayment() })
+        findViewById<Button>(R.id.pay).setOnClickListener { goPayment() }
 
     }
 
@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, PayTabActivity::class.java)
         intent.putExtra(PaymentParams.MERCHANT_EMAIL, "")
         intent.putExtra(
-            PaymentParams.SECRET_KEY,
-            ""
-        )//Add your Secret Key Here
+            PaymentParams.SECRET_KEY,""
+        ) //Add your Secret Key Here
+
         intent.putExtra(PaymentParams.LANGUAGE, PaymentParams.ENGLISH)
         intent.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library")
-        intent.putExtra(PaymentParams.AMOUNT, 5.0)
+        intent.putExtra(PaymentParams.AMOUNT, 115.0)
 
-        intent.putExtra(PaymentParams.CURRENCY_CODE, "BHD")
+        intent.putExtra(PaymentParams.CURRENCY_CODE, "AED")
         intent.putExtra(PaymentParams.CUSTOMER_PHONE_NUMBER, "009733")
         intent.putExtra(PaymentParams.CUSTOMER_EMAIL, "customer-email@example.com")
         intent.putExtra(PaymentParams.ORDER_ID, "123456")
@@ -44,9 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         //Billing Address
         intent.putExtra(PaymentParams.ADDRESS_BILLING, "Flat 1,Building 123, Road 2345")
-        intent.putExtra(PaymentParams.CITY_BILLING, "Manama")
-        intent.putExtra(PaymentParams.STATE_BILLING, "Manama")
-        intent.putExtra(PaymentParams.COUNTRY_BILLING, "BHR")
+        intent.putExtra(PaymentParams.CITY_BILLING, "Dubai")
+        intent.putExtra(PaymentParams.STATE_BILLING, "124")
+        intent.putExtra(PaymentParams.COUNTRY_BILLING, "AE")
         intent.putExtra(
             PaymentParams.POSTAL_CODE_BILLING,
             "00973"
@@ -54,16 +54,19 @@ class MainActivity : AppCompatActivity() {
 
         //Shipping Address
         intent.putExtra(PaymentParams.ADDRESS_SHIPPING, "Flat 1,Building 123, Road 2345")
-        intent.putExtra(PaymentParams.CITY_SHIPPING, "Manama")
-        intent.putExtra(PaymentParams.STATE_SHIPPING, "Manama")
-        intent.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR")
+        intent.putExtra(PaymentParams.CITY_SHIPPING, "Dubai")
+        intent.putExtra(PaymentParams.STATE_SHIPPING, "Dubai")
+        intent.putExtra(PaymentParams.COUNTRY_SHIPPING, "AE")
         intent.putExtra(
             PaymentParams.POSTAL_CODE_SHIPPING,
             "00973"
         ) //Put Country Phone code if Postal code not available '00973'
 
         // force shipping data validation
-        intent.putExtra(PaymentParams.FORCE_SHIPPING_VALIDATION, true)
+        intent.putExtra(PaymentParams.FORCE_SHIPPING_VALIDATION, false)
+
+        //Region
+        intent.putExtra(PaymentParams.REGION_ENDPOINT, PaymentParams.UAE_REGION)
 
         //Payment Page Style
         intent.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#2474bc")

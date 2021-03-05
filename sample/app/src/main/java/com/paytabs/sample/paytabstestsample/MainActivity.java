@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void goPayment() {
       Intent in = new Intent(getApplicationContext(), PayTabActivity.class);
-      in.putExtra(PaymentParams.MERCHANT_EMAIL, "");
-      in.putExtra(PaymentParams.SECRET_KEY,"");//Add your Secret Key Here
+      in.putExtra(PaymentParams.MERCHANT_EMAIL, "rhegazy@paytabs.com");
+      in.putExtra(PaymentParams.SECRET_KEY,"BIueZNfPLblJnMmPYARDEoP5x1WqseI3XciX0yNLJ8v7URXTrOw6dmbKn8bQnTUk6ch6L5SudnC8fz2HozNBVZlj7w9uq4Pwg7D1");//Add your Secret Key Here
       in.putExtra(PaymentParams.LANGUAGE,PaymentParams.ENGLISH);
       in.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library");
       in.putExtra(PaymentParams.AMOUNT, 5.0);
 
-      in.putExtra(PaymentParams.CURRENCY_CODE, "BHD");
+      in.putExtra(PaymentParams.CURRENCY_CODE, "AED");
       in.putExtra(PaymentParams.CUSTOMER_PHONE_NUMBER, "009733");
       in.putExtra(PaymentParams.CUSTOMER_EMAIL, "customer-email@example.com");
       in.putExtra(PaymentParams.ORDER_ID, "123456");
@@ -39,16 +39,16 @@ public class MainActivity extends AppCompatActivity {
 
       //Billing Address
       in.putExtra(PaymentParams.ADDRESS_BILLING, "Flat 1,Building 123, Road 2345");
-      in.putExtra(PaymentParams.CITY_BILLING, "Manama");
-      in.putExtra(PaymentParams.STATE_BILLING, "Manama");
-      in.putExtra(PaymentParams.COUNTRY_BILLING, "BHR");
+      in.putExtra(PaymentParams.CITY_BILLING, "Dubai");
+      in.putExtra(PaymentParams.STATE_BILLING, "124");
+      in.putExtra(PaymentParams.COUNTRY_BILLING, "AE");
       in.putExtra(PaymentParams.POSTAL_CODE_BILLING, "00973"); //Put Country Phone code if Postal code not available '00973'
 
       //Shipping Address
       in.putExtra(PaymentParams.ADDRESS_SHIPPING, "Flat 1,Building 123, Road 2345");
-      in.putExtra(PaymentParams.CITY_SHIPPING, "Manama");
+      in.putExtra(PaymentParams.CITY_SHIPPING, "Dubai");
       in.putExtra(PaymentParams.STATE_SHIPPING, "Manama");
-      in.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR");
+      in.putExtra(PaymentParams.COUNTRY_SHIPPING, "AE");
       in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
 
 
