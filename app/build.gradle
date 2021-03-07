@@ -20,7 +20,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 2
-        versionName "1.4"
+        versionName "1.5"
         archivesBaseName = "pt2_sample-$versionName"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.pt2_sample
@@ -63,7 +63,7 @@ dependencies {
     }
     implementation 'androidx.fragment:fragment-ktx:1.3.0'
     implementation project(":samsungpay")
-    implementation 'com.alinma:clickpaysdk:6.0.1-beta04'
+    implementation 'com.alinma:clickpaysdk:6.0.1-beta06'
 
 
 }
