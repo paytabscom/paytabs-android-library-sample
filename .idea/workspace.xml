@@ -41,7 +41,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c75b8c65-804a-449b-8f86-53a96d8d1c1b" name="Default Changelist" comment="" />
+      <changelist id="aa9cfe4c-18df-4aed-a380-cfc014f22813" name="Default Changelist" comment="" />
       <created>1604582641983</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -117,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606727356750</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="upgrade to v5.0.7 =&gt; solved proguard">
+      <created>1615897523820</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1615897523820</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,28 +145,7 @@
     <MESSAGE value="upgrade to v5.0.1" />
     <MESSAGE value="upgrade to v5.0.2 =&gt; solved default region" />
     <MESSAGE value="upgrade to v5.0.3 =&gt; solved crash in fragment manager in android 11" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrade to v5.0.3 =&gt; solved crash in fragment manager in android 11" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="266" y="0" key="CommitChangelistDialog2" timestamp="1609864573882">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="266" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1609864573882" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1611488218254">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1611488218254" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1606727365941">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1606727365941" />
-    <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1609863220703">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1609863220703" />
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609864495886">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1609864495886" />
+    <MESSAGE value="upgrade to v5.0.7 =&gt; solved proguard" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrade to v5.0.7 =&gt; solved proguard" />
   </component>
 </project>
