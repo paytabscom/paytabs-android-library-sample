@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.mid.setText("PROFILE_ID")
         b.serverKey.setText("SERVER_KEY")
         b.amount.setText("20")
-        b.currency.setSelection(6)
+        b.currency.setSelection(7)
         b.language.setSelection(1)
         b.tokeniseType.setSelection(1)
 
@@ -43,16 +43,16 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.postalCode.setText("54321")
         b.shippingEmail.setText("email1@domain.com")
         b.shippingName.setText("name1 last1")
-        b.shippingPhone.setText("971555555555")
+        b.shippingPhone.setText("1234")
 
-        b.streetBilling.setText("street")
+        b.streetBilling.setText("street2")
         b.cityBilling.setText("Dubai")
         b.stateBilling.setText("3510")
         b.countryBilling.setText("AE")
         b.postalCodeBilling.setText("12345")
         b.billingEmail.setText("email1@domain.com")
         b.billingName.setText("first last")
-        b.billingPhone.setText("0522222222")
+        b.billingPhone.setText("45")
         (findViewById<View>(R.id.screen_density) as TextView).text =
             "Screen Density " + resources.displayMetrics.density
     }
@@ -91,6 +91,8 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setBillingData(billingData)
             .setMerchantCountryCode(b.merchantCountry.text.toString())
             .setShippingData(shippingData)
+            .setTransactionType(PaymentSdkTransactionType.SALE)
+            .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setCartId(orderId)
             .setTokenise(getTokeniseType())
             .setTokenisationData(token, transRef)
