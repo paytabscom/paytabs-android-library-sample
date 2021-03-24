@@ -172,6 +172,16 @@ To override string you can find the keys with the default values here
 </resourse>
 ````
 
+## Known Coroutine issue
+Please in case you faced dependency conflict with the coroutine api 
+add the following in your app gradle file.
+  ```groovy
+configurations.all {
+        resolutionStrategy {
+            exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+        }
+    }
+```
 
 PaymentSdk
 --------
