@@ -125,7 +125,7 @@ String cartDesc = "cart description";
 String currency = "AED";
 double amount = 20.0;
  
-PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
+PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE; // tokenise is off
                                or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
                                or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
                                or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
