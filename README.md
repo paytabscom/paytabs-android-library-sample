@@ -34,7 +34,7 @@ If you are using ProGuard you might need to exclude the library classes.
 -keep public class com.payment.paymentsdk.**{*}
 ```
 
-Pay now
+Pay now (in Kotlin)
 --------
 ```kotlin
 val profileId = "PROFILE_ID"
@@ -110,6 +110,79 @@ override fun onPaymentCancel() {
 
 }
 
+```
+
+Pay now (in Java)
+--------
+```java
+String profileId = "PROFILE_ID";
+String serverKey = "SERVER_KEY";
+String clientKey = "CLIENT_KEY";
+PaymentSdkLanguageCode locale = PaymentSdkLanguageCode.EN;
+String screenTitle = "Test SDK";
+String cartId = "123456";
+String cartDesc = "cart description";
+String currency = "AED";
+double amount = 20.0;
+ 
+PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
+                               or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
+                               or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
+                               or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+
+ 
+PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
+                                   or new PaymentSdkTokenFormat.NoneFormat() 
+                                   or new PaymentSdkTokenFormat.AlphaNum20Format() 
+                                   or new PaymentSdkTokenFormat.Digit22Format()
+                                   or new PaymentSdkTokenFormat.Digit16Format()
+                                   or new PaymentSdkTokenFormat.AlphaNum32Format()
+
+PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
+        "City",
+        "Country",
+         "email1@domain.com",
+         "name ",
+         "phone", "state",
+         "address street", "zip"
+         );
+ 
+PaymentSdkShippingDetails shippingData = new PaymentSdkShippingDetails(
+          "City",
+          "Country",
+          "email1@domain.com",
+          "name ",
+          "phone", "state",
+          "address street", "zip"
+         );
+PaymentSdkConfigurationDetails configData = new PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount, currency)
+          .setCartDescription(cartDesc)
+          .setLanguageCode(locale)
+          .setBillingData(billingData)
+          .setMerchantCountryCode("AE") // ISO alpha 2
+          .setShippingData(shippingData)
+          .setCartId(cartId)
+          .showBillingInfo(false)
+          .showShippingInfo(true)
+          .forceShippingInfo(true)
+          .setScreenTitle(screenTitle)
+          .build();
+PaymentSdkActivity.startCardPayment(this, configData, this);
+
+  @Override
+   public void onError(@NotNull PaymentSdkError paymentSdkError) {
+        
+    }
+
+  @Override
+  public void onPaymentCancel() {
+
+    }
+
+  @Override
+  public void onPaymentFinish(@NotNull PaymentSdkTransactionDetails paymentSdkTransactionDetails) {
+
+    }
 ```
 ## Tokenisation
 To enable tokenisation please follow the below instructions
