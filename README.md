@@ -61,7 +61,7 @@ val tokenFormat =  PaymentSdkTokenFormat.Hex32Format()
 
 val billingData = PaymentSdkBillingDetails(
  "City",
- "Country",
+ "2 digit iso Country code",
  "email1@domain.com",
  "name ",
  "phone", "state",
@@ -70,7 +70,7 @@ val billingData = PaymentSdkBillingDetails(
 
 val shippingData = PaymentSdkShippingDetails(
  "City",
- "Country",
+ "2 digit iso Country code",
  "email1@domain.com",
  "name ",
  "phone", "state",
@@ -140,7 +140,7 @@ PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
 
 PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
         "City",
-        "Country",
+        "2 digit iso Country code",
          "email1@domain.com",
          "name ",
          "phone", "state",
@@ -149,7 +149,7 @@ PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
  
 PaymentSdkShippingDetails shippingData = new PaymentSdkShippingDetails(
           "City",
-          "Country",
+          "2 digit iso Country code",
           "email1@domain.com",
           "name ",
           "phone", "state",
