@@ -23,7 +23,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.alinma:clickpaysdk:6.0.1-beta06'
+    implementation 'com.alinma:clickpaysdk:6.0.2-rc08'
    
 
 ```
@@ -34,7 +34,7 @@ If you are using ProGuard you might need to exclude the library classes.
 -keep public class com.payment.paymentsdk.**{*}
 ```
 
-Pay now
+Pay now (in Kotlin)
 --------
 ```kotlin
 val profileId = "PROFILE_ID"
@@ -61,7 +61,7 @@ val tokenFormat =  PaymentSdkTokenFormat.Hex32Format()
 
 val billingData = PaymentSdkBillingDetails(
  "City",
- "Country",
+ "2 digit iso Country code",
  "email1@domain.com",
  "name ",
  "phone", "state",
@@ -70,7 +70,7 @@ val billingData = PaymentSdkBillingDetails(
 
 val shippingData = PaymentSdkShippingDetails(
  "City",
- "Country",
+ "2 digit iso Country code",
  "email1@domain.com",
  "name ",
  "phone", "state",
@@ -98,7 +98,7 @@ override fun onError(error: PaymentSdkError) {
  Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
 }
 
-override fun onPaymentFinish(PaymentSdkTransactionDetails: paymentSdkTransactionDetails) {
+override fun onPaymentFinish(PaymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
  Toast.makeText(this, "${paymentSdkTransactionDetails.paymentResult?.responseMessage}", Toast.LENGTH_SHORT).show()
  Log.d(TAG_PAYTABS, "onPaymentFinish: $paymentSdkTransactionDetails")
 
@@ -110,6 +110,79 @@ override fun onPaymentCancel() {
 
 }
 
+```
+
+Pay now (in Java)
+--------
+```java
+String profileId = "PROFILE_ID";
+String serverKey = "SERVER_KEY";
+String clientKey = "CLIENT_KEY";
+PaymentSdkLanguageCode locale = PaymentSdkLanguageCode.EN;
+String screenTitle = "Test SDK";
+String cartId = "123456";
+String cartDesc = "cart description";
+String currency = "AED";
+double amount = 20.0;
+ 
+PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE; // tokenise is off
+                               or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
+                               or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
+                               or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+
+ 
+PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
+                                   or new PaymentSdkTokenFormat.NoneFormat() 
+                                   or new PaymentSdkTokenFormat.AlphaNum20Format() 
+                                   or new PaymentSdkTokenFormat.Digit22Format()
+                                   or new PaymentSdkTokenFormat.Digit16Format()
+                                   or new PaymentSdkTokenFormat.AlphaNum32Format()
+
+PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
+        "City",
+        "2 digit iso Country code",
+         "email1@domain.com",
+         "name ",
+         "phone", "state",
+         "address street", "zip"
+         );
+ 
+PaymentSdkShippingDetails shippingData = new PaymentSdkShippingDetails(
+          "City",
+          "2 digit iso Country code",
+          "email1@domain.com",
+          "name ",
+          "phone", "state",
+          "address street", "zip"
+         );
+PaymentSdkConfigurationDetails configData = new PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount, currency)
+          .setCartDescription(cartDesc)
+          .setLanguageCode(locale)
+          .setBillingData(billingData)
+          .setMerchantCountryCode("AE") // ISO alpha 2
+          .setShippingData(shippingData)
+          .setCartId(cartId)
+          .showBillingInfo(false)
+          .showShippingInfo(true)
+          .forceShippingInfo(true)
+          .setScreenTitle(screenTitle)
+          .build();
+PaymentSdkActivity.startCardPayment(this, configData, this);
+
+  @Override
+   public void onError(@NotNull PaymentSdkError paymentSdkError) {
+        
+    }
+
+  @Override
+  public void onPaymentCancel() {
+
+    }
+
+  @Override
+  public void onPaymentFinish(@NotNull PaymentSdkTransactionDetails paymentSdkTransactionDetails) {
+
+    }
 ```
 ## Tokenisation
 To enable tokenisation please follow the below instructions
@@ -172,6 +245,16 @@ To override string you can find the keys with the default values here
 </resourse>
 ````
 
+## Known Coroutine issue
+Please in case you faced dependency conflict with the coroutine api 
+add the following in your app gradle file.
+  ```groovy
+configurations.all {
+        resolutionStrategy {
+            exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+        }
+    }
+```
 
 PaymentSdk
 --------
