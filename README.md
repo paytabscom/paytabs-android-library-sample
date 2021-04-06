@@ -23,7 +23,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.2-rc07'
+    implementation 'com.paytabs:payment-sdk:6.0.2-rc08'
    
 
 ```
