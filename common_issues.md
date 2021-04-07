@@ -11,3 +11,14 @@ Invalid Merchant Credentials
 --------
 This issue most often because you are using invalid server key, client key, profile id or merchant country code
 Please check them all with the customercare@paytabs.com to validate they are correct values.
+
+Unable to Process your request 
+--------
+This happens due to some semantic validation error, it often occurs because of the wrong currency.
+Please check with customercare@paytabs.com to validate the correct value.
+
+Not authorized 
+-------------
+This is a general error message, please send your credentials to customercare@paytabs.com, and 
+ask them about the issue.
+

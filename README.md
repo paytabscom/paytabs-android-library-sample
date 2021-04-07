@@ -256,7 +256,7 @@ configurations.all {
     }
 ```
 
-## see the common issues from here
+## See the common issues from here
  ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
 
 PaymentSdk
