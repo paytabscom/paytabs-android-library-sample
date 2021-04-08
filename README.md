@@ -199,7 +199,7 @@ To enable tokenisation please follow the below instructions
   Here how you can integrate with SamsungPay Api.
   [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md).
 
-2. pass the returned json token from samsung pay to the following  method.
+2. Pass the returned json token from samsung pay to the following  method.
 
 ```kotlin
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
