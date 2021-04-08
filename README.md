@@ -195,7 +195,10 @@ To enable tokenisation please follow the below instructions
 ```
 
 ## SamsungPay 
-To enable pay with samsungpay you need to use this method
+1- To enable pay with samsungpay you need first to integrate with SamsungPay api.
+  Here how you can integrate with SamsungPay Api.
+   ![SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md)
+2- pass the returned json token from samsung pay to the following  method
 ```kotlin
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ```
