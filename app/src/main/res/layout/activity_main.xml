@@ -366,10 +366,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/client_secret"
-                android:text="CLIENT_KEY"
                 android:inputType="textMultiLine"
                 android:maxLines="5"
-                android:minLines="1" />
+                android:minLines="1"
+                android:text="CLIENT_KEY" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -404,28 +404,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cartDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cart_decription"
-            android:inputType="text"
-            android:text="cart description" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/cartId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cart_id"
-            android:text="123456" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cartDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cart_decription"
+                android:inputType="text"
+                android:text="cart description" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -433,14 +420,30 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/transactionTitle"
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cartId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cart_id"
+                android:text="123456" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/transaction_title"
-            android:inputType="text"
-            android:text="Transaction title" />
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/transactionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/transaction_title"
+                android:inputType="text"
+                android:text="Transaction title" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -492,8 +495,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/customer_country_code"
                 android:maxLength="2"
-                android:text="AE"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:text="AE" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <fr.ganfra.materialspinner.MaterialSpinner
@@ -525,8 +528,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
-            android:visibility="gone"
-            android:text="@string/use_tokenisation" />
+            android:text="@string/use_tokenisation"
+            android:visibility="gone" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/complete__shipping_info"
@@ -564,6 +567,118 @@
             android:layout_marginEnd="10dp"
             android:text="@string/force_shipping_validation" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/bt_black" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_unionpay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="Union Pay" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_valu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="Valu" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_stcPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="Stc Pay" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_mada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="MADA" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_rupay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="RUPAY" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_meeza_qr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="MEEZA_QR" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_omannet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="OMAN_NET" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_knet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="KNET" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_fawry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="FAWRY" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_sadad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="SADAD" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_google_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="GOOGLE_PAY" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/apm_knet_debit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:text="KNET_DEBIT" />
+
         <Button
             android:id="@+id/pay"
             android:layout_width="match_parent"
@@ -572,6 +687,16 @@
             android:layout_marginEnd="10dp"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/pay"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/apm_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/apm_pay"
             android:textColor="@color/white" />
 
         <Button

@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.khairy.pt2sampleapp.databinding.ActivityMainBinding
+import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
 import com.payment.paymentsdk.integrationmodels.*
@@ -22,8 +23,13 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         val view = b.root
         setContentView(view)
         b.version.text = "Version: " + BuildConfig.VERSION_NAME
-        b.pay.setOnClickListener { _: View? ->
-            startPaymentProcess()
+        b.pay.setOnClickListener {
+            val configData = generatePaytabsConfigurationDetails()
+            startCardPayment(this, configData, this)
+        }
+        b.apmPay.setOnClickListener {
+            val configData = generatePaytabsConfigurationDetails()
+            startAlternativePaymentMethods(this, configData, this)
         }
         findViewById<View>(R.id.sam_pay).setOnClickListener { v: View? ->
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
@@ -58,11 +64,6 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
     }
 
 
-    private fun startPaymentProcess() {
-        val configData = generatePaytabsConfigurationDetails()
-        startCardPayment(this, configData, this)
-    }
-
     private fun generatePaytabsConfigurationDetails(): PaymentSdkConfigurationDetails {
         val profileId = b.mid.text.toString()
         val serverKey = b.serverKey.text.toString()
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setTransactionType(PaymentSdkTransactionType.SALE)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setCartId(orderId)
+            .setAlternativePaymentMethods(getSelectedApms())
             .setTokenise(getTokeniseType())
             .setTokenisationData(token, transRef)
             .showBillingInfo(b.completeBillingInfo.isChecked)
@@ -102,18 +104,44 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setScreenTitle(transactionTitle)
 
         return if (b.showMerchantLogo.isChecked) {
-            configData.setMerchantIcon(resources.getDrawable(R.drawable.payment_sdk_adcb_logo)).build()
+            configData.setMerchantIcon(resources.getDrawable(R.drawable.payment_sdk_adcb_logo))
+                .build()
         } else
             configData.build()
     }
 
+    private fun getSelectedApms(): List<PaymentSdkApms> {
+        val apms = mutableListOf<PaymentSdkApms>()
+        addApmToList(apms, PaymentSdkApms.STC_PAY, b.apmStcPay.isChecked)
+        addApmToList(apms, PaymentSdkApms.UNION_PAY, b.apmUnionpay.isChecked)
+        addApmToList(apms, PaymentSdkApms.VALU, b.apmValu.isChecked)
+        addApmToList(apms, PaymentSdkApms.SADAD, b.apmSadad.isChecked)
+        addApmToList(apms, PaymentSdkApms.KNET_DEBIT, b.apmKnetDebit.isChecked)
+        addApmToList(apms, PaymentSdkApms.GOOGLE_PAY, b.apmGooglePay.isChecked)
+        addApmToList(apms, PaymentSdkApms.FAWRY, b.apmFawry.isChecked)
+        addApmToList(apms, PaymentSdkApms.OMAN_NET, b.apmOmannet.isChecked)
+        addApmToList(apms, PaymentSdkApms.MEEZA_QR, b.apmMeezaQr.isChecked)
+        addApmToList(apms, PaymentSdkApms.RUPAY, b.apmRupay.isChecked)
+        addApmToList(apms, PaymentSdkApms.MADA, b.apmMada.isChecked)
+        return apms
+    }
+
+    private fun addApmToList(
+        list: MutableList<PaymentSdkApms>,
+        apm: PaymentSdkApms,
+        checked: Boolean
+    ) {
+        if (checked)
+            list.add(apm)
+    }
+
     private fun getTokeniseType(): PaymentSdkTokenise {
-       return when(b.tokeniseType.selectedItemPosition){
+        return when (b.tokeniseType.selectedItemPosition) {
             1 -> PaymentSdkTokenise.NONE
             2 -> PaymentSdkTokenise.MERCHANT_MANDATORY
             3 -> PaymentSdkTokenise.USER_MANDATORY
             4 -> PaymentSdkTokenise.USER_OPTIONAL
-            else-> PaymentSdkTokenise.NONE
+            else -> PaymentSdkTokenise.NONE
         }
     }
 
@@ -133,12 +161,12 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
 
     }
 
-    override fun onPaymentFinish(payTabsTransactionDetails: PaymentSdkTransactionDetails) {
-        token = payTabsTransactionDetails.token
-        transRef = payTabsTransactionDetails.transactionReference
+    override fun onPaymentFinish(paymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
+        token = paymentSdkTransactionDetails.token
+        transRef = paymentSdkTransactionDetails.transactionReference
         Toast.makeText(
             this,
-            "${payTabsTransactionDetails.paymentResult?.responseMessage ?: "PaymentFinish"}",
+            "${paymentSdkTransactionDetails.paymentResult?.responseMessage ?: "PaymentFinish"}",
             Toast.LENGTH_SHORT
         ).show()
     }

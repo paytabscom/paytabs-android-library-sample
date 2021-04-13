@@ -20,7 +20,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 2
-        versionName "1.5"
+        versionName "1.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.pt2_sample
     }
@@ -49,7 +49,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.paytabs:payment-sdk:6.0.2-rc09'
+    implementation 'com.paytabs:payment-sdk:6.0.2-rc12'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'

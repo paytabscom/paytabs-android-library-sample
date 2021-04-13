@@ -52,6 +52,7 @@
     <string name="token_email">Token Email</string>
     <string name="token_password">Token Password</string>
     <string name="pay">PAY</string>
+    <string name="apm_pay">PAY With Apms</string>
 
     <!-- SnackBar messages -->
     <string name="provide_email">Please provide your email</string>
