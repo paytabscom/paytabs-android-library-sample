@@ -16,7 +16,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.khairy.pt2sampleapp"
+        applicationId "com.paytabs.pt2sampleapp"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 2
@@ -49,7 +49,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.paytabs:payment-sdk:6.0.2-rc12'
+    implementation 'com.paytabs:payment-sdk:6.0.2-rc15'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'

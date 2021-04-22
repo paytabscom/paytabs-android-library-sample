@@ -1,4 +1,4 @@
-package com.khairy.pt2sampleapp
+package com.paytabs.pt2sampleapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

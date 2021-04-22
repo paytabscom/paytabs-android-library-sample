@@ -1,6 +1,5 @@
-package com.khairy.pt2sampleapp;
+package com.paytabs.pt2sampleapp;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 

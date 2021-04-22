@@ -1,4 +1,4 @@
-package com.khairy.pt2sampleapp
+package com.paytabs.pt2sampleapp
 
 import org.junit.Test
 

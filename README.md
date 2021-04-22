@@ -13,9 +13,6 @@ allprojects {
 	repositories {
 	    ...
      maven { url "http://pay.cards/maven" }
-     maven {
-      url  "https://dl.bintray.com/paytabsandroidsdk/paytabs-sdk"
-     }
 	}
 }
 
@@ -23,7 +20,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.2-rc08'
+    implementation 'com.paytabs:payment-sdk:6.0.2-rc15'
    
 
 ```

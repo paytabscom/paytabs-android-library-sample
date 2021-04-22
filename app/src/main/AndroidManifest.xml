@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.khairy.pt2sampleapp">
+    package="com.paytabs.pt2sampleapp">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
@@ -10,8 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pt2SampleApp">
-        <activity android:name=".MainActivityJava"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.paytabs.pt2sampleapp.MainActivityJava"></activity>
+        <activity android:name="com.paytabs.pt2sampleapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
