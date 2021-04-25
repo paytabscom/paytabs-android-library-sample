@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
 import com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
@@ -28,14 +29,12 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         }
         b.apmPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
-           // startAlternativePaymentMethods(this, configData, this)
+            startAlternativePaymentMethods(this, configData, this)
         }
         findViewById<View>(R.id.sam_pay).setOnClickListener { v: View? ->
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
         }
 
-        b.mid.setText("47554")
-        b.serverKey.setText("SRJNLLK22J-JB6KG2G6K9-DWLH2WNLGT")
         b.amount.setText("20")
         b.currency.setSelection(7)
         b.language.setSelection(1)
@@ -66,6 +65,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
     private fun generatePaytabsConfigurationDetails(): PaymentSdkConfigurationDetails {
         val profileId = b.mid.text.toString()
         val serverKey = b.serverKey.text.toString()
+        val clientKey = b.clientKey.text.toString()
         val locale = getLocale()
         val transactionTitle = b.transactionTitle.text.toString()
         val orderId = b.cartId.text.toString()
@@ -85,42 +85,40 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             b.shippingPhone.text.toString(), b.state.text.toString(),
             b.street.text.toString(), b.postalCode.text.toString()
         )
-        val configData = PaymentSdkConfigBuilder(profileId, serverKey,"CBKMDM-RDM962-GKTMTG-Q27HV9" ,amount, currency)
+        val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount, currency)
             .setCartDescription(cartDesc)
             .setLanguageCode(locale)
             .setBillingData(billingData)
             .setMerchantCountryCode(b.merchantCountry.text.toString())
             .setShippingData(shippingData)
-            .setTransactionType(PaymentSdkTransactionType.SALE)
+            .setTransactionType(if (b.transactionType.selectedItemPosition == 0) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setCartId(orderId)
-         //   .setAlternativePaymentMethods(getSelectedApms())
+            .setAlternativePaymentMethods(getSelectedApms())
             .setTokenise(getTokeniseType())
             .setTokenisationData(token, transRef)
             .showBillingInfo(b.completeBillingInfo.isChecked)
             .showShippingInfo(b.completeShippingInfo.isChecked)
             .forceShippingInfo(b.forceShippingValidation.isChecked)
             .setScreenTitle(transactionTitle)
-
-        return if (b.showMerchantLogo.isChecked) {
+        if (b.showMerchantLogo.isChecked) {
             configData.setMerchantIcon(resources.getDrawable(R.drawable.payment_sdk_adcb_logo))
-                .build()
-        } else
-            configData.build()
+        }
+
+
+        return configData.build()
     }
 
-   /* private fun getSelectedApms(): List<PaymentSdkApms> {
+
+    private fun getSelectedApms(): List<PaymentSdkApms> {
         val apms = mutableListOf<PaymentSdkApms>()
         addApmToList(apms, PaymentSdkApms.STC_PAY, b.apmStcPay.isChecked)
         addApmToList(apms, PaymentSdkApms.UNION_PAY, b.apmUnionpay.isChecked)
         addApmToList(apms, PaymentSdkApms.VALU, b.apmValu.isChecked)
-        addApmToList(apms, PaymentSdkApms.SADAD, b.apmSadad.isChecked)
         addApmToList(apms, PaymentSdkApms.KNET_DEBIT, b.apmKnetDebit.isChecked)
-        addApmToList(apms, PaymentSdkApms.GOOGLE_PAY, b.apmGooglePay.isChecked)
         addApmToList(apms, PaymentSdkApms.FAWRY, b.apmFawry.isChecked)
         addApmToList(apms, PaymentSdkApms.OMAN_NET, b.apmOmannet.isChecked)
         addApmToList(apms, PaymentSdkApms.MEEZA_QR, b.apmMeezaQr.isChecked)
-        addApmToList(apms, PaymentSdkApms.RUPAY, b.apmRupay.isChecked)
         addApmToList(apms, PaymentSdkApms.MADA, b.apmMada.isChecked)
         return apms
     }
@@ -132,7 +130,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
     ) {
         if (checked)
             list.add(apm)
-    }*/
+    }
 
     private fun getTokeniseType(): PaymentSdkTokenise {
         return when (b.tokeniseType.selectedItemPosition) {

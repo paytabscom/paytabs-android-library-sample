@@ -368,8 +368,7 @@
                 android:hint="@string/client_secret"
                 android:inputType="textMultiLine"
                 android:maxLines="5"
-                android:minLines="1"
-                android:text="CLIENT_KEY" />
+                android:minLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -469,6 +468,17 @@
             app:ms_floatingLabelColor="@color/colorAccent"
             app:ms_floatingLabelText="@string/currency"
             app:ms_hint="@string/select_currency" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/transaction_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:entries="@array/trans_types"
+            app:ms_floatingLabelColor="@color/colorAccent"
+            app:ms_floatingLabelText="@string/trans_type"
+            app:ms_hint="@string/select_trans_type" />
 
         <fr.ganfra.materialspinner.MaterialSpinner
             android:id="@+id/regions"
@@ -580,6 +590,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
             android:text="Union Pay" />
+
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/apm_valu"
             android:layout_width="match_parent"

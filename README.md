@@ -20,8 +20,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.2-rc15'
-   
+    implementation 'com.paytabs:payment-sdk:6.0.2'
 
 ```
 Proguard
@@ -48,6 +47,10 @@ val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
                    or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
                    or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
                    or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+ 
+PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+                               or PaymentSdkTransactionType.AUTH 
+                          
 
 val tokenFormat =  PaymentSdkTokenFormat.Hex32Format() 
                    or PaymentSdkTokenFormat.NoneFormat() 
@@ -81,6 +84,7 @@ val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount
  .setMerchantCountryCode("AE") // ISO alpha 2
  .setShippingData(shippingData)
  .setCartId(orderId)
+ .setTransactionType(transType)
  .showBillingInfo(false)
  .showShippingInfo(true)
  .forceShippingInfo(true)
@@ -127,6 +131,9 @@ PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE; // tokenise is off
                                or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
                                or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
 
+ PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+                               or PaymentSdkTransactionType.AUTH 
+                             
  
 PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
                                    or new PaymentSdkTokenFormat.NoneFormat() 
@@ -159,6 +166,7 @@ PaymentSdkConfigurationDetails configData = new PaymentSdkConfigBuilder(profileI
           .setMerchantCountryCode("AE") // ISO alpha 2
           .setShippingData(shippingData)
           .setCartId(cartId)
+          .setTransactionType(transType)
           .showBillingInfo(false)
           .showShippingInfo(true)
           .forceShippingInfo(true)
