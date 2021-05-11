@@ -1,0 +1,8 @@
+com/paytabs/pt2sampleapp/MainActivityJava.java
+ com.paytabs.pt2sampleapp.MainActivityJava
+com/paytabs/pt2sampleapp/databinding/ActivityMainBinding.java
+ com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
+com/paytabs/pt2sampleapp/BuildConfig.java
+ com.paytabs.pt2sampleapp.BuildConfig
+com/paytabs/pt2sampleapp/databinding/ActivityMainJavaBinding.java
+ com.paytabs.pt2sampleapp.databinding.ActivityMainJavaBinding

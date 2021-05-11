@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Pt2SampleApp.iml" filepath="$PROJECT_DIR$/.idea/modules/Pt2SampleApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Pt2SampleApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Pt2SampleApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/samsungpay/Pt2SampleApp.samsungpay.iml" filepath="$PROJECT_DIR$/.idea/modules/samsungpay/Pt2SampleApp.samsungpay.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.paytabs.pt2sampleapp"
+    android:versionCode="2"
+    android:versionName="1.6" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature
+        android:name="android.hardware.CAMERA"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.AUTOFOCUS"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/Theme.Pt2SampleApp" >
+        <activity android:name="com.paytabs.pt2sampleapp.MainActivityJava" />
+        <activity android:name="com.paytabs.pt2sampleapp.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.paytabs.samsungpay.sample.SamsungPayActivity" />
+
+        <meta-data
+            android:name="debug_mode"
+            android:value="@string/gradle_debug_mode" />
+        <meta-data
+            android:name="spay_debug_api_key"
+            android:value="@string/gradle_spay_debug_api_key" />
+        <meta-data
+            android:name="spay_sdk_api_level"
+            android:value="2.11" />
+
+        <activity
+            android:name="com.payment.paymentsdk.PaymentSdkActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name="cards.pay.paycardsrecognizer.sdk.ui.ScanCardActivity"
+            android:theme="@style/wocr_RecognizerTheme" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.paytabs.pt2sampleapp.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>
