@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.paytabs.samsungpay.sample">
+
+    <application>
+        <activity android:name=".SamsungPayActivity"></activity>
+        <meta-data
+            android:name="debug_mode"
+            android:value="@string/gradle_debug_mode" />
+        <meta-data
+            android:name="spay_debug_api_key"
+            android:value="@string/gradle_spay_debug_api_key"/>
+        <meta-data
+            android:name="spay_sdk_api_level"
+            android:value="2.11"/>
+    </application>
+
+</manifest>

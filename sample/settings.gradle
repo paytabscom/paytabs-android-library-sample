@@ -1,2 +1,0 @@
-include ':paytabs_sdk-v5.0.6'
-include ':app'

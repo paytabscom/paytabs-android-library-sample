@@ -1,3 +1,0 @@
-include ':paytabs_sdk-v5.0.7'
-include ':app'
-rootProject.name='Paytabs Sample Koltin'

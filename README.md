@@ -1,114 +1,275 @@
 Paytabs android library sample( PT2 Version)
 ========
-![Paytabs-android-library-v5.0.5](https://img.shields.io/badge/Paytabs/android/library-v5.0.5-green.svg)
 
-For more information please see [the website][1].
-
-
-Download
+Install
 --------
+## Requirements
 
-Download [the latest AAR](sdk/paytabs_sdk-v5.0.8.aar):
-
-Read the documentation to know how to integrate your application with the library
-[documentation](https://dev.paytabs.com/docs/android/)
-
-```groovy
-implementation project(':paytabs_sdk-v5.0.8')
-```
-
-Library requires at minimum Java 7 or Android 4.0.
+Library requires at minimum Java 7 or Android 5.1.
 
 You have to include the following dependencies:
 ```groovy
 allprojects {
 	repositories {
-	    maven { url "http://pay.cards/maven" }
-	    maven { url 'https://jitpack.io' }
+	    ...
+     maven { url "http://pay.cards/maven" }
 	}
 }
+
+
 ```
 ```groovy
-implementation 'com.android.support:design:28.0.0'
-implementation 'com.android.support:appcompat-v7:28.0.0'
-implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-implementation 'com.google.code.gson:gson:2.8.5'
-implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
-// in case you need to support card scanning add this line
-implementation 'cards.pay:paycardsrecognizer:1.1.0'
+
+    implementation 'com.paytabs:payment-sdk:6.0.5'
 
 ```
 Proguard
 --------
-If you are using ProGuard you might need to exclude library classes till we update with R8 proguard rules
+If you are using ProGuard you might need to exclude the library classes.
 ```java
--keep class com.paytabs.paytabs_sdk.** { *; }
+-keep public class com.payment.paymentsdk.**{*}
 ```
 
-Pay now
+Pay now (in Kotlin)
 --------
-```Java
-Intent in = new Intent(getApplicationContext(), PayTabActivity.class);
-in.putExtra(PaymentParams.MERCHANT_EMAIL, "merchant-email@example.com"); //this a demo account for testing the sdk
-in.putExtra(PaymentParams.SECRET_KEY,"secret key");//Add your Secret Key Here
-in.putExtra(PaymentParams.LANGUAGE,PaymentParams.ENGLISH);
-in.putExtra(PaymentParams.TRANSACTION_TITLE, "Test Paytabs android library");
-in.putExtra(PaymentParams.AMOUNT, 5.0);
+```kotlin
+val profileId = "PROFILE_ID"
+val serverKey = "SERVER_KEY"
+val clientLey = "CLIENT_KEY"
+val locale = PaymentSdkLanguageCode.EN or PaymentSdkLanguageCode.AR
+val screenTitle = "Test SDK"
+val cartId = "123456"
+val cartDesc = "cart description"
+val currency = "AED"
+val amount = 20.0
 
-in.putExtra(PaymentParams.CURRENCY_CODE, "BHD");
-in.putExtra(PaymentParams.CUSTOMER_PHONE_NUMBER, "009733");
-in.putExtra(PaymentParams.CUSTOMER_EMAIL, "customer-email@example.com");
-in.putExtra(PaymentParams.ORDER_ID, "123456");
-in.putExtra(PaymentParams.PRODUCT_NAME, "Product 1, Product 2");
-
-//Billing Address
-in.putExtra(PaymentParams.ADDRESS_BILLING, "Flat 1,Building 123, Road 2345");
-in.putExtra(PaymentParams.CITY_BILLING, "Manama");
-in.putExtra(PaymentParams.STATE_BILLING, "Manama");
-in.putExtra(PaymentParams.COUNTRY_BILLING, "BHR");
-in.putExtra(PaymentParams.POSTAL_CODE_BILLING, "00973"); //Put Country Phone code if Postal code not available '00973'
-
-//Shipping Address
-in.putExtra(PaymentParams.ADDRESS_SHIPPING, "Flat 1,Building 123, Road 2345");
-in.putExtra(PaymentParams.CITY_SHIPPING, "Manama");
-in.putExtra(PaymentParams.STATE_SHIPPING, "Manama");
-in.putExtra(PaymentParams.COUNTRY_SHIPPING, "BHR");
-in.putExtra(PaymentParams.POSTAL_CODE_SHIPPING, "00973"); //Put Country Phone code if Postal code not available '00973'
-
-
-// force shipping data validation
-in.putExtra(PaymentParams.FORCE_SHIPPING_VALIDATION, true);
-
-//Payment Page Style
-in.putExtra(PaymentParams.PAY_BUTTON_COLOR, "#2474bc");
-
-//Tokenization
-in.putExtra(PaymentParams.IS_TOKENIZATION, false);
-//PreAuth
-in.putExtra(PaymentParams.IS_PREAUTH, false);
-
-//SamsungPay Feature ->
-// merchant must integrate with samsung pay and pass the returned success token and merchant name to paytabs sdk.
- in.putExtra(PaymentParams.SAMSUNG_PAY_JSON, samPaytoken)
- in.putExtra(PaymentParams.CUSTOMER_NAME, merchantName)
-
-//Region Based url->
-//merchant should pass the region using one of those values
- PaymentParams.EGYPT_REGION
- PaymentParams.OMAN_REGION
- PaymentParams.UAE_REGION
- PaymentParams.SAUDI_REGION
- PaymentParams.JORDAN_REGION
- PaymentParams.DEMO
- PaymentParams.GLOBAL_REGION
-// example:
- in.putExtra(PaymentParams.REGION_ENDPOINT,PaymentParams.UAE_REGION);
+val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
+                   or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
+                   or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
+                   or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
  
-startActivityForResult(in, PaymentParams.PAYMENT_REQUEST_CODE);
+PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+                               or PaymentSdkTransactionType.AUTH 
+                          
+
+val tokenFormat =  PaymentSdkTokenFormat.Hex32Format() 
+                   or PaymentSdkTokenFormat.NoneFormat() 
+                   or PaymentSdkTokenFormat.AlphaNum20Format() 
+                   or PaymentSdkTokenFormat.Digit22Format()
+                   or PaymentSdkTokenFormat.Digit16Format()
+                   or PaymentSdkTokenFormat.AlphaNum32Format()
+
+val billingData = PaymentSdkBillingDetails(
+ "City",
+ "2 digit iso Country code",
+ "email1@domain.com",
+ "name ",
+ "phone", "state",
+ "address street", "zip"
+)
+
+val shippingData = PaymentSdkShippingDetails(
+ "City",
+ "2 digit iso Country code",
+ "email1@domain.com",
+ "name ",
+ "phone", "state",
+ "address street", "zip"
+)
+val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0, currency)
+ .setCartDescription(cartDesc)
+ .setLanguageCode(locale)
+ .setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_amex))
+ .setBillingData(billingData)
+ .setMerchantCountryCode("AE") // ISO alpha 2
+ .setShippingData(shippingData)
+ .setCartId(orderId)
+ .setTransactionType(transType)
+ .showBillingInfo(false)
+ .showShippingInfo(true)
+ .forceShippingInfo(true)
+ .setScreenTitle(screenTitle)
+ .build()
+startCardPayment(this, configData, callback=this)
+or
+startSamsungPayment(this, configData, "samsungpay token",callback=this)
+
+override fun onError(error: PaymentSdkError) {
+ Log.d(TAG_PAYTABS, "onError: $error")
+ Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
+}
+
+override fun onPaymentFinish(PaymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
+ Toast.makeText(this, "${paymentSdkTransactionDetails.paymentResult?.responseMessage}", Toast.LENGTH_SHORT).show()
+ Log.d(TAG_PAYTABS, "onPaymentFinish: $paymentSdkTransactionDetails")
+
+}
+
+override fun onPaymentCancel() {
+ Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
+ Log.d(TAG_PAYTABS, "onPaymentCancel:")
+
+}
+
 ```
 
-Paytabs
+Pay now (in Java)
+--------
+```java
+String profileId = "PROFILE_ID";
+String serverKey = "SERVER_KEY";
+String clientKey = "CLIENT_KEY";
+PaymentSdkLanguageCode locale = PaymentSdkLanguageCode.EN;
+String screenTitle = "Test SDK";
+String cartId = "123456";
+String cartDesc = "cart description";
+String currency = "AED";
+double amount = 20.0;
+ 
+PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE; // tokenise is off
+                               or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
+                               or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
+                               or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+
+ PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+                               or PaymentSdkTransactionType.AUTH 
+                             
+ 
+PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
+                                   or new PaymentSdkTokenFormat.NoneFormat() 
+                                   or new PaymentSdkTokenFormat.AlphaNum20Format() 
+                                   or new PaymentSdkTokenFormat.Digit22Format()
+                                   or new PaymentSdkTokenFormat.Digit16Format()
+                                   or new PaymentSdkTokenFormat.AlphaNum32Format()
+
+PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
+        "City",
+        "2 digit iso Country code",
+         "email1@domain.com",
+         "name ",
+         "phone", "state",
+         "address street", "zip"
+         );
+ 
+PaymentSdkShippingDetails shippingData = new PaymentSdkShippingDetails(
+          "City",
+          "2 digit iso Country code",
+          "email1@domain.com",
+          "name ",
+          "phone", "state",
+          "address street", "zip"
+         );
+PaymentSdkConfigurationDetails configData = new PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount, currency)
+          .setCartDescription(cartDesc)
+          .setLanguageCode(locale)
+          .setBillingData(billingData)
+          .setMerchantCountryCode("AE") // ISO alpha 2
+          .setShippingData(shippingData)
+          .setCartId(cartId)
+          .setTransactionType(transType)
+          .showBillingInfo(false)
+          .showShippingInfo(true)
+          .forceShippingInfo(true)
+          .setScreenTitle(screenTitle)
+          .build();
+PaymentSdkActivity.startCardPayment(this, configData, this);
+
+  @Override
+   public void onError(@NotNull PaymentSdkError paymentSdkError) {
+        
+    }
+
+  @Override
+  public void onPaymentCancel() {
+
+    }
+
+  @Override
+  public void onPaymentFinish(@NotNull PaymentSdkTransactionDetails paymentSdkTransactionDetails) {
+
+    }
+```
+## Tokenisation
+To enable tokenisation please follow the below instructions
+```kotlin
+ // to request token and transaction reference pass tokeniseType and Format
+.setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY,PaymentSdkTokenFormat.Hex32Format()) 
+ // you will receive token and reference after the first transaction       
+ // to pass the token and transaction reference returned from sdk 
+.setTokenisationData(token = "", transactionReference = "") 
+```
+
+## SamsungPay 
+1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
+  Here how you can integrate with SamsungPay Api.
+  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md).
+
+2. Pass the returned json token from samsung pay to the following  method.
+
+```kotlin
+startSamsungPayment(this, configData, "samsungpay token",callback=this)
+```
+## Overriding Resources:
+ 
+ to override fonts 
+ Please add your custom fonts files with these names
+ 
+ payment_sdk_primary_font.tff && payment_sdk_secondary_font.tff
+ 
+ to override strings, colors or dimens 
+ add the resource you need to override from below resources with the value you want
+
+## Theme
+Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
+
+![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
+
+## Override strings
+To override string you can find the keys with the default values here
+![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
+![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+
+````xml
+<resourse>
+  // to override colors
+     <color name="payment_sdk_primary_color">#5C13DF</color>
+     <color name="payment_sdk_secondary_color">#FFC107</color>
+     <color name="payment_sdk_primary_font_color">#111112</color>
+     <color name="payment_sdk_secondary_font_color">#6D6C70</color>
+     <color name="payment_sdk_separators_color">#FFC107</color>
+     <color name="payment_sdk_stroke_color">#673AB7</color>
+     <color name="payment_sdk_button_text_color">#FFF</color>
+     <color name="payment_sdk_title_text_color">#FFF</color>
+     <color name="payment_sdk_button_background_color">#3F51B5</color>
+     <color name="payment_sdk_background_color">#F9FAFD</color>
+     <color name="payment_sdk_card_background_color">#F9FAFD</color> 
+   
+  // to override dimens
+     <dimen name="payment_sdk_primary_font_size">17sp</dimen>
+     <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
+     <dimen name="payment_sdk_separator_thickness">1dp</dimen>
+     <dimen name="payment_sdk_stroke_thickness">.5dp</dimen>
+     <dimen name="payment_sdk_input_corner_radius">8dp</dimen>
+     <dimen name="payment_sdk_button_corner_radius">8dp</dimen>
+     
+</resourse>
+````
+
+## Known Coroutine issue
+Please in case you faced dependency conflict with the coroutine api 
+add the following in your app gradle file.
+  ```groovy
+configurations.all {
+        resolutionStrategy {
+            exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+        }
+    }
+```
+
+## See the common issues from here
+ ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
+
+PaymentSdk
 --------
 [Support][2] | [Terms of Use][3] | [Privacy Policy][4]
 
@@ -116,6 +277,6 @@ Paytabs
 
 
  [1]: https://dev.paytabs.com/docs/android/
- [2]: https://www.paytabs.com/en/support/
+ [2]: https://support.paytabs.com
  [3]: https://www.paytabs.com/en/terms-of-use/
  [4]: https://www.paytabs.com/en/privacy-policy/
