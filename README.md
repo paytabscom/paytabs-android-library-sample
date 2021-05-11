@@ -202,7 +202,7 @@ To enable tokenisation please follow the below instructions
 ## SamsungPay 
 1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
   Here how you can integrate with SamsungPay Api.
-  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md).
+  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
 
 2. Pass the returned json token from samsung pay to the following  method.
 
@@ -222,12 +222,12 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
+![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/master/res/UIguide.jpg)
 
 ## Override strings
 To override string you can find the keys with the default values here
-![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
-![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml)
+![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
 
 ````xml
 <resourse>
@@ -267,7 +267,7 @@ configurations.all {
 ```
 
 ## See the common issues from here
- ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
+ ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
 
 PaymentSdk
 --------
