@@ -39,7 +39,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.currency.setSelection(7)
         b.language.setSelection(1)
         b.tokeniseType.setSelection(1)
-
+        b.mid.setText("profilr id")
+        b.serverKey.setText("mobile server key")
+        b.clientKey.setText("mobile client key")
         b.street.setText("address street")
         b.city.setText("Dubai")
         b.state.setText("3510")
