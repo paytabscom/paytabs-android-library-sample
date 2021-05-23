@@ -610,24 +610,6 @@
             android:text="Stc Pay" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/apm_mada"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="10dp"
-            android:text="MADA" />
-
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/apm_rupay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="10dp"
-            android:text="RUPAY" />
-
-        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/apm_meeza_qr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -652,7 +634,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
-            android:text="KNET" />
+            android:text="KNET CREDIT" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/apm_fawry"
@@ -663,23 +645,7 @@
             android:layout_marginEnd="10dp"
             android:text="FAWRY" />
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/apm_sadad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="10dp"
-            android:text="SADAD" />
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/apm_google_pay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="10dp"
-            android:text="GOOGLE_PAY" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/apm_knet_debit"

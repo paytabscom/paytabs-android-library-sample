@@ -118,10 +118,10 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         addApmToList(apms, PaymentSdkApms.UNION_PAY, b.apmUnionpay.isChecked)
         addApmToList(apms, PaymentSdkApms.VALU, b.apmValu.isChecked)
         addApmToList(apms, PaymentSdkApms.KNET_DEBIT, b.apmKnetDebit.isChecked)
+        addApmToList(apms, PaymentSdkApms.KNET, b.apmKnet.isChecked)
         addApmToList(apms, PaymentSdkApms.FAWRY, b.apmFawry.isChecked)
         addApmToList(apms, PaymentSdkApms.OMAN_NET, b.apmOmannet.isChecked)
         addApmToList(apms, PaymentSdkApms.MEEZA_QR, b.apmMeezaQr.isChecked)
-        addApmToList(apms, PaymentSdkApms.MADA, b.apmMada.isChecked)
         return apms
     }
 
