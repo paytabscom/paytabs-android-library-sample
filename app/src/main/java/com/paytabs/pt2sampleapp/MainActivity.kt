@@ -1,6 +1,7 @@
 package com.paytabs.pt2sampleapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -39,9 +40,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.currency.setSelection(7)
         b.language.setSelection(1)
         b.tokeniseType.setSelection(1)
-        b.mid.setText("47579")
-        b.serverKey.setText("SWJNLLBK29-HZZWR9G9DJ-996NT2RHRR")
-        b.clientKey.setText("CMKMDM-QG76H9-9VRPTP-9M2DM2")
+        b.mid.setText("")
+        b.serverKey.setText("#####")
+        b.clientKey.setText("####")
         b.street.setText("address street")
         b.city.setText("Dubai")
         b.state.setText("3510")
@@ -93,7 +94,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setBillingData(billingData)
             .setMerchantCountryCode(b.merchantCountry.text.toString())
             .setShippingData(shippingData)
-            .setTransactionType(if (b.transactionType.selectedItemPosition == 0) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
+            .setTransactionType(if (b.transactionType.selectedItemPosition <2) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setCartId(orderId)
             .setAlternativePaymentMethods(getSelectedApms())
@@ -168,5 +169,6 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             "${paymentSdkTransactionDetails.paymentResult?.responseMessage ?: "PaymentFinish"}",
             Toast.LENGTH_SHORT
         ).show()
+        Log.d("onPaymentFinish", "onPaymentFinish: $paymentSdkTransactionDetails")
     }
 }
