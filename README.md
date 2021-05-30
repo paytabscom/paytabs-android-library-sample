@@ -49,6 +49,10 @@ val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
                    or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
                    or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
                    or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+ 
+PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+                               or PaymentSdkTransactionType.AUTH 
+                          
 
 val tokenFormat =  PaymentSdkTokenFormat.Hex32Format() 
                    or PaymentSdkTokenFormat.NoneFormat() 
@@ -82,6 +86,7 @@ val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount
  .setMerchantCountryCode("AE") // ISO alpha 2
  .setShippingData(shippingData)
  .setCartId(orderId)
+ .setTransactionType(transType)
  .showBillingInfo(false)
  .showShippingInfo(true)
  .forceShippingInfo(true)
@@ -128,6 +133,9 @@ PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE; // tokenise is off
                                or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
                                or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
 
+ PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+                               or PaymentSdkTransactionType.AUTH 
+                             
  
 PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
                                    or new PaymentSdkTokenFormat.NoneFormat() 
@@ -160,6 +168,7 @@ PaymentSdkConfigurationDetails configData = new PaymentSdkConfigBuilder(profileI
           .setMerchantCountryCode("AE") // ISO alpha 2
           .setShippingData(shippingData)
           .setCartId(cartId)
+          .setTransactionType(transType)
           .showBillingInfo(false)
           .showShippingInfo(true)
           .forceShippingInfo(true)
@@ -182,6 +191,8 @@ PaymentSdkActivity.startCardPayment(this, configData, this);
 
     }
 ```
+
+
 ## Tokenisation
 To enable tokenisation please follow the below instructions
 ```kotlin
@@ -193,10 +204,32 @@ To enable tokenisation please follow the below instructions
 ```
 
 ## SamsungPay 
-To enable pay with samsungpay you need to use this method
+1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
+  Here how you can integrate with SamsungPay Api.
+  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
+
+2. Pass the returned json token from samsung pay to the following  method.
+
 ```kotlin
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ```
+
+## Pay with Alternative Payment Methods
+It becomes easy to integrate with other payment methods in your region like STCPay, OmanNet, KNet, Valu, Fawry, UnionPay, and Meeza, to serve a large sector of customers.
+
+1. Do the steps 1 and 2 from **Pay with Card**
+2. Choose one or more of the payment methods you want to support
+
+```kotlin
+.setAlternativePaymentMethods(listOf<PaymentSdkApms>()) // add the Payment Methods you want to the list
+```
+
+3. Call `startAlternativePaymentMethod` to start payment
+
+```kotlin
+PaymentSdkActivity.startAlternativePaymentMethods(context, configuration, callback)
+```
+
 ## Overriding Resources:
  
  to override fonts 
@@ -210,12 +243,12 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
+![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/master/res/UIguide.jpg)
 
 ## Override strings
 To override string you can find the keys with the default values here
-![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
-![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml)
+![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
 
 ````xml
 <resourse>
@@ -253,6 +286,9 @@ configurations.all {
         }
     }
 ```
+
+## See the common issues from here
+ [common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
 
 PaymentSdk
 --------
