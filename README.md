@@ -189,6 +189,8 @@ PaymentSdkActivity.startCardPayment(this, configData, this);
 
     }
 ```
+
+
 ## Tokenisation
 To enable tokenisation please follow the below instructions
 ```kotlin
@@ -209,6 +211,23 @@ To enable tokenisation please follow the below instructions
 ```kotlin
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ```
+
+## Pay with Alternative Payment Methods
+It becomes easy to integrate with other payment methods in your region like STCPay, OmanNet, KNet, Valu, Fawry, UnionPay, and Meeza, to serve a large sector of customers.
+
+1. Do the steps 1 and 2 from **Pay with Card**
+2. Choose one or more of the payment methods you want to support
+
+```kotlin
+.setAlternativePaymentMethods(listOf<PaymentSdkApms>()) // add the Payment Methods you want to the list
+```
+
+3. Call `startAlternativePaymentMethod` to start payment
+
+```kotlin
+PaymentSdkActivity.startAlternativePaymentMethods(context, configuration, callback)
+```
+
 ## Overriding Resources:
  
  to override fonts 
