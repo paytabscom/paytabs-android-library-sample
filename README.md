@@ -20,7 +20,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.5'
+    implementation 'com.paytabs:payment-sdk:6.1.0'
 
 ```
 Proguard
@@ -286,7 +286,7 @@ configurations.all {
 ```
 
 ## See the common issues from here
- ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
+ [common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
 
 PaymentSdk
 --------
