@@ -29,8 +29,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
         }
 
-        b.mid.setText("PROFILE_ID")
-        b.serverKey.setText("SERVER_KEY")
+        b.mid.setText("42007")
+        b.serverKey.setText("STJNLJWLDL-JBJRGGBRBD-6NHBMHTKMM")
+        b.clientKey.setText("CKKMD9-HQVQ62-6RTT2R-GRMP2B")
         b.amount.setText("20")
         b.currency.setSelection(6)
         b.language.setSelection(1)

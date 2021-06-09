@@ -13,9 +13,7 @@ allprojects {
 	repositories {
 	    ...
      maven { url "http://pay.cards/maven" }
-     maven {
-      url  "https://dl.bintray.com/alinma/alinma-repo"
-     }
+  
 	}
 }
 
@@ -23,7 +21,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.alinma:clickpaysdk:6.0.2-rc08'
+    implementation 'sa.com.clickpay:payment-sdk:6.1.0'
    
 
 ```
