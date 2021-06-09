@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="trans_types" >
+    <item>SALE</item>
+    <item>AUTH</item>
+    </string-array>
+</resources>

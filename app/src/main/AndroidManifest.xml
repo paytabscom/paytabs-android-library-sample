@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pt2SampleApp">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.paytabs.pt2sampleapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

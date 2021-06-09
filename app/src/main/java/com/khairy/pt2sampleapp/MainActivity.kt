@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.khairy.pt2sampleapp.BuildConfig
+import com.khairy.pt2sampleapp.R
+import com.khairy.pt2sampleapp.databinding.ActivityMainBinding
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
-import com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
 import com.payment.paymentsdk.integrationmodels.*
@@ -39,9 +41,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.currency.setSelection(7)
         b.language.setSelection(1)
         b.tokeniseType.setSelection(1)
-        b.mid.setText("profilr id")
-        b.serverKey.setText("mobile server key")
-        b.clientKey.setText("mobile client key")
+        b.mid.setText("42007")
+        b.serverKey.setText("STJNLJWLDL-JBJRGGBRBD-6NHBMHTKMM")
+        b.clientKey.setText("CKKMD9-HQVQ62-6RTT2R-GRMP2B")
         b.street.setText("address street")
         b.city.setText("Dubai")
         b.state.setText("3510")
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setBillingData(billingData)
             .setMerchantCountryCode(b.merchantCountry.text.toString())
             .setShippingData(shippingData)
-            .setTransactionType(if (b.transactionType.selectedItemPosition == 0) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
+            .setTransactionType(if (b.transactionType.selectedItemPosition <2) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setCartId(orderId)
             .setAlternativePaymentMethods(getSelectedApms())
@@ -118,7 +120,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         addApmToList(apms, PaymentSdkApms.UNION_PAY, b.apmUnionpay.isChecked)
         addApmToList(apms, PaymentSdkApms.VALU, b.apmValu.isChecked)
         addApmToList(apms, PaymentSdkApms.KNET_DEBIT, b.apmKnetDebit.isChecked)
-        addApmToList(apms, PaymentSdkApms.KNET, b.apmKnet.isChecked)
+        addApmToList(apms, PaymentSdkApms.KNET_CREDIT, b.apmKnet.isChecked)
         addApmToList(apms, PaymentSdkApms.FAWRY, b.apmFawry.isChecked)
         addApmToList(apms, PaymentSdkApms.OMAN_NET, b.apmOmannet.isChecked)
         addApmToList(apms, PaymentSdkApms.MEEZA_QR, b.apmMeezaQr.isChecked)
