@@ -290,6 +290,9 @@ configurations.all {
 ## See the common issues from here
  [common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
 
+## Notes
+ 1- Please configure the IPN to avoid loosing any of the transaction status.
+
 PaymentSdk
 --------
 [Support][2] | [Terms of Use][3] | [Privacy Policy][4]
