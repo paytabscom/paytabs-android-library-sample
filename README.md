@@ -21,7 +21,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'sa.com.clickpay:payment-sdk:6.1.0'
+    implementation 'sa.com.clickpay:payment-sdk:6.1.1'
    
 
 ```

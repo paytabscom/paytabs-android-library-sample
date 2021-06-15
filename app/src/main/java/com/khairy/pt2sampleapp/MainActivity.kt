@@ -1,11 +1,9 @@
-package com.paytabs.pt2sampleapp
+package com.khairy.pt2sampleapp
 
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.khairy.pt2sampleapp.BuildConfig
-import com.khairy.pt2sampleapp.R
 import com.khairy.pt2sampleapp.databinding.ActivityMainBinding
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
