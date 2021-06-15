@@ -1,6 +1,6 @@
 Paytabs android library sample( PT2 Version)
 ========
-![Paytabs-android-library-v5.0.5](https://img.shields.io/badge/Paytabs/android/library-v5.0.5-green.svg)
+![Paytabs-android-library-v5.0.9](https://img.shields.io/badge/Paytabs/android/library-v5.0.9-green.svg)
 
 For more information please see [the website][1].
 
@@ -8,13 +8,13 @@ For more information please see [the website][1].
 Download
 --------
 
-Download [the latest AAR](sdk/paytabs_sdk-v5.0.8.aar):
+Download [the latest AAR](sdk/paytabs_sdk-v5.0.9.aar):
 
 Read the documentation to know how to integrate your application with the library
 [documentation](https://dev.paytabs.com/docs/android/)
 
 ```groovy
-implementation project(':paytabs_sdk-v5.0.8')
+implementation project(':paytabs_sdk-v5.0.9')
 ```
 
 Library requires at minimum Java 7 or Android 4.0.
