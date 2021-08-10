@@ -20,7 +20,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.0.5'
+    implementation 'com.paytabs:payment-sdk:6.1.8'
 
 ```
 Proguard
