@@ -242,9 +242,10 @@ To override string you can find the keys with the default values here
      <color name="payment_sdk_title_text_color">#FFF</color>
      <color name="payment_sdk_button_background_color">#3F51B5</color>
      <color name="payment_sdk_background_color">#F9FAFD</color>
-     <color name="payment_sdk_card_background_color">#F9FAFD</color> 
-   
-  // to override dimens
+     <color name="payment_sdk_card_background_color">#F9FAFD</color>
+     <color name="payment_sdk_status_bar_color">#FFC107</color>
+
+    // to override dimens
      <dimen name="payment_sdk_primary_font_size">17sp</dimen>
      <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
      <dimen name="payment_sdk_separator_thickness">1dp</dimen>
