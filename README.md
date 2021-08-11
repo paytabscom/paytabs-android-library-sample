@@ -20,7 +20,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.1.2'
+    implementation 'com.paytabs:payment-sdk:6.1.8'
 
 ```
 Proguard
@@ -189,8 +189,6 @@ PaymentSdkActivity.startCardPayment(this, configData, this);
 
     }
 ```
-
-
 ## Tokenisation
 To enable tokenisation please follow the below instructions
 ```kotlin
@@ -204,30 +202,13 @@ To enable tokenisation please follow the below instructions
 ## SamsungPay 
 1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
   Here how you can integrate with SamsungPay Api.
-  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
+  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md).
 
 2. Pass the returned json token from samsung pay to the following  method.
 
 ```kotlin
 startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ```
-
-## Pay with Alternative Payment Methods
-It becomes easy to integrate with other payment methods in your region like STCPay, OmanNet, KNet, Valu, Fawry, UnionPay, and Meeza, to serve a large sector of customers.
-
-1. Do the steps 1 and 2 from **Pay with Card**
-2. Choose one or more of the payment methods you want to support
-
-```kotlin
-.setAlternativePaymentMethods(listOf<PaymentSdkApms>()) // add the Payment Methods you want to the list
-```
-
-3. Call `startAlternativePaymentMethod` to start payment
-
-```kotlin
-PaymentSdkActivity.startAlternativePaymentMethods(context, configuration, callback)
-```
-
 ## Overriding Resources:
  
  to override fonts 
@@ -241,12 +222,12 @@ PaymentSdkActivity.startAlternativePaymentMethods(context, configuration, callba
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/master/res/UIguide.jpg)
+![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
 
 ## Override strings
 To override string you can find the keys with the default values here
-![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml)
-![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
+![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
+![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
 
 ````xml
 <resourse>
@@ -261,9 +242,10 @@ To override string you can find the keys with the default values here
      <color name="payment_sdk_title_text_color">#FFF</color>
      <color name="payment_sdk_button_background_color">#3F51B5</color>
      <color name="payment_sdk_background_color">#F9FAFD</color>
-     <color name="payment_sdk_card_background_color">#F9FAFD</color> 
-   
-  // to override dimens
+     <color name="payment_sdk_card_background_color">#F9FAFD</color>
+     <color name="payment_sdk_status_bar_color">#FFC107</color>
+
+    // to override dimens
      <dimen name="payment_sdk_primary_font_size">17sp</dimen>
      <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
      <dimen name="payment_sdk_separator_thickness">1dp</dimen>
@@ -286,10 +268,7 @@ configurations.all {
 ```
 
 ## See the common issues from here
- [common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
-
-## Notes
- 1- Please configure the IPN to avoid loosing any of the transaction status.
+ ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
 
 PaymentSdk
 --------

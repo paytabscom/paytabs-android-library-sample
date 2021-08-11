@@ -1,7 +1,6 @@
 package com.paytabs.pt2sampleapp
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -40,9 +39,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.currency.setSelection(7)
         b.language.setSelection(1)
         b.tokeniseType.setSelection(1)
-        b.mid.setText("###")
-        b.serverKey.setText("##########")
-        b.clientKey.setText("##########")
+
         b.street.setText("address street")
         b.city.setText("Dubai")
         b.state.setText("3510")
@@ -51,6 +48,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.shippingEmail.setText("email1@domain.com")
         b.shippingName.setText("name1 last1")
         b.shippingPhone.setText("1234")
+
         b.streetBilling.setText("street2")
         b.cityBilling.setText("Dubai")
         b.stateBilling.setText("3510")
@@ -93,7 +91,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setBillingData(billingData)
             .setMerchantCountryCode(b.merchantCountry.text.toString())
             .setShippingData(shippingData)
-            .setTransactionType(if (b.transactionType.selectedItemPosition <2) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
+            .setTransactionType(if (b.transactionType.selectedItemPosition == 0) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setCartId(orderId)
             .setAlternativePaymentMethods(getSelectedApms())
@@ -118,10 +116,10 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         addApmToList(apms, PaymentSdkApms.UNION_PAY, b.apmUnionpay.isChecked)
         addApmToList(apms, PaymentSdkApms.VALU, b.apmValu.isChecked)
         addApmToList(apms, PaymentSdkApms.KNET_DEBIT, b.apmKnetDebit.isChecked)
-        addApmToList(apms, PaymentSdkApms.KNET_CREDIT, b.apmKnet.isChecked)
         addApmToList(apms, PaymentSdkApms.FAWRY, b.apmFawry.isChecked)
         addApmToList(apms, PaymentSdkApms.OMAN_NET, b.apmOmannet.isChecked)
         addApmToList(apms, PaymentSdkApms.MEEZA_QR, b.apmMeezaQr.isChecked)
+       // addApmToList(apms, PaymentSdkApms.MADA, b.apmMada.isChecked)
         return apms
     }
 
@@ -168,6 +166,5 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             "${paymentSdkTransactionDetails.paymentResult?.responseMessage ?: "PaymentFinish"}",
             Toast.LENGTH_SHORT
         ).show()
-        Log.d("onPaymentFinish", "onPaymentFinish: $paymentSdkTransactionDetails")
     }
 }
