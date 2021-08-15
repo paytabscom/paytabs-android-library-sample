@@ -38,8 +38,8 @@ val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
                    or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
                    or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
                    or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
- 
-PaymentSdkTransactionType transType = PaymentSdkTransactionType.SALE; 
+
+val transType = PaymentSdkTransactionType.SALE; 
                                or PaymentSdkTransactionType.AUTH 
                           
 
