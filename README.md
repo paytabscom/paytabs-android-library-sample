@@ -8,16 +8,7 @@ Install
 Library requires at minimum Java 7 or Android 5.1.
 
 You have to include the following dependencies:
-```groovy
-allprojects {
-	repositories {
-	    ...
-     maven { url "http://pay.cards/maven" }
-	}
-}
 
-
-```
 ```groovy
 
     implementation 'com.paytabs:payment-sdk:6.1.9'
