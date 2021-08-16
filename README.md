@@ -14,6 +14,17 @@ You have to include the following dependencies:
     implementation 'com.paytabs:payment-sdk:6.1.9'
 
 ```
+## Known Coroutine issue
+Please in case you faced "Duplicated class" dependency conflict with the coroutine api
+add the following in your app gradle file.
+  ```groovy
+configurations.all {
+        resolutionStrategy {
+            exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+        }
+    }
+```
+
 Proguard
 --------
 If you are using ProGuard you might need to exclude the library classes.
@@ -247,16 +258,6 @@ To override string you can find the keys with the default values here
 </resourse>
 ````
 
-## Known Coroutine issue
-Please in case you faced dependency conflict with the coroutine api 
-add the following in your app gradle file.
-  ```groovy
-configurations.all {
-        resolutionStrategy {
-            exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
-        }
-    }
-```
 
 ## See the common issues from here
  ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
