@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         pt2_sample {
-            storeFile file('C:\\work\\jks\\pt2_sample.jks')
+            storeFile file('pt2_sample.jks')
             storePassword '7386889'
             keyAlias 'pt2_sample'
             keyPassword '7386889'
