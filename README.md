@@ -192,7 +192,7 @@ PaymentSdkActivity.startCardPayment(this, configData, this);
     }
 ```
 ## Handling Transaction response
-you can use transactionDetails?.isSuccess() to ensure a successful transaction.
+you can use paymentSdkTransactionDetails?.isSuccess to ensure a successful transaction.
 If the transaction is not successful you should check for the corresponding failure code you will receive the code in paymentSdkTransactionDetails?.paymentResult?.responseCode
 All codes can be found in [Payment Response Codes](https://site.paytabs.com/en/pt2-documentation/testing/payment-response-codes/)
 
