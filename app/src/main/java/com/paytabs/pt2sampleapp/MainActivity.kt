@@ -1,6 +1,7 @@
 package com.paytabs.pt2sampleapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.payment.paymentsdk.integrationmodels.*
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
 import com.paytabs.samsungpay.sample.SamsungPayActivity
 
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
     private var token: String? = null
     private var transRef: String? = null
@@ -159,6 +161,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
     }
 
     override fun onPaymentFinish(paymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
+        Log.d(TAG, "Did payment success?: ${paymentSdkTransactionDetails.isSuccess}")
         token = paymentSdkTransactionDetails.token
         transRef = paymentSdkTransactionDetails.transactionReference
         Toast.makeText(
