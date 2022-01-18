@@ -257,6 +257,11 @@ To override string you can find the keys with the default values here
      
 </resourse>
 ````
+## Override drawables
+ To override the back button icon you will need to add your own drawable file with the name below:
+  ```xml
+      payment_sdk_back_arrow.xml
+  ```
 
 
 ## See the common issues from here
