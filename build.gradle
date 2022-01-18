@@ -19,7 +19,10 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "http://pay.cards/maven" }
+        maven {
+            url "http://pay.cards/maven"
+            allowInsecureProtocol = true
+        }
     }
 }
 
