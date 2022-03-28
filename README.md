@@ -1,4 +1,4 @@
-Paytabs android library sample( PT2 Version)
+Clickpay android library sample( PT2 Version)
 ========
 
 Install
@@ -21,7 +21,7 @@ allprojects {
 ```
 ```groovy
 
-    implementation 'sa.com.clickpay:payment-sdk:6.1.2'
+    implementation 'sa.com.clickpay:payment-sdk:6.1.9'
    
 
 ```
@@ -243,7 +243,7 @@ PaymentSdkActivity.startAlternativePaymentMethods(context, configuration, callba
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/master/res/UIguide.jpg)
+![UI guide](https://user-images.githubusercontent.com/95287975/160391259-97aaff10-cb9f-4103-bc3e-a938a1111128.png)
 
 ## Override strings
 To override string you can find the keys with the default values here
