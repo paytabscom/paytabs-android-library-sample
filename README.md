@@ -1,4 +1,4 @@
-Paytabs android library sample( PT2 Version)
+Paytabs android library sample
 ========
 
 Install
@@ -210,7 +210,7 @@ To enable tokenisation please follow the below instructions
 ## SamsungPay 
 1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
   Here how you can integrate with SamsungPay Api.
-  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md).
+  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
 
 2. Pass the returned json token from samsung pay to the following  method.
 
@@ -234,8 +234,8 @@ Use the following guide to customize the colors, font, and logo by configuring t
 
 ## Override strings
 To override string you can find the keys with the default values here
-[English](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml),
-[Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+[English](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml),
+[Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
 
 ````xml
 <resourse>
@@ -269,17 +269,16 @@ To override string you can find the keys with the default values here
       payment_sdk_back_arrow.xml
   ```
 
-## License
-See [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/add-license-1/LICENSE)
-
 ## See the common issues from here
- [Common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
+ [Common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
 
-PaymentSdk
+
+## License
+See [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/LICENSE)
+
+#PayTabs
 --------
 [Support][2] | [Terms of Use][3] | [Privacy Policy][4]
-
-
 
 
  [1]: https://dev.paytabs.com/docs/android/
