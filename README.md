@@ -269,6 +269,8 @@ To override string you can find the keys with the default values here
       payment_sdk_back_arrow.xml
   ```
 
+## License
+See [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/add-license-1/LICENSE)
 
 ## See the common issues from here
  [Common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
