@@ -230,12 +230,12 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
+![UI guide](https://user-images.githubusercontent.com/13621658/109432213-d7981380-7a12-11eb-9224-c8fc12b0024d.jpg)
 
 ## Override strings
 To override string you can find the keys with the default values here
-![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
-![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+[English](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml),
+[Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
 
 ````xml
 <resourse>
@@ -271,7 +271,7 @@ To override string you can find the keys with the default values here
 
 
 ## See the common issues from here
- ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
+ [Common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
 
 PaymentSdk
 --------
