@@ -1,4 +1,4 @@
-Paytabs android library sample( PT2 Version)
+Paytabs android library sample
 ========
 
 Install
@@ -210,7 +210,7 @@ To enable tokenisation please follow the below instructions
 ## SamsungPay 
 1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
   Here how you can integrate with SamsungPay Api.
-  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsung_pay.md).
+  [SamsungPay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
 
 2. Pass the returned json token from samsung pay to the following  method.
 
@@ -230,12 +230,12 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/res/UIguide.jpg)
+![UI guide](https://user-images.githubusercontent.com/13621658/109432213-d7981380-7a12-11eb-9224-c8fc12b0024d.jpg)
 
 ## Override strings
 To override string you can find the keys with the default values here
-![english]( https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings.xml)
-![arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/res/strings-ar.xml)
+[English](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml),
+[Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
 
 ````xml
 <resourse>
@@ -269,15 +269,16 @@ To override string you can find the keys with the default values here
       payment_sdk_back_arrow.xml
   ```
 
-
 ## See the common issues from here
- ![common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/common_issues.md)
+ [Common issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md)
 
-PaymentSdk
---------
+
+## License
+See [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/LICENSE)
+
+## PayTabs
+
 [Support][2] | [Terms of Use][3] | [Privacy Policy][4]
-
-
 
 
  [1]: https://dev.paytabs.com/docs/android/
