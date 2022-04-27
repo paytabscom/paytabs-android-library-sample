@@ -277,7 +277,7 @@ To override string you can find the keys with the default values here
 See [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/LICENSE)
 
 ## PayTabs
---------
+
 [Support][2] | [Terms of Use][3] | [Privacy Policy][4]
 
 
