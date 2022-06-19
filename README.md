@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.2.11'
+    implementation 'com.paytabs:payment-sdk:6.2.12'
 
 ```
 ## Known Coroutine issue
