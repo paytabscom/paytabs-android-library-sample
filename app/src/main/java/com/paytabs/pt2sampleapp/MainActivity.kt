@@ -3,18 +3,23 @@ package com.paytabs.pt2sampleapp
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
-import com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
 import com.payment.paymentsdk.integrationmodels.*
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
+import com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
 import com.paytabs.samsungpay.sample.SamsungPayActivity
 
-private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
+
+    companion object {
+        private const val TAG = "MainActivity"
+    }
+
     private var token: String? = null
     private var transRef: String? = null
     private lateinit var b: ActivityMainBinding
@@ -24,7 +29,6 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b = ActivityMainBinding.inflate(layoutInflater)
         val view = b.root
         setContentView(view)
-        b.version.text = "Version: " + BuildConfig.VERSION_NAME
         b.pay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
             startCardPayment(this, configData, this)
@@ -33,123 +37,63 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             val configData = generatePaytabsConfigurationDetails()
             startAlternativePaymentMethods(this, configData, this)
         }
-        findViewById<View>(R.id.sam_pay).setOnClickListener { v: View? ->
+        findViewById<View>(R.id.sam_pay).setOnClickListener {
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
         }
 
-        b.amount.setText("20")
-        b.currency.setSelection(7)
-        b.language.setSelection(1)
-        b.tokeniseType.setSelection(1)
-
-        b.street.setText("address street")
-        b.city.setText("Dubai")
-        b.state.setText("3510")
-        b.country.setText("AE")
-        b.postalCode.setText("54321")
-        b.shippingEmail.setText("email1@domain.com")
-        b.shippingName.setText("name1 last1")
-        b.shippingPhone.setText("1234")
-
-        b.streetBilling.setText("street2")
-        b.cityBilling.setText("Dubai")
-        b.stateBilling.setText("3510")
-        b.countryBilling.setText("AE")
-        b.postalCodeBilling.setText("12345")
-        b.billingEmail.setText("email1@domain.com")
-        b.billingName.setText("first last")
-        b.billingPhone.setText("45")
-        (findViewById<View>(R.id.screen_density) as TextView).text =
-            "Screen Density " + resources.displayMetrics.density
     }
 
-
     private fun generatePaytabsConfigurationDetails(): PaymentSdkConfigurationDetails {
-        val profileId = b.mid.text.toString()
-        val serverKey = b.serverKey.text.toString()
-        val clientKey = b.clientKey.text.toString()
-        val locale = getLocale()
-        val transactionTitle = b.transactionTitle.text.toString()
-        val orderId = b.cartId.text.toString()
-        val productName = b.productName.text.toString()
-        val cartDesc = b.cartDesc.text.toString()
-        val currency = b.currency.selectedItem.toString()
-        val amount = b.amount.text?.toString()?.toDoubleOrNull() ?: 0.0
+        val profileId = "*profile ID*"
+        val serverKey = "*server key*"
+        val clientKey = "*client key*"
+        val locale = PaymentSdkLanguageCode.EN /*Or PaymentSdkLanguageCode.AR*/
+        val transactionTitle = "Test SDK"
+        val orderId = "123456"
+        val cartDesc = "Cart description"
+        val currency = "Currency"
+        val amount = 20.0
+        val merchantCountryCode = "Country Code ISO2"
         val billingData = PaymentSdkBillingDetails(
-            b.cityBilling.text.toString(), b.countryBilling.text.toString(),
-            b.billingEmail.text.toString(), b.billingName.text.toString(),
-            b.billingPhone.text.toString(), b.stateBilling.text.toString(),
-            b.streetBilling.text.toString(), b.postalCodeBilling.text.toString()
+            "City",
+            "Country Code ISO2",
+            "email1@domain.com",
+            "name name",
+            "+966568595106", "121321",
+            "address street", ""
         )
         val shippingData = PaymentSdkShippingDetails(
-            b.city.text.toString(), b.country.text.toString(),
-            b.shippingEmail.text.toString(), b.shippingName.text.toString(),
-            b.shippingPhone.text.toString(), b.state.text.toString(),
-            b.street.text.toString(), b.postalCode.text.toString()
+            "City",
+            "Country Code ISO2",
+            "test@test.com",
+            "name1 last1",
+            "+966568595106", "3510",
+            "street2", ""
         )
-        val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount, currency)
+        val configData = PaymentSdkConfigBuilder(
+            profileId,
+            serverKey,
+            clientKey, amount, currency
+        )
             .setCartDescription(cartDesc)
             .setLanguageCode(locale)
+            .setMerchantIcon(ContextCompat.getDrawable(this, R.drawable.payment_sdk_adcb_logo))
             .setBillingData(billingData)
-            .setMerchantCountryCode(b.merchantCountry.text.toString())
-            .setShippingData(shippingData)
-            .setTransactionType(if (b.transactionType.selectedItemPosition == 0) PaymentSdkTransactionType.SALE else PaymentSdkTransactionType.AUTH)
+            .setMerchantCountryCode(merchantCountryCode)
+            .setTransactionType(PaymentSdkTransactionType.SALE)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
+            .setShippingData(shippingData)
+            .setTokenise(PaymentSdkTokenise.USER_MANDATORY) //Check other tokenizing types in PaymentSdkTokenise
             .setCartId(orderId)
-            .setAlternativePaymentMethods(getSelectedApms())
-            .setTokenise(getTokeniseType())
-            .setTokenisationData(token, transRef)
-            .showBillingInfo(b.completeBillingInfo.isChecked)
-            .showShippingInfo(b.completeShippingInfo.isChecked)
-            .forceShippingInfo(b.forceShippingValidation.isChecked)
+            .setAlternativePaymentMethods(listOf(PaymentSdkApms.URPAY)) /*Check PaymentSdkApms for more payment options*/
+            .showBillingInfo(true)
+            .showShippingInfo(false)
+            .forceShippingInfo(false)
             .setScreenTitle(transactionTitle)
-        if (b.showMerchantLogo.isChecked) {
-            configData.setMerchantIcon(resources.getDrawable(R.drawable.payment_sdk_adcb_logo))
-        }
-
+            .linkBillingNameWithCard(false)
 
         return configData.build()
     }
-
-
-    private fun getSelectedApms(): List<PaymentSdkApms> {
-        val apms = mutableListOf<PaymentSdkApms>()
-        addApmToList(apms, PaymentSdkApms.STC_PAY, b.apmStcPay.isChecked)
-        addApmToList(apms, PaymentSdkApms.UNION_PAY, b.apmUnionpay.isChecked)
-        addApmToList(apms, PaymentSdkApms.VALU, b.apmValu.isChecked)
-        addApmToList(apms, PaymentSdkApms.KNET_DEBIT, b.apmKnetDebit.isChecked)
-        addApmToList(apms, PaymentSdkApms.FAWRY, b.apmFawry.isChecked)
-        addApmToList(apms, PaymentSdkApms.OMAN_NET, b.apmOmannet.isChecked)
-        addApmToList(apms, PaymentSdkApms.MEEZA_QR, b.apmMeezaQr.isChecked)
-       // addApmToList(apms, PaymentSdkApms.MADA, b.apmMada.isChecked)
-        return apms
-    }
-
-    private fun addApmToList(
-        list: MutableList<PaymentSdkApms>,
-        apm: PaymentSdkApms,
-        checked: Boolean
-    ) {
-        if (checked)
-            list.add(apm)
-    }
-
-    private fun getTokeniseType(): PaymentSdkTokenise {
-        return when (b.tokeniseType.selectedItemPosition) {
-            1 -> PaymentSdkTokenise.NONE
-            2 -> PaymentSdkTokenise.MERCHANT_MANDATORY
-            3 -> PaymentSdkTokenise.USER_MANDATORY
-            4 -> PaymentSdkTokenise.USER_OPTIONAL
-            else -> PaymentSdkTokenise.NONE
-        }
-    }
-
-    private fun getLocale() =
-        when (b.language.selectedItemPosition) {
-            1 -> PaymentSdkLanguageCode.EN
-            2 -> PaymentSdkLanguageCode.AR
-            else -> PaymentSdkLanguageCode.DEFAULT
-        }
 
     override fun onError(error: PaymentSdkError) {
         Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
@@ -166,7 +110,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         transRef = paymentSdkTransactionDetails.transactionReference
         Toast.makeText(
             this,
-            "${paymentSdkTransactionDetails.paymentResult?.responseMessage ?: "PaymentFinish"}",
+            paymentSdkTransactionDetails.paymentResult?.responseMessage ?: "PaymentFinish",
             Toast.LENGTH_SHORT
         ).show()
     }

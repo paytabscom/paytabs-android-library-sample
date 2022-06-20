@@ -8,4 +8,5 @@
     <string name="select_tokenise_type">Select Tokenise Type</string>
     <string name="tokenisation_type">tokenization type</string>
     <string name="client_secret">Client secret</string>
+    <string name="paytabs_logo">Paytabs Logo</string>
 </resources>
