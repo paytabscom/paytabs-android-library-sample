@@ -3,7 +3,7 @@
     package="com.paytabs.samsungpay.sample">
 
     <application>
-        <activity android:name=".SamsungPayActivity"></activity>
+        <activity android:name=".SamsungPayActivity" />
         <meta-data
             android:name="debug_mode"
             android:value="@string/gradle_debug_mode" />

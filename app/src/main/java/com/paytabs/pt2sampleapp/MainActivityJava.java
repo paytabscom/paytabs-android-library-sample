@@ -25,7 +25,7 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        setContentView(R.layout.activity_main_java);
+        setContentView(R.layout.activity_main);
         startPayment();
     }
 
@@ -38,6 +38,7 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
         String cartId = "123456";
         String cartDesc = "cart description";
         String currency = "AED";
+        String merchantCountryCode = "Country code ISO2";
         double amount = 20.0;
 
         PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE;
@@ -65,7 +66,7 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
                 .setCartDescription(cartDesc)
                 .setLanguageCode(locale)
                 .setBillingData(billingData)
-                .setMerchantCountryCode("AE") // ISO alpha 2
+                .setMerchantCountryCode(merchantCountryCode) // ISO alpha 2
                 .setShippingData(shippingData)
                 .setCartId(cartId)
                 .showBillingInfo(false)

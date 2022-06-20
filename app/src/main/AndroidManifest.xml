@@ -10,8 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pt2SampleApp">
-        <activity android:name="com.paytabs.pt2sampleapp.MainActivityJava"></activity>
-        <activity android:name="com.paytabs.pt2sampleapp.MainActivity">
+        <activity android:name="com.paytabs.pt2sampleapp.MainActivityJava" />
+        <activity
+            android:name="com.paytabs.pt2sampleapp.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
