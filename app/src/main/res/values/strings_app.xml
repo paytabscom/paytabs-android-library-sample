@@ -60,8 +60,9 @@
     <string name="token">Token</string>
     <string name="token_email">Token Email</string>
     <string name="token_password">Token Password</string>
-    <string name="pay">PAY</string>
-    <string name="apm_pay">PAY With Apms</string>
+    <string name="pay">PAY With Card</string>
+    <string name="apm_pay">PAY With KNET</string>
+    <string name="valu_pay">PAY With VALU</string>
 
     <!-- SnackBar messages -->
     <string name="provide_email">Please provide your email</string>

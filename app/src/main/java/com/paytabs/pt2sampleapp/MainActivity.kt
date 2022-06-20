@@ -2,7 +2,6 @@ package com.paytabs.pt2sampleapp
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -33,17 +32,25 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             val configData = generatePaytabsConfigurationDetails()
             startCardPayment(this, configData, this)
         }
-        b.apmPay.setOnClickListener {
-            val configData = generatePaytabsConfigurationDetails()
+        b.knetPay.setOnClickListener {
+            val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.KNET_CREDIT)
             startAlternativePaymentMethods(this, configData, this)
         }
-        findViewById<View>(R.id.sam_pay).setOnClickListener {
+        b.valuPay.setOnClickListener {
+            val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.VALU)
+            startAlternativePaymentMethods(this, configData, this)
+        }
+        b.fawryPay.setOnClickListener {
+            val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.FAWRY)
+            startAlternativePaymentMethods(this, configData, this)
+        }
+        b.samPay.setOnClickListener {
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
         }
 
     }
 
-    private fun generatePaytabsConfigurationDetails(): PaymentSdkConfigurationDetails {
+    private fun generatePaytabsConfigurationDetails(selectedApm: PaymentSdkApms? = null): PaymentSdkConfigurationDetails {
         val profileId = "*profile ID*"
         val serverKey = "*server key*"
         val clientKey = "*client key*"
@@ -85,12 +92,15 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setShippingData(shippingData)
             .setTokenise(PaymentSdkTokenise.USER_MANDATORY) //Check other tokenizing types in PaymentSdkTokenise
             .setCartId(orderId)
-            .setAlternativePaymentMethods(listOf(PaymentSdkApms.URPAY)) /*Check PaymentSdkApms for more payment options*/
             .showBillingInfo(true)
             .showShippingInfo(false)
             .forceShippingInfo(false)
             .setScreenTitle(transactionTitle)
             .linkBillingNameWithCard(false)
+
+        if (selectedApm != null)
+            configData.setAlternativePaymentMethods(listOf(selectedApm))
+        /*Check PaymentSdkApms for more payment options*/
 
         return configData.build()
     }
