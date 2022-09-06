@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.3.0'
+    implementation 'com.paytabs:payment-sdk:6.3.1'
 
 ```
 ## Known Coroutine issue
@@ -264,7 +264,7 @@ PaymentSdkActivity.startRecurringCardPayment(
 PaymentSdkActivity.start3DSRecurringCardPayment(
     this,
     configData,
-    PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
+    new PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
     "Token",
     this);
 ```
