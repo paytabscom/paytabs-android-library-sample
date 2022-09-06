@@ -30,7 +30,11 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         setContentView(view)
         b.pay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
-            startCardPayment(this, configData, this)
+            startCardPayment(
+                context = this,
+                ptConfigData = configData,
+                callback = this
+            )
         }
         b.knetPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.KNET_CREDIT)

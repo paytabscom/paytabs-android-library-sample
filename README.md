@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.2.12'
+    implementation 'com.paytabs:payment-sdk:6.3.0'
 
 ```
 ## Known Coroutine issue
@@ -34,6 +34,7 @@ If you are using ProGuard you might need to exclude the library classes.
 
 Pay now (in Kotlin)
 --------
+
 ```kotlin
 val profileId = "PROFILE_ID"
 val serverKey = "SERVER_KEY"
@@ -46,77 +47,120 @@ val currency = "AED"
 val amount = 20.0
 
 val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
-                   or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
-                   or PaymentSdkTokenise.USER_MANDATORY // tokenise is forced as per user approval
-                   or PaymentSdkTokenise.MERCHANT_MANDATORY // tokenise is forced without user approval
+or PaymentSdkTokenise . USER_OPTIONAL // tokenise if optional as per user approval
+        or PaymentSdkTokenise . USER_MANDATORY // tokenise is forced as per user approval
+        or PaymentSdkTokenise . MERCHANT_MANDATORY // tokenise is forced without user approval
 
-val transType = PaymentSdkTransactionType.SALE; 
-                               or PaymentSdkTransactionType.AUTH 
-                          
+val transType = PaymentSdkTransactionType.SALE
+or PaymentSdkTransactionType . AUTH
 
-val tokenFormat =  PaymentSdkTokenFormat.Hex32Format() 
-                   or PaymentSdkTokenFormat.NoneFormat() 
-                   or PaymentSdkTokenFormat.AlphaNum20Format() 
-                   or PaymentSdkTokenFormat.Digit22Format()
-                   or PaymentSdkTokenFormat.Digit16Format()
-                   or PaymentSdkTokenFormat.AlphaNum32Format()
+
+val tokenFormat = PaymentSdkTokenFormat.Hex32Format()
+or PaymentSdkTokenFormat . NoneFormat ()
+or PaymentSdkTokenFormat . AlphaNum20Format ()
+or PaymentSdkTokenFormat . Digit22Format ()
+or PaymentSdkTokenFormat . Digit16Format ()
+or PaymentSdkTokenFormat . AlphaNum32Format ()
 
 val billingData = PaymentSdkBillingDetails(
- "City",
- "2 digit iso Country code",
- "email1@domain.com",
- "name ",
- "phone", "state",
- "address street", "zip"
+    "City",
+    "2 digit iso Country code",
+    "email1@domain.com",
+    "name ",
+    "phone", "state",
+    "address street", "zip"
 )
 
 val shippingData = PaymentSdkShippingDetails(
- "City",
- "2 digit iso Country code",
- "email1@domain.com",
- "name ",
- "phone", "state",
- "address street", "zip"
+    "City",
+    "2 digit iso Country code",
+    "email1@domain.com",
+    "name ",
+    "phone", "state",
+    "address street", "zip"
 )
 val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount ?: 0.0, currency)
- .setCartDescription(cartDesc)
- .setLanguageCode(locale)
- .setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_amex))
- .setBillingData(billingData)
- .setMerchantCountryCode("AE") // ISO alpha 2
- .setShippingData(shippingData)
- .setCartId(orderId)
- .setTransactionType(transType)
- .showBillingInfo(false)
- .showShippingInfo(true)
- .forceShippingInfo(true)
- .setScreenTitle(screenTitle)
- .build()
-startCardPayment(this, configData, callback=this)
+    .setCartDescription(cartDesc)
+    .setLanguageCode(locale)
+    .setMerchantIcon(resources.getDrawable(R.drawable.bt_ic_amex))
+    .setBillingData(billingData)
+    .setMerchantCountryCode("AE") // ISO alpha 2
+    .setShippingData(shippingData)
+    .setCartId(orderId)
+    .setTransactionType(transType)
+    .showBillingInfo(false)
+    .showShippingInfo(true)
+    .forceShippingInfo(true)
+    .setScreenTitle(screenTitle)
+    .build()
+startCardPayment(this, configData, callback = this)
 or
-startSamsungPayment(this, configData, "samsungpay token",callback=this)
+startSamsungPayment(this, configData, "samsungpay token", callback = this)
 
 override fun onError(error: PaymentSdkError) {
- Log.d(TAG_PAYTABS, "onError: $error")
- Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
+    Log.d(TAG_PAYTABS, "onError: $error")
+    Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
 }
 
 override fun onPaymentFinish(PaymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
- Toast.makeText(this, "${paymentSdkTransactionDetails.paymentResult?.responseMessage}", Toast.LENGTH_SHORT).show()
- Log.d(TAG_PAYTABS, "onPaymentFinish: $paymentSdkTransactionDetails")
+    Toast.makeText(
+        this,
+        "${paymentSdkTransactionDetails.paymentResult?.responseMessage}",
+        Toast.LENGTH_SHORT
+    ).show()
+    Log.d(TAG_PAYTABS, "onPaymentFinish: $paymentSdkTransactionDetails")
 
 }
 
 override fun onPaymentCancel() {
- Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
- Log.d(TAG_PAYTABS, "onPaymentCancel:")
+    Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show()
+    Log.d(TAG_PAYTABS, "onPaymentCancel:")
 
 }
 
+
+3.You are now ready to start payment
+* For normal card payment use:
+
+```
+
+startCardPayment(context = this, ptConfigData = configData, callback = this)
+
+```
+
+* For recurring payment use:
+
+```Kotlin
+startRecurringCardPayment(context = this,
+ptConfigData = configData,
+token= yourToken,
+transactionRef = yourTransactionReference,
+callback = this)
+```
+
+* For recurring payment with 3DS feature enabled (request CVV) use:
+
+```Kotlin
+start3DSRecurringCardPayment(context = this,
+                ptConfigData = configData,
+                savedCardInfo = PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
+                token = token!!,
+                callback = this)
+```
+
+* For recurring payment with the ability to let SDK save Cards on your behalf and show sheet of
+  saved cards for user to choose from. use:
+
+```Kotlin
+startCardPaymentWithSavedCards(context = this, 
+                ptConfigData = configData,
+                support3DS = true,
+                callback = this)
 ```
 
 Pay now (in Java)
 --------
+
 ```java
 String profileId = "PROFILE_ID";
 String serverKey = "SERVER_KEY";
@@ -191,14 +235,62 @@ PaymentSdkActivity.startCardPayment(this, configData, this);
 
     }
 ```
-## Handling Transaction response
-you can use paymentSdkTransactionDetails?.isSuccess to ensure a successful transaction.
-If the transaction is not successful you should check for the corresponding failure code you will receive the code in paymentSdkTransactionDetails?.paymentResult?.responseCode
-All codes can be found in [Payment Response Codes](https://site.paytabs.com/en/pt2-documentation/testing/payment-response-codes/)
 
+3. You are now ready to start payment
+
+* For normal card payment use:
+
+```Java
+PaymentSdkActivity.startCardPayment(
+        this,
+        configData,
+        this);
+```
+
+* For recurring payment use:
+
+```Java
+PaymentSdkActivity.startRecurringCardPayment(
+    this,
+    configData,
+    "Token",
+    "TransactionRef",
+    this);
+```
+
+* For recurring payment with 3DS feature enabled (request CVV) use:
+
+```Java
+PaymentSdkActivity.start3DSRecurringCardPayment(
+    this,
+    configData,
+    PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
+    "Token",
+    this);
+```
+
+* For recurring payment with the ability to let SDK save Cards on your behalf and show sheet of
+  saved cards for user to choose from. use:
+
+```Java
+PaymentSdkActivity.startCardPaymentWithSavedCards(
+    this,
+    configData,
+    true,
+    this);
+```
+
+## Handling Transaction response
+
+you can use paymentSdkTransactionDetails?.isSuccess to ensure a successful transaction. If the
+transaction is not successful you should check for the corresponding failure code you will receive
+the code in paymentSdkTransactionDetails?.paymentResult?.responseCode All codes can be found
+in [Payment Response Codes](https://site.paytabs.com/en/pt2-documentation/testing/payment-response-codes/)
 
 ## Tokenisation
+
 To enable tokenisation please follow the below instructions
+
 ```kotlin
  // to request token and transaction reference pass tokeniseType and Format
 .setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY,PaymentSdkTokenFormat.Hex32Format()) 

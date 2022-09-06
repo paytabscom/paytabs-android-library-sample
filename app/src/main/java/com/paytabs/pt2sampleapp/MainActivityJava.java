@@ -74,7 +74,27 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
                 .forceShippingInfo(true)
                 .setScreenTitle(screenTitle)
                 .build();
-        PaymentSdkActivity.startCardPayment(this, configData, this);
+        PaymentSdkActivity.startCardPayment(
+                this,
+                configData,
+                this);
+        PaymentSdkActivity.startRecurringCardPayment(
+                this,
+                configData,
+                "Token",
+                "TransactionRef",
+                this);
+        PaymentSdkActivity.start3DSRecurringCardPayment(
+                this,
+                configData,
+                PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
+                "Token",
+                this);
+        PaymentSdkActivity.startCardPaymentWithSavedCards(
+                this,
+                configData,
+                true,
+                this);
     }
 
     @Override

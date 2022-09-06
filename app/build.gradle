@@ -43,9 +43,8 @@ dependencies {
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'com.paytabs:payment-sdk:6.2.12'
     implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
@@ -53,12 +52,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation('com.github.ganfra:material-spinner:2.0.0')
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
-    implementation 'androidx.fragment:fragment-ktx:1.4.1'
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.2'
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     implementation project(":samsungpay")
+
+    //PayTabs sdk
+    implementation 'com.paytabs:payment-sdk:6.3.0'
 
 }
