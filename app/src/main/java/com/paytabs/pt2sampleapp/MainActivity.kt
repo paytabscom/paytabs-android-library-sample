@@ -31,10 +31,33 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         b.pay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
             startCardPayment(
-                context = this,
-                ptConfigData = configData,
-                callback = this
+                this,
+                configData,
+                this
             )
+
+            /*
+            **The rest of payment methods
+            startTokenizedCardPayment(
+                this,
+                configData,
+                "Token",
+                "TransactionRef",
+                this
+            )
+            start3DSecureTokenizedCardPayment(
+                this,
+                configData,
+                PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
+                "Token",
+                this
+            )
+            startPaymentWithSavedCards(
+                this,
+                configData,
+                true,
+                this
+            )*/
         }
         b.knetPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.KNET_CREDIT)

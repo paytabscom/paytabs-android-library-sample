@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.3.1'
+    implementation 'com.paytabs:payment-sdk:6.3.2'
 
 ```
 ## Known Coroutine issue
@@ -131,7 +131,7 @@ startCardPayment(context = this, ptConfigData = configData, callback = this)
 * For recurring payment use:
 
 ```Kotlin
-startRecurringCardPayment(context = this,
+startTokenizedCardPayment(context = this,
 ptConfigData = configData,
 token= yourToken,
 transactionRef = yourTransactionReference,
@@ -141,7 +141,7 @@ callback = this)
 * For recurring payment with 3DS feature enabled (request CVV) use:
 
 ```Kotlin
-start3DSRecurringCardPayment(context = this,
+start3DSecureTokenizedCardPayment(context = this,
                 ptConfigData = configData,
                 savedCardInfo = PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
                 token = token!!,
@@ -152,7 +152,7 @@ start3DSRecurringCardPayment(context = this,
   saved cards for user to choose from. use:
 
 ```Kotlin
-startCardPaymentWithSavedCards(context = this, 
+startPaymentWithSavedCards(context = this, 
                 ptConfigData = configData,
                 support3DS = true,
                 callback = this)
@@ -236,7 +236,7 @@ PaymentSdkActivity.startCardPayment(this, configData, this);
     }
 ```
 
-3. You are now ready to start payment
+You are now ready to start payment
 
 * For normal card payment use:
 
@@ -250,7 +250,7 @@ PaymentSdkActivity.startCardPayment(
 * For recurring payment use:
 
 ```Java
-PaymentSdkActivity.startRecurringCardPayment(
+PaymentSdkActivity.startTokenizedCardPayment(
     this,
     configData,
     "Token",
@@ -261,7 +261,7 @@ PaymentSdkActivity.startRecurringCardPayment(
 * For recurring payment with 3DS feature enabled (request CVV) use:
 
 ```Java
-PaymentSdkActivity.start3DSRecurringCardPayment(
+PaymentSdkActivity.start3DSecureTokenizedCardPayment(
     this,
     configData,
     new PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
@@ -273,7 +273,7 @@ PaymentSdkActivity.start3DSRecurringCardPayment(
   saved cards for user to choose from. use:
 
 ```Java
-PaymentSdkActivity.startCardPaymentWithSavedCards(
+PaymentSdkActivity.startPaymentWithSavedCards(
     this,
     configData,
     true,

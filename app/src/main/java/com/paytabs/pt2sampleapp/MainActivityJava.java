@@ -16,7 +16,6 @@ import com.payment.paymentsdk.integrationmodels.PaymentSdkShippingDetails;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkTokenFormat;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkTokenise;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkTransactionDetails;
-import com.payment.paymentsdk.save_cards.entities.PaymentSDKSavedCardInfo;
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface;
 
 import org.jetbrains.annotations.NotNull;
@@ -79,23 +78,27 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
                 this,
                 configData,
                 this);
-        PaymentSdkActivity.startRecurringCardPayment(
+        /*
+        **The rest of payment methods
+        PaymentSdkActivity.startTokenizedCardPayment(
                 this,
                 configData,
                 "Token",
                 "TransactionRef",
                 this);
-        PaymentSdkActivity.start3DSRecurringCardPayment(
+        PaymentSdkActivity.start3DSecureTokenizedCardPayment(
                 this,
                 configData,
                 new PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
                 "Token",
                 this);
-        PaymentSdkActivity.startCardPaymentWithSavedCards(
+        PaymentSdkActivity.startPaymentWithSavedCards(
                 this,
                 configData,
                 true,
                 this);
+
+         */
     }
 
     @Override
