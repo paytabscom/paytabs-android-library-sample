@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
-import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
+import com.payment.paymentsdk.PaymentSdkActivity.Companion.startPaymentWithSavedCards
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
 import com.payment.paymentsdk.integrationmodels.*
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
@@ -30,11 +30,18 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         setContentView(view)
         b.pay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
-            startCardPayment(
-                this,
-                configData,
-                this
-            )
+//            startCardPayment(
+//                this,
+//                configData,
+//                this
+//            )
+//            start3DSecureTokenizedCardPayment(
+//                this,
+//                configData,
+//                PaymentSDKSavedCardInfo("4111 11## #### 1111", "visa"),
+//                "2C4652BF67A3EA33C6B590FE658078BD",
+//                this
+//            )
 
             /*
             **The rest of payment methods
@@ -45,19 +52,15 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
                 "TransactionRef",
                 this
             )
-            start3DSecureTokenizedCardPayment(
-                this,
-                configData,
-                PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
-                "Token",
-                this
-            )
+            *
+            * */
             startPaymentWithSavedCards(
                 this,
                 configData,
-                true,
+                false,
                 this
-            )*/
+            )
+
         }
         b.knetPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.KNET_CREDIT)
@@ -117,17 +120,17 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             .setTransactionType(PaymentSdkTransactionType.SALE)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM)
             .setShippingData(shippingData)
-            .setTokenise(PaymentSdkTokenise.USER_MANDATORY) //Check other tokenizing types in PaymentSdkTokenise
+            .setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY) //Check other tokenizing types in PaymentSdkTokenise
             .setCartId(orderId)
             .showBillingInfo(true)
             .showShippingInfo(false)
             .forceShippingInfo(false)
             .setScreenTitle(transactionTitle)
+            .hideCardScanner(false)
             .linkBillingNameWithCard(false)
 
         if (selectedApm != null)
             configData.setAlternativePaymentMethods(listOf(selectedApm))
-        /*Check PaymentSdkApms for more payment options*/
 
         return configData.build()
     }

@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.3.2'
+    implementation 'com.paytabs:payment-sdk:6.3.3'
 
 ```
 ## Known Coroutine issue
@@ -47,7 +47,7 @@ val currency = "AED"
 val amount = 20.0
 
 val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
-or PaymentSdkTokenise . USER_OPTIONAL // tokenise if optional as per user approval
+or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
         or PaymentSdkTokenise . USER_MANDATORY // tokenise is forced as per user approval
         or PaymentSdkTokenise . MERCHANT_MANDATORY // tokenise is forced without user approval
 
@@ -164,7 +164,7 @@ startPaymentWithSavedCards(context = this,
 Pay now (in Java)
 --------
 
-```java
+```
 String profileId = "PROFILE_ID";
 String serverKey = "SERVER_KEY";
 String clientKey = "CLIENT_KEY";
@@ -243,7 +243,7 @@ You are now ready to start payment
 
 * For normal card payment use:
 
-```Java
+```
 PaymentSdkActivity.startCardPayment(
         this,
         configData,
