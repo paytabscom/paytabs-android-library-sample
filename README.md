@@ -159,7 +159,16 @@ startPaymentWithSavedCards(context = this,
                 support3DS = true,
                 callback = this)
 ```
+
 <img width="197" alt="rec 3ds" src="https://user-images.githubusercontent.com/17829232/188843928-46f801d4-4dbc-4db6-a982-5297127752a6.jpeg">
+
+## Query transaction
+
+You can check the status of a transaction
+
+```Kotlin
+
+```
 
 Pay now (in Java)
 --------

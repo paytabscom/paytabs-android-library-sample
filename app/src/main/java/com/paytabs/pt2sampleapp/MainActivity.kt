@@ -8,12 +8,15 @@ import androidx.core.content.ContextCompat
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startPaymentWithSavedCards
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
+import com.payment.paymentsdk.QuerySdkActivity
 import com.payment.paymentsdk.integrationmodels.*
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
+import com.payment.paymentsdk.sharedclasses.interfaces.CallbackQueryInterface
+import com.payment.paymentsdk.sharedclasses.model.response.TransactionResponseBody
 import com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
 import com.paytabs.samsungpay.sample.SamsungPayActivity
 
-class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
+class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQueryInterface {
 
     companion object {
         private const val TAG = "MainActivity"
@@ -55,10 +58,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             *
             * */
             startPaymentWithSavedCards(
-                this,
-                configData,
-                false,
-                this
+                this, configData, false, this
             )
 
         }
@@ -76,6 +76,20 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
         }
         b.samPay.setOnClickListener {
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
+        }
+        b.queryFunction.setOnClickListener {
+            QuerySdkActivity.queryTransaction(
+                this,
+                PaymentSDKQueryConfiguration(
+                    "ServerKey",
+                    "ClientKey",
+                    "Country Iso 2",
+                    "Profile Id",
+                    "Transaction Reference"
+                ),
+                this
+            )
+
         }
 
     }
@@ -96,47 +110,48 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface {
             "Country Code ISO2",
             "email1@domain.com",
             "name name",
-            "+966568595106", "121321",
-            "address street", ""
+            "+966568595106",
+            "121321",
+            "address street",
+            ""
         )
         val shippingData = PaymentSdkShippingDetails(
             "City",
             "Country Code ISO2",
             "test@test.com",
             "name1 last1",
-            "+966568595106", "3510",
-            "street2", ""
+            "+966568595106",
+            "3510",
+            "street2",
+            ""
         )
         val configData = PaymentSdkConfigBuilder(
-            profileId,
-            serverKey,
-            clientKey, amount, currency
-        )
-            .setCartDescription(cartDesc)
-            .setLanguageCode(locale)
+            profileId, serverKey, clientKey, amount, currency
+        ).setCartDescription(cartDesc).setLanguageCode(locale)
             .setMerchantIcon(ContextCompat.getDrawable(this, R.drawable.payment_sdk_adcb_logo))
-            .setBillingData(billingData)
-            .setMerchantCountryCode(merchantCountryCode)
+            .setBillingData(billingData).setMerchantCountryCode(merchantCountryCode)
             .setTransactionType(PaymentSdkTransactionType.SALE)
-            .setTransactionClass(PaymentSdkTransactionClass.ECOM)
-            .setShippingData(shippingData)
+            .setTransactionClass(PaymentSdkTransactionClass.ECOM).setShippingData(shippingData)
             .setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY) //Check other tokenizing types in PaymentSdkTokenise
-            .setCartId(orderId)
-            .showBillingInfo(true)
-            .showShippingInfo(false)
-            .forceShippingInfo(false)
-            .setScreenTitle(transactionTitle)
-            .hideCardScanner(false)
+            .setCartId(orderId).showBillingInfo(true).showShippingInfo(false)
+            .forceShippingInfo(false).setScreenTitle(transactionTitle).hideCardScanner(false)
             .linkBillingNameWithCard(false)
 
-        if (selectedApm != null)
-            configData.setAlternativePaymentMethods(listOf(selectedApm))
+        if (selectedApm != null) configData.setAlternativePaymentMethods(listOf(selectedApm))
 
         return configData.build()
     }
 
+    override fun onCancel() {
+        TODO("Not yet implemented")
+    }
+
     override fun onError(error: PaymentSdkError) {
         Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResult(transactionResponseBody: TransactionResponseBody) {
+        TODO("Not yet implemented")
     }
 
     override fun onPaymentCancel() {
