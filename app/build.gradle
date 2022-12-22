@@ -61,6 +61,6 @@ dependencies {
     implementation project(":samsungpay")
 
     //PayTabs sdk
-    implementation 'com.paytabs:payment-sdk:6.3.7'
+    implementation 'com.paytabs:payment-sdk:6.3.9'
 
 }

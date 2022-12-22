@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.3.3'
+    implementation 'com.paytabs:payment-sdk:6.3.9'
 
 ```
 ## Known Coroutine issue
@@ -164,10 +164,26 @@ startPaymentWithSavedCards(context = this,
 
 ## Query transaction
 
-You can check the status of a transaction
+You can check the status of a transaction 1- first create PaymentSDKQueryConfiguration
 
 ```Kotlin
+val queryConfig = PaymentSDKQueryConfiguration(
+    "ServerKey",
+    "ClientKey",
+    "Country Iso 2",
+    "Profile Id",
+    "Transaction Reference"
+)
+```
 
+2- Call QuerySdkActivity.queryTransaction and pass the needed arguments
+
+```Kotlin
+QuerySdkActivity.queryTransaction(
+    this,
+    queryConfig,
+    this
+)
 ```
 
 Pay now (in Java)

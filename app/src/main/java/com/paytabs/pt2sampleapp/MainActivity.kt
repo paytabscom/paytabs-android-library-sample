@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
-import com.payment.paymentsdk.PaymentSdkActivity.Companion.startPaymentWithSavedCards
+import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
 import com.payment.paymentsdk.QuerySdkActivity
 import com.payment.paymentsdk.integrationmodels.*
@@ -33,12 +33,12 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         setContentView(view)
         b.pay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
-//            startCardPayment(
-//                this,
-//                configData,
-//                this
-//            )
-//            start3DSecureTokenizedCardPayment(
+            startCardPayment(
+                this,
+                configData,
+                this
+            )
+//            Paymestart3DSecureTokenizedCardPayment(
 //                this,
 //                configData,
 //                PaymentSDKSavedCardInfo("4111 11## #### 1111", "visa"),
@@ -57,9 +57,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
             )
             *
             * */
-            startPaymentWithSavedCards(
-                this, configData, false, this
-            )
+//            startPaymentWithSavedCards(
+//                this, configData, false, this
+//            )
 
         }
         b.knetPay.setOnClickListener {
