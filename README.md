@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.4.6'
+    implementation 'com.paytabs:payment-sdk:6.4.7'
 
 ```
 ## Known Coroutine issue
@@ -47,9 +47,10 @@ val currency = "AED"
 val amount = 20.0
 
 val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
-or PaymentSdkTokenise.USER_OPTIONAL // tokenise if optional as per user approval
+or PaymentSdkTokenise.USER_OPTIONAL // tokenise is optional as per user approval
         or PaymentSdkTokenise . USER_MANDATORY // tokenise is forced as per user approval
         or PaymentSdkTokenise . MERCHANT_MANDATORY // tokenise is forced without user approval
+        or PaymentSdkTokenise . USER_OPTIONAL_DEFAULT_ON // tokenise is optional as per user approval default value true
 
 val transType = PaymentSdkTransactionType.SALE
 or PaymentSdkTransactionType . AUTH
@@ -92,6 +93,7 @@ val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount
     .showShippingInfo(true)
     .forceShippingInfo(true)
     .setScreenTitle(screenTitle)
+    .isDigitalProduct(false)
     .build()
 startCardPayment(this, configData, callback = this)
 or
