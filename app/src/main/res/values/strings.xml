@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">PayTabsSample</string>
     <string name="cart_id">Cart Id</string>
     <string name="product_name">Product name</string>
     <string name="show_merchant_logo">Show Merchant Logo</string>
