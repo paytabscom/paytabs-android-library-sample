@@ -15,85 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/pay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="9dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/pay"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/knet_pay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/queryFunction"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="9dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/query_transaction"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sam_pay"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <Button
-        android:id="@+id/knet_pay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="9dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/apm_pay"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/valu_pay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pay" />
-
-    <Button
-        android:id="@+id/valu_pay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="9dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/valu_pay"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/fawry_pay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/knet_pay" />
-
-    <Button
-        android:id="@+id/fawry_pay"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="9dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:text="@string/valu_pay"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/sam_pay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valu_pay" />
 
     <Button
         android:id="@+id/sam_pay"
@@ -120,10 +41,11 @@
         android:backgroundTint="@color/colorPrimary"
         android:text="Check SamsungPay"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fawry_pay" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
 

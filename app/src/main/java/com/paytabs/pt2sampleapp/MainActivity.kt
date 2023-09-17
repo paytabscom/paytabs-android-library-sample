@@ -7,10 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.payment.paymentsdk.PaymentSdkActivity
-import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePaymentMethods
-import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
-import com.payment.paymentsdk.QuerySdkActivity
 import com.payment.paymentsdk.integrationmodels.*
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackQueryInterface
@@ -45,72 +42,11 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         b = ActivityMainBinding.inflate(layoutInflater)
         val view = b.root
         setContentView(view)
-        b.pay.setOnClickListener {
-            val configData = generatePaytabsConfigurationDetails()
-            startCardPayment(
-                this,
-                configData,
-                this
-            )
-//            Paymestart3DSecureTokenizedCardPayment(
-//                this,
-//                configData,
-//                PaymentSDKSavedCardInfo("4111 11## #### 1111", "visa"),
-//                "2C4652BF67A3EA33C6B590FE658078BD",
-//                this
-//            )
-
-            /*
-            **The rest of payment methods
-            startTokenizedCardPayment(
-                this,
-                configData,
-                "Token",
-                "TransactionRef",
-                this
-            )
-            *
-            * */
-//            startPaymentWithSavedCards(
-//                this, configData, false, this
-//            )
-
-        }
-        b.knetPay.setOnClickListener {
-            val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.KNET_CREDIT)
-            startAlternativePaymentMethods(this, configData, this)
-        }
-        b.valuPay.setOnClickListener {
-            val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.VALU)
-            startAlternativePaymentMethods(this, configData, this)
-        }
-        b.fawryPay.setOnClickListener {
-            val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.FAWRY)
-            startAlternativePaymentMethods(this, configData, this)
-        }
         b.checkSamPay.setOnClickListener { handleSam() }
 
         b.samPay.setOnClickListener {
             startInAppPayWithCustomSheet()
         }
-//        b.samPay.setOnClickListener {
-//            SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
-//        }
-        b.queryFunction.setOnClickListener {
-            QuerySdkActivity.queryTransaction(
-                this,
-                PaymentSDKQueryConfiguration(
-                    "ServerKey",
-                    "ClientKey",
-                    "Country Iso 2",
-                    "Profile Id",
-                    "Transaction Reference"
-                ),
-                this
-            )
-
-        }
-
     }
 
 
