@@ -9,13 +9,13 @@ The following steps comprise the general process for integrating the Samsung Pay
    Note The Service ID replaces Product ID as of SDK v1.4.
 
 3. Download the Samsung Pay SDK.
-   we are using one in our sample [Here](https://github.com/paytabscom/paytabs-android-library-sample/blob/PT2/samsungpay/libs/SamsungPaySDK_v2.14.00.jar) 
+   we are using one in our sample [Here](https://github.com/paytabscom/paytabs-android-library-sample/blob/sPaySample/app/libs/SamsungPaySDK_2.18.00.jar) 
 
 4. Add the Samsung Pay SDK (samsungpay.jar) to your Android project using Android Studio.
 
 5. Develop your partner app with the required API calls and callbacks for Samsung Pay integration.
 
- Note: From point 3 you can find an example in the [samsungpay module](https://github.com/paytabscom/paytabs-android-library-sample/tree/PT2/samsungpay).
+ Note: From point 3 you can find an example in the [Sample app](https://github.com/paytabscom/paytabs-android-library-sample/blob/sPaySample/app/src/main/java/com/paytabs/pt2sampleapp/MainActivity.kt).
 
 For more Info Please look at this guide
 ------------
