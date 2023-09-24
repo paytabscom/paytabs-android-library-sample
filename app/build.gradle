@@ -39,9 +39,6 @@ android {
 }
 
 dependencies {
-
-
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
@@ -59,8 +56,6 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
     implementation project(":samsungpay")
-
     //PayTabs sdk
-    implementation 'com.paytabs:payment-sdk:6.4.7'
-
+    implementation 'com.paytabs:payment-sdk:6.4.15'
 }
