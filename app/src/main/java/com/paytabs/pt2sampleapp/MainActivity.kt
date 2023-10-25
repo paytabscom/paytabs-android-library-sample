@@ -9,7 +9,17 @@ import com.payment.paymentsdk.PaymentSdkActivity.Companion.startAlternativePayme
 import com.payment.paymentsdk.PaymentSdkActivity.Companion.startCardPayment
 import com.payment.paymentsdk.PaymentSdkConfigBuilder
 import com.payment.paymentsdk.QuerySdkActivity
-import com.payment.paymentsdk.integrationmodels.*
+import com.payment.paymentsdk.integrationmodels.PaymentSDKQueryConfiguration
+import com.payment.paymentsdk.integrationmodels.PaymentSdkApms
+import com.payment.paymentsdk.integrationmodels.PaymentSdkBillingDetails
+import com.payment.paymentsdk.integrationmodels.PaymentSdkConfigurationDetails
+import com.payment.paymentsdk.integrationmodels.PaymentSdkError
+import com.payment.paymentsdk.integrationmodels.PaymentSdkLanguageCode
+import com.payment.paymentsdk.integrationmodels.PaymentSdkShippingDetails
+import com.payment.paymentsdk.integrationmodels.PaymentSdkTokenise
+import com.payment.paymentsdk.integrationmodels.PaymentSdkTransactionClass
+import com.payment.paymentsdk.integrationmodels.PaymentSdkTransactionDetails
+import com.payment.paymentsdk.integrationmodels.PaymentSdkTransactionType
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackQueryInterface
 import com.payment.paymentsdk.sharedclasses.model.response.TransactionResponseBody
@@ -24,74 +34,45 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
 
     private var token: String? = null
     private var transRef: String? = null
-    private lateinit var b: ActivityMainBinding
+    private var _binding: ActivityMainBinding? = null
+    private val binding: ActivityMainBinding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        b = ActivityMainBinding.inflate(layoutInflater)
-        val view = b.root
-        setContentView(view)
-        b.pay.setOnClickListener {
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.pay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails()
             startCardPayment(
-                this,
-                configData,
-                this
+                this, configData, this
             )
-//            Paymestart3DSecureTokenizedCardPayment(
-//                this,
-//                configData,
-//                PaymentSDKSavedCardInfo("4111 11## #### 1111", "visa"),
-//                "2C4652BF67A3EA33C6B590FE658078BD",
-//                this
-//            )
-
-            /*
-            **The rest of payment methods
-            startTokenizedCardPayment(
-                this,
-                configData,
-                "Token",
-                "TransactionRef",
-                this
-            )
-            *
-            * */
-//            startPaymentWithSavedCards(
-//                this, configData, false, this
-//            )
-
         }
-        b.knetPay.setOnClickListener {
+        binding.knetPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.KNET_CREDIT)
             startAlternativePaymentMethods(this, configData, this)
         }
-        b.valuPay.setOnClickListener {
+        binding.valuPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.VALU)
             startAlternativePaymentMethods(this, configData, this)
         }
-        b.fawryPay.setOnClickListener {
+        binding.fawryPay.setOnClickListener {
             val configData = generatePaytabsConfigurationDetails(PaymentSdkApms.FAWRY)
             startAlternativePaymentMethods(this, configData, this)
         }
-        b.samPay.setOnClickListener {
+        binding.samPay.setOnClickListener {
             SamsungPayActivity.start(this, generatePaytabsConfigurationDetails())
         }
-        b.queryFunction.setOnClickListener {
+        binding.queryFunction.setOnClickListener {
             QuerySdkActivity.queryTransaction(
-                this,
-                PaymentSDKQueryConfiguration(
-                    "ServerKey",
-                    "ClientKey",
-                    "Country Iso 2",
-                    "Profile Id",
-                    "Transaction Reference"
-                ),
-                this
+                this, PaymentSDKQueryConfiguration(
+                    serverKey = "ServerKey",
+                    clientKey = "ClientKey",
+                    merchantCountryCode = "Country Iso 2",
+                    profileID = "Profile Id",
+                    transactionReference = "Transaction Reference"
+                ), this
             )
-
         }
-
     }
 
     private fun generatePaytabsConfigurationDetails(selectedApm: PaymentSdkApms? = null): PaymentSdkConfigurationDetails {
@@ -132,18 +113,16 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
             .setBillingData(billingData).setMerchantCountryCode(merchantCountryCode)
             .setTransactionType(PaymentSdkTransactionType.SALE)
             .setTransactionClass(PaymentSdkTransactionClass.ECOM).setShippingData(shippingData)
-            .setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY) //Check other tokenizing types in PaymentSdkTokenise
-            .setCartId(orderId).showBillingInfo(true).showShippingInfo(false)
-            .forceShippingInfo(false).setScreenTitle(transactionTitle).hideCardScanner(false)
-            .linkBillingNameWithCard(false)
-
+            //Check other tokenizing types in PaymentSdkTokenize
+            .setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY).setCartId(orderId)
+            .showBillingInfo(true).showShippingInfo(false).forceShippingInfo(false)
+            .setScreenTitle(transactionTitle).hideCardScanner(false).linkBillingNameWithCard(false)
         if (selectedApm != null) configData.setAlternativePaymentMethods(listOf(selectedApm))
-
         return configData.build()
     }
 
     override fun onCancel() {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "onCancel", Toast.LENGTH_SHORT).show()
     }
 
     override fun onError(error: PaymentSdkError) {
@@ -151,12 +130,11 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     }
 
     override fun onResult(transactionResponseBody: TransactionResponseBody) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "onResult", Toast.LENGTH_SHORT).show()
     }
 
     override fun onPaymentCancel() {
         Toast.makeText(this, "onPaymentCancel", Toast.LENGTH_SHORT).show()
-
     }
 
     override fun onPaymentFinish(paymentSdkTransactionDetails: PaymentSdkTransactionDetails) {

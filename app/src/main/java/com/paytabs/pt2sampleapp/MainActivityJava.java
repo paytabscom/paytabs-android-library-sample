@@ -13,8 +13,6 @@ import com.payment.paymentsdk.integrationmodels.PaymentSdkConfigurationDetails;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkError;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkLanguageCode;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkShippingDetails;
-import com.payment.paymentsdk.integrationmodels.PaymentSdkTokenFormat;
-import com.payment.paymentsdk.integrationmodels.PaymentSdkTokenise;
 import com.payment.paymentsdk.integrationmodels.PaymentSdkTransactionDetails;
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface;
 
@@ -40,11 +38,6 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
         String currency = "AED";
         String merchantCountryCode = "Country code ISO2";
         double amount = 20.0;
-
-        PaymentSdkTokenise tokeniseType = PaymentSdkTokenise.NONE;
-
-        PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
-
         PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
                 "City",
                 "Country",
@@ -53,7 +46,6 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
                 "phone", "state",
                 "address street", "zip"
         );
-
         PaymentSdkShippingDetails shippingData = new PaymentSdkShippingDetails(
                 "City",
                 "Country",
@@ -78,41 +70,17 @@ public class MainActivityJava extends AppCompatActivity implements CallbackPayme
                 this,
                 configData,
                 this);
-        /*
-        **The rest of payment methods
-        PaymentSdkActivity.startTokenizedCardPayment(
-                this,
-                configData,
-                "Token",
-                "TransactionRef",
-                this);
-        PaymentSdkActivity.start3DSecureTokenizedCardPayment(
-                this,
-                configData,
-                new PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
-                "Token",
-                this);
-        PaymentSdkActivity.startPaymentWithSavedCards(
-                this,
-                configData,
-                true,
-                this);
-
-         */
     }
 
     @Override
     public void onError(@NotNull PaymentSdkError paymentSdkError) {
-
     }
 
     @Override
     public void onPaymentCancel() {
-
     }
 
     @Override
     public void onPaymentFinish(@NotNull PaymentSdkTransactionDetails paymentSdkTransactionDetails) {
-
     }
 }
