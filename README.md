@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.5.0'
+    implementation 'com.paytabs:payment-sdk:6.5.1'
 
 ```
 ## Known Coroutine issue
@@ -28,7 +28,7 @@ configurations.all {
 Proguard
 --------
 If you are using ProGuard you might need to exclude the library classes.
-```java
+```text
 -keep public class com.payment.paymentsdk.**{*}
 ```
 
@@ -47,21 +47,21 @@ val currency = "AED"
 val amount = 20.0
 
 val tokeniseType = PaymentSdkTokenise.NONE // tokenise is off
-or PaymentSdkTokenise.USER_OPTIONAL // tokenise is optional as per user approval
-        or PaymentSdkTokenise . USER_MANDATORY // tokenise is forced as per user approval
-        or PaymentSdkTokenise . MERCHANT_MANDATORY // tokenise is forced without user approval
-        or PaymentSdkTokenise . USER_OPTIONAL_DEFAULT_ON // tokenise is optional as per user approval default value true
+        //or PaymentSdkTokenise.USER_OPTIONAL // tokenise is optional as per user approval
+        //or PaymentSdkTokenise . USER_MANDATORY // tokenise is forced as per user approval
+        //or PaymentSdkTokenise . MERCHANT_MANDATORY // tokenise is forced without user approval
+        //or PaymentSdkTokenise . USER_OPTIONAL_DEFAULT_ON // tokenise is optional as per user approval default value true
 
 val transType = PaymentSdkTransactionType.SALE
-or PaymentSdkTransactionType . AUTH
+//or PaymentSdkTransactionType.AUTH
 
 
 val tokenFormat = PaymentSdkTokenFormat.Hex32Format()
-or PaymentSdkTokenFormat . NoneFormat ()
-or PaymentSdkTokenFormat . AlphaNum20Format ()
-or PaymentSdkTokenFormat . Digit22Format ()
-or PaymentSdkTokenFormat . Digit16Format ()
-or PaymentSdkTokenFormat . AlphaNum32Format ()
+//or PaymentSdkTokenFormat . NoneFormat ()
+//or PaymentSdkTokenFormat . AlphaNum20Format ()
+//or PaymentSdkTokenFormat . Digit22Format ()
+//or PaymentSdkTokenFormat . Digit16Format ()
+//or PaymentSdkTokenFormat . AlphaNum32Format ()
 
 val billingData = PaymentSdkBillingDetails(
     "City",
@@ -104,7 +104,7 @@ override fun onError(error: PaymentSdkError) {
     Toast.makeText(this, "${error.msg}", Toast.LENGTH_SHORT).show()
 }
 
-override fun onPaymentFinish(PaymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
+override fun onPaymentFinish(paymentSdkTransactionDetails: PaymentSdkTransactionDetails) {
     Toast.makeText(
         this,
         "${paymentSdkTransactionDetails.paymentResult?.responseMessage}",
@@ -191,7 +191,8 @@ QuerySdkActivity.queryTransaction(
 Pay now (in Java)
 --------
 
-```
+
+```java
 String profileId = "PROFILE_ID";
 String serverKey = "SERVER_KEY";
 String clientKey = "CLIENT_KEY";
@@ -279,7 +280,7 @@ PaymentSdkActivity.startCardPayment(
 
 * For recurring payment use:
 
-```Java
+```
 PaymentSdkActivity.startTokenizedCardPayment(
     this,
     configData,
@@ -290,7 +291,7 @@ PaymentSdkActivity.startTokenizedCardPayment(
 
 * For recurring payment with 3DS feature enabled (request CVV) use:
 
-```Java
+```
 PaymentSdkActivity.start3DSecureTokenizedCardPayment(
     this,
     configData,
@@ -302,7 +303,7 @@ PaymentSdkActivity.start3DSecureTokenizedCardPayment(
 * For recurring payment with the ability to let SDK save Cards on your behalf and show sheet of
   saved cards for user to choose from. use:
 
-```Java
+```
 PaymentSdkActivity.startPaymentWithSavedCards(
     this,
     configData,
@@ -323,7 +324,7 @@ To enable tokenisation please follow the below instructions
 
 ```kotlin
  // to request token and transaction reference pass tokeniseType and Format
-.setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY,PaymentSdkTokenFormat.Hex32Format()) 
+ setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY,PaymentSdkTokenFormat.Hex32Format()) 
  // you will receive token and reference after the first transaction       
  // to pass the token and transaction reference returned from sdk 
 .setTokenisationData(token = "", transactionReference = "") 
@@ -387,7 +388,7 @@ To override string you can find the keys with the default values here
 ````
 ## Override drawables
  To override the back button icon you will need to add your own drawable file with the name below:
-  ```xml
+  ```
       payment_sdk_back_arrow.xml
   ```
 
