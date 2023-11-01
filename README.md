@@ -119,8 +119,23 @@ override fun onPaymentCancel() {
     Log.d(TAG_PAYTABS, "onPaymentCancel:")
 
 }
-
 ```
+
+Options to set expiry timeout for the card payment screen
+
+```kotlin
+/** To establish a timeout of 2 minutes.
+ * Set to zero to deactivate the timeout feature.
+ * Note that the expiryTime cannot be set to less than 60 seconds.
+ * */
+configuration.setPaymentExpiry(120)
+```
+
+You have the option to close the payment screen if there are no ongoing transactions.
+```kotlin
+PaymentSdkActivity.cancelPayment()
+```
+
 3.You are now ready to start payment
 * For normal card payment use:
 
