@@ -5,13 +5,13 @@ Install
 --------
 ## Requirements
 
-Library requires at minimum Java 7 or Android 5.1, targetSdk and compileSdk to be 31+.
+Library requires at minimum Java 8 or Android 5.1, targetSdk and compileSdk to be 34.
 
 You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.5.2'
+    implementation 'com.paytabs:payment-sdk:6.5.4'
 
 ```
 ## Known Coroutine issue
@@ -29,7 +29,7 @@ Proguard
 --------
 If you are using ProGuard you might need to exclude the library classes.
 ```text
--keep public class com.payment.paymentsdk.**{*}
+-keep public class com.payment.paymentsdk.**{*;}
 ```
 
 Pay now (in Kotlin)
