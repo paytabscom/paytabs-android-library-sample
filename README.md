@@ -345,6 +345,27 @@ To enable tokenisation please follow the below instructions
 .setTokenisationData(token = "", transactionReference = "") 
 ```
 
+## Card discount
+
+To apply a discount on a card payment, you can use the following method
+
+```kotlin
+// List of card discount
+val cardDiscount = listOf(
+    PaymentSdkCardDiscount(
+        // list of card prefixes from 4 to 10 digits.
+        listOf("40001"),
+        // discount percentage or value
+        10.0,
+        // discount description
+        "● 10% discount on VISA cards starts with 40001",
+        // discount type percentage or value
+        true
+    ),
+)
+...setCardDiscount(cardDiscount)
+```
+
 ## SamsungPay 
 1. To enable pay with samsungpay you need first to integrate with SamsungPay api.
   Here how you can integrate with SamsungPay Api.
