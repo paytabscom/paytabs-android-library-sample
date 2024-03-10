@@ -12,6 +12,7 @@ import com.payment.paymentsdk.QuerySdkActivity
 import com.payment.paymentsdk.integrationmodels.PaymentSDKQueryConfiguration
 import com.payment.paymentsdk.integrationmodels.PaymentSdkApms
 import com.payment.paymentsdk.integrationmodels.PaymentSdkBillingDetails
+import com.payment.paymentsdk.integrationmodels.PaymentSdkCardDiscount
 import com.payment.paymentsdk.integrationmodels.PaymentSdkConfigurationDetails
 import com.payment.paymentsdk.integrationmodels.PaymentSdkError
 import com.payment.paymentsdk.integrationmodels.PaymentSdkLanguageCode
@@ -118,6 +119,15 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
             .showBillingInfo(true).showShippingInfo(false).forceShippingInfo(false)
             .setScreenTitle(transactionTitle).hideCardScanner(false).linkBillingNameWithCard(false)
         if (selectedApm != null) configData.setAlternativePaymentMethods(listOf(selectedApm))
+        // Apply card discount
+        val cardDiscount = listOf(
+            PaymentSdkCardDiscount(
+                listOf("40001"),
+                10.0,
+                "● 10% discount - 40001",
+                true
+            ),)
+        //configData.setCardDiscount(cardDiscount)
         return configData.build()
     }
 
