@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#0374bc</color>
+    <color name="colorPrimaryDark">#0374bc</color>
+    <color name="colorAccent">#0374bc</color>
+
+    //
+    <color name="payment_sdk_primary_color">#000000</color>
+    <color name="payment_sdk_secondary_color">#1B1B1B</color>
+    <color name="payment_sdk_background_color">#292929</color>
+    <color name="payment_sdk_button_background_color">#45444A</color>
+    <color name="payment_sdk_input_field_background_color">#8E8E8D</color>
+    <color name="payment_sdk_stroke_color">#90918F</color>
+
+    <color name="payment_sdk_title_text_color">#FFFFFF</color>
+
+    <color name="payment_sdk_primary_font_color">#FFFFFF</color>
+    <color name="payment_sdk_secondary_font_color">#0094F1</color>
+    <color name="payment_sdk_button_text_color">#FFF</color>
+    <color name="payment_sdk_hint_font_color">#D8D8D8</color>
+    <color name="payment_sdk_error_text_color">#650303</color>
+
+    <color name="payment_sdk_back_black_dim">#4D6E6E6E</color>
+    <color name="payment_sdk_status_bar_color">#444647</color>
+
+</resources>
