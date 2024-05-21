@@ -389,7 +389,7 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
 
-![UI guide](https://user-images.githubusercontent.com/13621658/109432213-d7981380-7a12-11eb-9224-c8fc12b0024d.jpg)
+![UI guide](theme_demo.jpg)
 
 ## Override strings
 To override string you can find the keys with the default values here
@@ -397,29 +397,35 @@ To override string you can find the keys with the default values here
 [Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
 
 ````xml
-<resourse>
-  // to override colors
-     <color name="payment_sdk_primary_color">#5C13DF</color>
-     <color name="payment_sdk_secondary_color">#FFC107</color>
-     <color name="payment_sdk_primary_font_color">#111112</color>
-     <color name="payment_sdk_secondary_font_color">#6D6C70</color>
-     <color name="payment_sdk_separators_color">#FFC107</color>
-     <color name="payment_sdk_stroke_color">#673AB7</color>
-     <color name="payment_sdk_button_text_color">#FFF</color>
-     <color name="payment_sdk_title_text_color">#FFF</color>
-     <color name="payment_sdk_button_background_color">#3F51B5</color>
-     <color name="payment_sdk_background_color">#F9FAFD</color>
-     <color name="payment_sdk_card_background_color">#F9FAFD</color>
-     <color name="payment_sdk_status_bar_color">#FFC107</color>
 
+<resourse>
+    // to override colors
+    <color name="payment_sdk_primary_color">#000000</color>
+    <color name="payment_sdk_secondary_color">#1B1B1B</color>
+    <color name="payment_sdk_background_color">#292929</color>
+    <color name="payment_sdk_button_background_color">#45444A</color>
+    <color name="payment_sdk_input_field_background_color">#8E8E8D</color>
+    <color name="payment_sdk_stroke_color">#90918F</color>
+
+    <color name="payment_sdk_title_text_color">#FFFFFF</color>
+
+    <color name="payment_sdk_primary_font_color">#FFFFFF</color>
+    <color name="payment_sdk_secondary_font_color">#0094F1</color>
+    <color name="payment_sdk_button_text_color">#FFF</color>
+    <color name="payment_sdk_hint_font_color">#D8D8D8</color>
+    <color name="payment_sdk_error_text_color">#650303</color>
+
+    <color name="payment_sdk_back_black_dim">#4D6E6E6E</color>
+    <color name="payment_sdk_status_bar_color">#444647</color>
+    
     // to override dimens
-     <dimen name="payment_sdk_primary_font_size">17sp</dimen>
-     <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
-     <dimen name="payment_sdk_separator_thickness">1dp</dimen>
-     <dimen name="payment_sdk_stroke_thickness">.5dp</dimen>
-     <dimen name="payment_sdk_input_corner_radius">8dp</dimen>
-     <dimen name="payment_sdk_button_corner_radius">8dp</dimen>
-     
+    <dimen name="payment_sdk_primary_font_size">17sp</dimen>
+    <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
+    <dimen name="payment_sdk_separator_thickness">1dp</dimen>
+    <dimen name="payment_sdk_stroke_thickness">.5dp</dimen>
+    <dimen name="payment_sdk_input_corner_radius">8dp</dimen>
+    <dimen name="payment_sdk_button_corner_radius">8dp</dimen>
+
 </resourse>
 ````
 ## Override drawables
