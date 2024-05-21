@@ -126,8 +126,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
                 10.0,
                 "● 10% discount - 40001",
                 true
-            ),)
-        //configData.setCardDiscount(cardDiscount)
+            ),
+        )
+        configData.setCardDiscount(cardDiscount)
         return configData.build()
     }
 
