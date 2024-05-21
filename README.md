@@ -11,7 +11,7 @@ You have to include the following dependencies:
 
 ```groovy
 
-    implementation 'com.paytabs:payment-sdk:6.5.8'
+    implementation 'com.paytabs:payment-sdk:6.6.1'
 
 ```
 ## Known Coroutine issue
@@ -391,10 +391,8 @@ Use the following guide to customize the colors, font, and logo by configuring t
 
 ![UI guide](theme_demo.jpg)
 
-## Override strings
-To override string you can find the keys with the default values here
-[English](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml),
-[Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
+## Override colors & dimens
+You can override the following colors and dimens.
 
 ````xml
 
@@ -408,7 +406,6 @@ To override string you can find the keys with the default values here
     <color name="payment_sdk_stroke_color">#90918F</color>
 
     <color name="payment_sdk_title_text_color">#FFFFFF</color>
-
     <color name="payment_sdk_primary_font_color">#FFFFFF</color>
     <color name="payment_sdk_secondary_font_color">#0094F1</color>
     <color name="payment_sdk_button_text_color">#FFF</color>
@@ -417,7 +414,7 @@ To override string you can find the keys with the default values here
 
     <color name="payment_sdk_back_black_dim">#4D6E6E6E</color>
     <color name="payment_sdk_status_bar_color">#444647</color>
-    
+
     // to override dimens
     <dimen name="payment_sdk_primary_font_size">17sp</dimen>
     <dimen name="payment_sdk_secondary_font_size">15sp</dimen>
@@ -428,6 +425,11 @@ To override string you can find the keys with the default values here
 
 </resourse>
 ````
+## Override strings
+To override string you can find the keys with the default values here
+[English](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml),
+[Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
+
 ## Override drawables
  To override the back button icon you will need to add your own drawable file with the name below:
   ```
