@@ -378,13 +378,12 @@ startSamsungPayment(this, configData, "samsungpay token",callback=this)
 ```
 ## Overriding Resources:
  
- to override fonts 
- Please add your custom fonts files with these names
+ To override fonts 
+ Please add your custom fonts files with these names.
  
- payment_sdk_primary_font.tff && payment_sdk_secondary_font.tff
+ ```payment_sdk_primary_font.tff && payment_sdk_secondary_font.tff```
  
- to override strings, colors or dimens 
- add the resource you need to override from below resources with the value you want
+ To override strings, colors or dimens add the resource you need to override from below resources with the value you want.
 
 ## Theme
 Use the following guide to customize the colors, font, and logo by configuring the theme and pass it to the payment configuration.
@@ -426,7 +425,7 @@ You can override the following colors and dimens.
 </resourse>
 ````
 ## Override strings
-To override string you can find the keys with the default values here
+To override string you can find the keys with the default values here.
 [English](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml),
 [Arabic](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
 
