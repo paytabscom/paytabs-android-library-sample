@@ -1,7 +1,3 @@
-Here's an updated version of the README with the new section on card approval and the new transaction type:
-
----
-
 # PayTabs Android Library Sample
 
 ## Installation
