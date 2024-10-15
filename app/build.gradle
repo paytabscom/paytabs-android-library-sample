@@ -50,11 +50,11 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.11.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0'
-    implementation 'androidx.fragment:fragment-ktx:1.8.3'
+    implementation 'androidx.fragment:fragment-ktx:1.8.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0'
     implementation project(":samsungpay")
     //PayTabs sdk
-    implementation 'com.paytabs:payment-sdk:6.6.6'
+    implementation 'com.paytabs:payment-sdk:6.6.7'
     //Test
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0'
