@@ -10,7 +10,7 @@
 Include the following dependency in your project:
 
 ```groovy
-implementation 'com.paytabs:payment-sdk:6.6.8'
+implementation 'com.paytabs:payment-sdk:6.6.12'
 ```
 
 ### Known Coroutine Issue
@@ -41,7 +41,7 @@ If you are using ProGuard, you may need to exclude the library classes:
 val profileId = "PROFILE_ID"
 val serverKey = "SERVER_KEY"
 val clientKey = "CLIENT_KEY"
-val locale = PaymentSdkLanguageCode.EN or PaymentSdkLanguageCode.AR
+val locale = PaymentSdkLanguageCode.EN or PaymentSdkLanguageCode.AR or PaymentSdkLanguageCode.FR or PaymentSdkLanguageCode.TR or PaymentSdkLanguageCode.UR
 val screenTitle = "Test SDK"
 val cartId = "123456"
 val cartDesc = "Cart description"
@@ -431,7 +431,7 @@ Add your custom font files with the following names:
 
 To override strings, colors, or dimens, add the resource you need to override from the resources below:
 
-![UI guide](theme_demo.jpg)
+![UI guide](theme_demo.png)
 
 #### Example of Overriding Colors and Dimens:
 
@@ -442,27 +442,25 @@ To override strings, colors, or dimens, add the resource you need to override fr
     <color name="payment_sdk_primary_color">#ffffff</color>
     <color name="payment_sdk_secondary_color">#0073bc</color>
     <color name="payment_sdk_status_bar_color">#444647</color>
-
     <color name="payment_sdk_primary_font_color">#4c4c4c</color>
     <color name="payment_sdk_secondary_font_color">#0073bc</color>
     <color name="payment_sdk_hint_font_color">#a5a5a5</color>
-
     <color name="payment_sdk_stroke_color">#e1e1e1</color>
-
     <color name="payment_sdk_button_text_color">#FFF</color>
     <color name="payment_sdk_title_text_color">#1e1e1e</color>
-    <color name="payment_sdk_error_text_color">#EC2213</color>
-
     <color name="payment_sdk_button_background_color">#0073bc</color>
     <color name="payment_sdk_background_color">#F9FAFD</color>
+    <color name="payment_sdk_blue_F2FAFD">#F2FAFD</color>
+    <color name="payment_sdk_error_text_color">#EC2213</color>
+    <color name="payment_sdk_back_black_dim">#4D6E6E6E</color>
     <color name="payment_sdk_input_field_background_color">#FFFFFFFF</color>
-
     <color name="payment_sdk_enabled_switch_track_color">#00000000</color>
     <color name="payment_sdk_enabled_switch_handle_color">#3db39e</color>
     <color name="payment_sdk_disabled_switch_track_color">#00000000</color>
     <color name="payment_sdk_disabled_switch_handle_color">#c7c7c7</color>
-    <color name="payment_sdk_switch_stroke_color">#c7c7c7</color>
-
+    <color name="payment_sdk_switch_stroke_color">#4c4c4c</color>
+    <color name="payment_sdk_amount_font_color">#4c4c4c</color>
+    <color name="payment_sdk_original_amount_font_color">#a5a5a5</color>
     <color name="payment_sdk_billing_header_background_color">#0073bc</color>
     <color name="payment_sdk_billing_text_color">#FFF</color>
 
@@ -481,6 +479,7 @@ To override strings, colors, or dimens, add the resource you need to override fr
     <dimen name="payment_sdk_billing_header_margin">0dp</dimen>
     <dimen name="payment_sdk_button_corner_radius">8dp</dimen>
     <dimen name="payment_sdk_error_font_size">12sp</dimen>
+    <dimen name="payment_sdk_amount_font_size">16sp</dimen>
 
     <!-- Override styles -->
     <style name="PaymentSdkTheme" parent="Theme.MaterialComponents.NoActionBar">
