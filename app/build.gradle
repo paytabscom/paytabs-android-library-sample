@@ -54,7 +54,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0'
     implementation project(":samsungpay")
     //PayTabs sdk
-    implementation 'com.paytabs:payment-sdk:6.6.12'
+    implementation 'com.paytabs:payment-sdk:6.6.13'
     //Test
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0'

@@ -10,7 +10,7 @@
 Include the following dependency in your project:
 
 ```groovy
-implementation 'com.paytabs:payment-sdk:6.6.12'
+implementation 'com.paytabs:payment-sdk:6.6.13'
 ```
 
 ### Known Coroutine Issue
