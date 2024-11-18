@@ -1,267 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="payment_sdk_3d_secure_title">"3D Secure"</string>
-
     <string name="payment_sdk_credit_card_screen_title">"Credit Card"</string>
-
     <string name="payment_sdk_card_name_on_card_title">"Name on Card"</string>
-
     <string name="payment_sdk_card_name_on_card_hint">"John Smith"</string>
-
     <string name="payment_sdk_card_number">"Card Number"</string>
-
     <string name="payment_sdk_card_number_hint">"0000 0000 0000 0000"</string>
-
     <string name="payment_sdk_card_expiry_date">"Expiry Date"</string>
-
-    <string name="payment_sdk_card_expiry_date_hint">"MM/YY"</string>
-
-
     <string name="payment_sdk_card_pay_button">"PAY NOW"</string>
-
     <string name="payment_sdk_credit_card_pay_amount">"You're paying"</string>
-
     <string name="payment_sdk_billing_details">"Billing Details"</string>
-
     <string name="payment_sdk_billing_address_full_name">"Full Name"</string>
-
     <string name="payment_sdk_billing_address_email">"Email"</string>
-
     <string name="payment_sdk_billing_address_phone">"Phone Number"</string>
-
-    <string name="payment_sdk_billing_address_stree">"Street"</string>
-
+    <string name="payment_sdk_billing_address_street">"Street"</string>
     <string name="payment_sdk_billing_address_city">"City"</string>
-
     <string name="payment_sdk_billing_address_state">"State"</string>
-
     <string name="payment_sdk_billing_address_country">"Country"</string>
-
     <string name="payment_sdk_billing_address_zip">"Zip Code"</string>
-
     <string name="payment_sdk_billing_select_country">"Select Country"</string>
-
     <string name="payment_sdk_shipping_details">"Shipping Details"</string>
-
     <string name="payment_sdk_shipping_address_full_name">"Full Name"</string>
-
     <string name="payment_sdk_shipping_address_email">"Email"</string>
-
     <string name="payment_sdk_shipping_address_phone">"Phone Number"</string>
-
-    <string name="payment_sdk_shipping_address_stree">"Street"</string>
-
+    <string name="payment_sdk_shipping_address_street">"Street"</string>
     <string name="payment_sdk_shipping_address_city">"City"</string>
-
     <string name="payment_sdk_shipping_address_state">"State"</string>
-
     <string name="payment_sdk_shipping_address_country">"Country"</string>
-
     <string name="payment_sdk_shipping_address_zip">"Zip Code"</string>
-
     <string name="payment_sdk_shipping_select_country">"Select Country"</string>
-
     <string name="payment_sdk_card_error_empty_name_on_card">"Card holder name is empty!"</string>
-
     <string name="payment_sdk_card_error_empty_card_number">"Card number is empty!"</string>
-
     <string name="payment_sdk_card_error_empty_expiry_date">"Expiry date is empty!"</string>
-
-
     <string name="payment_sdk_card_error_empty_cvc">"CVC is empty!"</string>
-
     <string name="payment_sdk_card_error_empty_cid">"CID is empty!"</string>
-
     <string name="payment_sdk_card_error_empty_cvn">"CVN is empty!"</string>
-
     <string name="payment_sdk_card_error_invalid_name_on_card">"Invalid card holder name"</string>
-
     <string name="payment_sdk_card_error_invalid_card_number">"Invalid card number"</string>
-
     <string name="payment_sdk_card_error_invalid_expiry_date">"Invalid expiry date"</string>
-
     <string name="payment_sdk_card_error_expired_expiry_date">"Expired credit card"</string>
-
+    <string name="payment_sdk_card_cvv">"CVV"</string>
     <string name="payment_sdk_card_error_invalid_cvv">"Invalid CVV!"</string>
-
     <string name="payment_sdk_card_error_invalid_cvc">"Invalid CVC!"</string>
-
     <string name="payment_sdk_card_error_invalid_cid">"Invalid CID!"</string>
-
     <string name="payment_sdk_card_error_invalid_cvn">"Invalid CVN!"</string>
-
     <string name="payment_sdk_error_missing_profile_id">"Profile ID is empty!"</string>
-
-    <!-- Fuzzy -->
-
-
     <string name="payment_sdk_error_missing_server_key">"Missing server key!"</string>
-
     <string name="payment_sdk_error_invalid_amount">"Invalid amount"</string>
-
     <string name="payment_sdk_error_missing_cart_id">"Cart ID is empty!"</string>
-
     <string name="payment_sdk_error_missing_cart_description">"Cart description is empty!"</string>
-
     <string name="payment_sdk_error_missing_currency">"Currency is empty!"</string>
-
     <string name="payment_sdk_error_invalid_currency">"Invalid Currency"</string>
-
     <string name="payment_sdk_error_empty_billing_address">"Billing address is empty!"</string>
-
     <string name="payment_sdk_error_empty_billing_city">"Billing city is empty!"</string>
-
-    <string name="payment_sdk_error_empty_billing_country_code">"Billing country code is empty!"</string>
-
+    <string name="payment_sdk_error_empty_billing_country_code">"Billing country code is empty!"
+    </string>
     <string name="payment_sdk_error_empty_billing_state">"Billing state is empty!"</string>
-
     <string name="payment_sdk_error_empty_billing_zip_code">"Billing ZIP code is empty!"</string>
-
     <string name="payment_sdk_error_empty_billing_full_name">"Billing full name is empty!"</string>
-
     <string name="payment_sdk_error_empty_billing_email">"Billing email is empty!"</string>
-
     <string name="payment_sdk_error_empty_billing_phone">"Billing phone number is empty!"</string>
-
     <string name="payment_sdk_error_invalid_billing_address">"Invalid billing address"</string>
-
     <string name="payment_sdk_error_invalid_billing_city">"Invalid billing city"</string>
-
-    <string name="payment_sdk_error_invalid_billing_country_code">"Invalid billing country code"</string>
-
+    <string name="payment_sdk_error_invalid_billing_country_code">"Invalid billing country code"
+    </string>
     <string name="payment_sdk_error_invalid_billing_state">"Invalid billing state"</string>
-
     <string name="payment_sdk_error_invalid_billing_zip_code">"Invalid billing ZIP code"</string>
-
     <string name="payment_sdk_error_invalid_billing_full_name">"Invalid billing full name"</string>
-
     <string name="payment_sdk_error_invalid_billing_email">"Invalid billing email"</string>
-
     <string name="payment_sdk_error_invalid_billing_phone">"Invalid billing phone"</string>
-
-    <string name="payment_sdk_error_empty_shipping_full_name">"Shipping full name is empty!"</string>
-
+    <string name="payment_sdk_error_empty_shipping_full_name">"Shipping full name is empty!"
+    </string>
     <string name="payment_sdk_error_empty_shipping_email">"Shipping email is empty!"</string>
-
     <string name="payment_sdk_error_empty_shipping_address">"Shipping address is empty!"</string>
-
     <string name="payment_sdk_error_empty_shipping_phone">"Shipping phone number is empty!"</string>
-
     <string name="payment_sdk_error_empty_shipping_city">"Shipping city is empty!"</string>
-
-    <string name="payment_sdk_error_empty_shipping_country_code">"Shipping country code is empty!"</string>
-
+    <string name="payment_sdk_error_empty_shipping_country_code">"Shipping country code is empty!"
+    </string>
     <string name="payment_sdk_error_empty_shipping_state">"Shipping state is empty!"</string>
-
     <string name="payment_sdk_error_empty_shipping_zip_code">"Shipping ZIP code is empty!"</string>
-
-    <string name="payment_sdk_error_invalid_shipping_full_name">"Invalid shipping full name"</string>
-
+    <string name="payment_sdk_error_invalid_shipping_full_name">"Invalid shipping full name"
+    </string>
     <string name="payment_sdk_error_invalid_shipping_email">"Invalid shipping email"</string>
-
     <string name="payment_sdk_error_invalid_shipping_address">"Invalid shipping address"</string>
-
     <string name="payment_sdk_error_invalid_shipping_phone">"Invalid shipping phone number"</string>
-
     <string name="payment_sdk_error_invalid_shipping_city">"Invalid shipping city"</string>
-
-    <string name="payment_sdk_error_invalid_shipping_country_code">"Invalid shipping country code"</string>
-
+    <string name="payment_sdk_error_invalid_shipping_country_code">"Invalid shipping country code"
+    </string>
     <string name="payment_sdk_error_invalid_shipping_state">"Invalid shipping state"</string>
-
     <string name="payment_sdk_error_invalid_shipping_zip_code">"Invalid shipping ZIP code"</string>
-
-    <string name="payment_sdk_apple_pay_error_missing_merchant_identifier">"Apple Pay identifier is empty!"</string>
-
-    <string name="payment_sdk_apple_pay_error_unauthorized_networks">"UnAuthorized Apple Pay networks"</string>
-
-    <string name="payment_sdk_apple_pay_error_missing_country_code">"Apple Pay country code is empty!"</string>
-
+    <string name="payment_sdk_apple_pay_error_missing_merchant_identifier">"Apple Pay identifier is
+        empty!"
+    </string>
+    <string name="payment_sdk_apple_pay_error_unauthorized_networks">"UnAuthorized Apple Pay
+        networks"
+    </string>
+    <string name="payment_sdk_apple_pay_error_missing_country_code">"Apple Pay country code is
+        empty!"
+    </string>
     <string name="payment_sdk_error_generic">"Something went wrong!"</string>
-
     <string name="payment_sdk_card_scanner_line_up_hint">"Line up card within the lines"</string>
-
     <string name="payment_sdk_error_card_scanner_failed">"Failed to scan"</string>
-
     <string name="payment_sdk_error_missing_tokenization_token">"Token is missing"</string>
-
-    <string name="payment_sdk_error_missing_transaction_reference">"Transaction reference is missing"</string>
-
+    <string name="payment_sdk_error_missing_transaction_reference">"Transaction reference is
+        missing"
+    </string>
     <string name="payment_sdk_error_network">"Network error, please try again!"</string>
-
     <string name="payment_sdk_powered_by">"Powered By"</string>
-
     <string name="payment_sdk_error_missing_billing_info">"Please provide billing info"</string>
-
     <string name="payment_sdk_error_missing_shipping_info">"Please provide shipping info"</string>
-
     <string name="payment_sdk_error_missing_data_title">"Missing data"</string>
-
     <string name="payment_sdk_save_continue">"Save &amp; Continue"</string>
-
     <string name="payment_sdk_error_missing_config_data">"Invalid config data"</string>
-
     <string name="payment_sdk_error_missing_server_ip">"Invalid server IP"</string>
-
     <string name="payment_sdk_error_validation_title">"Validation Error"</string>
-
-    <string name="payment_sdk_ok">"Ok"</string>
-
-    <string name="payment_sdk_samsung_pay_error_missing_token">"SamsungPay token is empty"</string>
-
-    <string name="payment_sdk_error_missing_merchant_country_code">"Missing merchant country code!"</string>
-
-    <string name="payment_sdk_error_invalid_merchant_country_code">"Invalid merchant country code (it should be alpha-2 ISO code)"</string>
-
+    <string name="payment_sdk_ok">"OK"</string>
+    <string name="payment_sdk_samsung_pay_error_missing_token">"SamsungPay token is invalid"
+    </string>
+    <string name="payment_sdk_error_missing_merchant_country_code">"Missing merchant country
+        code!"
+    </string>
+    <string name="payment_sdk_error_invalid_merchant_country_code">"Invalid merchant country code
+        (it should be alpha-2 ISO code)"
+    </string>
+    <string name="payment_sdk_error_no_apms">"Missing Alternative Payment Methods"</string>
     <string name="payment_sdk_card_scanner_camera_permission_title">"Card Scanner"</string>
-
-    <string name="payment_sdk_card_scanner_camera_permission_message">"Please grant permission to use the Camera so that you can scan cards"</string>
-
+    <string name="payment_sdk_card_scanner_camera_permission_message">"Please grant permission to
+        use the Camera so that you can scan cards"
+    </string>
     <string name="payment_sdk_card_scanner_camera_permission_settings">"Open Settings"</string>
-
     <string name="payment_sdk_card_scanner_camera_permission_dismiss">"Not Now"</string>
-
     <string name="payment_sdk_credit_card_screen_dismiss">"Cancel"</string>
-
     <string name="payment_sdk_error_missing_client_key">"Missing client key!"</string>
-
-    <string name="payment_sdk_credit_card_screen_save_card_label">"Save card no. for future payments"</string>
-
-    <string name="payment_sdk_credit_card_screen_save_card_mandatory_error">"To continue, you have to save the card info!"</string>
+    <string name="payment_sdk_credit_card_screen_save_card_label">Save card no.</string>
+    <string name="payment_sdk_credit_card_screen_save_card_mandatory_error">"To continue, you have
+        to save the card info!"
+    </string>
     <string name="payment_sdk_error_missing_payment_callback">Missing Payment Callback</string>
-    <string name="bt_postal_code_required">Postal code is required</string>
-
-    <string name="bt_country_code_required">Country code is required</string>
-
-    <string name="bt_mobile_number_required">Mobile number is required</string>
-
-    <string name="bt_save_card_checkbox_name">Save card</string>
-
-    <string name="bt_month">Month</string>
-
-    <string name="bt_year">Year</string>
-
-    <string name="payment_sdk_hint_postal_code">Postal Code</string>
-
-    <string name="bt_form_hint_country_code">Country Code</string>
-
-    <string name="bt_form_hint_mobile_number">Mobile Number</string>
-
-    <string name="payment_sdk_card_error_empty_cvv">%s is empty!</string>
-
-    <string name="payment_sdk_card_cvv_invalid">Invalid %s</string>
-
-    <string name="payment_sdk_hint_cvv" translatable="false">@string/payment_sdk_card_cvv</string>
-
-    <string name="payment_sdk_card_cvv" translatable="false">CVV</string>
-
-    <string name="payment_sdk_card_cvc" translatable="false">CVC</string>
-
-    <string name="payment_sdk_card_cid" translatable="false">CID</string>
-
-    <string name="payment_sdk_card_cvn" translatable="false">CVN</string>
-
-    <string name="payment_sdk_edit_billing_info">Edit Billing Info</string>
-
-    <string name="payment_sdk_edit_shipping_info">Edit shipping Info</string>
+    <string name="payment_sdk_click_back_again">Please click BACK again to exit.</string>
+    <string name="payment_sdk_yes">Yes</string>
+    <string name="payment_sdk_no">No</string>
+    <string name="payment_sdk_confirmation">Confirmation</string>
+    <string name="payment_sdk_cancel_alert">Are you sure you want to cancel the payment?</string>
+    <string name="payment_sdk_error_missing_saved_card_info">Please provide saved card info</string>
+    <string name="payment_sdk_error_missing_card_token">Please provide token</string>
+    <string name="payment_sdk_ssl_error">Unsecured connection.</string>
+    <string name="payment_sdk_discount_title">Discounts</string>
+    <string name="payment_sdk_error_invalid_discount">Invalid discount</string>
+    <string name="payment_sdk_error_invalid_discount_value">The discount value is invalid.</string>
+    <string name="payment_sdk_error_invalid_discount_title">The discount title is empty.</string>
+    <string name="payment_sdk_error_invalid_discount_cards">The discount cards array is either
+        empty, contains an empty title, or includes a card number with invalid length (must be
+        between 4 and 10 characters).
+    </string>
+    <string name="payment_sdk_discount_see_all">See All(%1$d)</string>
 </resources>

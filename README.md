@@ -15,7 +15,8 @@ implementation 'com.paytabs:payment-sdk:6.6.13'
 
 ### Known Coroutine Issue
 
-If you encounter a "Duplicated class" dependency conflict with the coroutine API, add the following to your app's Gradle file:
+If you encounter a "Duplicated class" dependency conflict with the coroutine API, add the following
+to your app's Gradle file:
 
 ```groovy
 configurations.all {
@@ -41,7 +42,8 @@ If you are using ProGuard, you may need to exclude the library classes:
 val profileId = "PROFILE_ID"
 val serverKey = "SERVER_KEY"
 val clientKey = "CLIENT_KEY"
-val locale = PaymentSdkLanguageCode.EN or PaymentSdkLanguageCode.AR or PaymentSdkLanguageCode.FR or PaymentSdkLanguageCode.TR or PaymentSdkLanguageCode.UR
+val locale =
+    PaymentSdkLanguageCode.EN or PaymentSdkLanguageCode.AR or PaymentSdkLanguageCode.FR or PaymentSdkLanguageCode.TR or PaymentSdkLanguageCode.UR
 val screenTitle = "Test SDK"
 val cartId = "123456"
 val cartDesc = "Cart description"
@@ -72,9 +74,9 @@ val billingData = PaymentSdkBillingDetails(
     "2-digit ISO country code",
     "email1@domain.com",
     "Name",
-    "Phone", 
+    "Phone",
     "State",
-    "Address street", 
+    "Address street",
     "ZIP"
 )
 
@@ -83,9 +85,9 @@ val shippingData = PaymentSdkShippingDetails(
     "2-digit ISO country code",
     "email1@domain.com",
     "Name",
-    "Phone", 
+    "Phone",
     "State",
-    "Address street", 
+    "Address street",
     "ZIP"
 )
 
@@ -165,7 +167,8 @@ startTokenizedCardPayment(
     ptConfigData = configData,
     token = yourToken,
     transactionRef = yourTransactionReference,
-    callback = this)
+    callback = this
+)
 ```
 
 3. **Recurring Payment with 3DS Feature Enabled (Request CVV):**
@@ -176,7 +179,8 @@ start3DSecureTokenizedCardPayment(
     ptConfigData = configData,
     savedCardInfo = PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
     token = token!!,
-    callback = this)
+    callback = this
+)
 ```
 
 ![Recurring 3DS](https://user-images.githubusercontent.com/17829232/188836295-d8d48978-a80f-40d3-bda3-439423fcdec0.png)
@@ -185,10 +189,11 @@ start3DSecureTokenizedCardPayment(
 
 ```kotlin
 startPaymentWithSavedCards(
-    context = this, 
+    context = this,
     ptConfigData = configData,
     support3DS = true,
-    callback = this)
+    callback = this
+)
 ```
 
 ![Saved Cards](https://user-images.githubusercontent.com/17829232/188843928-46f801d4-4dbc-4db6-a982-5297127752a6.jpeg)
@@ -251,42 +256,44 @@ PaymentSdkTokenFormat tokenFormat = new PaymentSdkTokenFormat.Hex32Format();
 // new PaymentSdkTokenFormat.AlphaNum32Format()
 
 PaymentSdkBillingDetails billingData = new PaymentSdkBillingDetails(
-    "City",
-    "2-digit ISO country code",
-    "email1@domain.com",
-    "Name",
-    "Phone", 
-    "State",
-    "Address street", 
-    "ZIP"
+        "City",
+        "2-digit ISO country code",
+        "email1@domain.com",
+        "Name",
+        "Phone",
+        "State",
+        "Address street",
+        "ZIP"
 );
 
 PaymentSdkShippingDetails shippingData = new PaymentSdkShippingDetails(
-    "City",
-    "2-digit ISO country code",
-    "email1@domain.com",
-    "Name",
-    "Phone", 
-    "State",
-    "Address street", 
-    "ZIP"
+        "City",
+        "2-digit ISO country code",
+        "email1@domain.com",
+        "Name",
+        "Phone",
+        "State",
+        "Address street",
+        "ZIP"
 );
 
 PaymentSdkConfigurationDetails configData = new PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount, currency)
-    .setCartDescription(cartDesc)
-    .setLanguageCode(locale)
-    .setBillingData(billingData)
-    .setMerchantCountryCode("AE") // ISO Alpha-2 code
-    .setShippingData(shippingData)
-    .setCartId(cartId)
-    .setTransactionType(transType)
-    .showBillingInfo(false)
-    .showShippingInfo(true)
-    .forceShippingInfo(true)
-    .setScreenTitle(screenTitle)
-    .build();
+        .setCartDescription(cartDesc)
+        .setLanguageCode(locale)
+        .setBillingData(billingData)
+        .setMerchantCountryCode("AE") // ISO Alpha-2 code
+        .setShippingData(shippingData)
+        .setCartId(cartId)
+        .setTransactionType(transType)
+        .showBillingInfo(false)
+        .showShippingInfo(true)
+        .forceShippingInfo(true)
+        .setScreenTitle(screenTitle)
+        .build();
 
-PaymentSdkActivity.startCardPayment(this, configData, this);
+PaymentSdkActivity.
+
+startCardPayment(this,configData, this);
 
 @Override
 public void onError(@NotNull PaymentSdkError paymentSdkError) {
@@ -322,8 +329,8 @@ PaymentSdkActivity.startTokenizedCardPayment(
     this,
     configData,
     "Token",
-    "TransactionRef",
-    this);
+            "TransactionRef",
+            this);
 ```
 
 3. **Recurring Payment with 3DS Feature Enabled (Request CVV):
@@ -336,7 +343,7 @@ PaymentSdkActivity.start3DSecureTokenizedCardPayment(
     configData,
     new PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
     "Token",
-    this);
+            this);
 ```
 
 4. **Recurring Payment with Saved Cards:**
@@ -346,12 +353,15 @@ PaymentSdkActivity.startPaymentWithSavedCards(
     this,
     configData,
     true,
-    this);
+            this);
 ```
 
 ## Handling Transaction Response
 
-You can use `paymentSdkTransactionDetails?.isSuccess` to ensure a successful transaction. If the transaction is not successful, you should check the corresponding failure code, which you will receive in `paymentSdkTransactionDetails?.paymentResult?.responseCode`. All codes can be found in the [Payment Response Codes](https://site.paytabs.com/en/pt2-documentation/testing/payment-response-codes/).
+You can use `paymentSdkTransactionDetails?.isSuccess` to ensure a successful transaction. If the
+transaction is not successful, you should check the corresponding failure code, which you will
+receive in `paymentSdkTransactionDetails?.paymentResult?.responseCode`. All codes can be found in
+the [Payment Response Codes](https://site.paytabs.com/en/pt2-documentation/testing/payment-response-codes/).
 
 ## Tokenization
 
@@ -359,15 +369,16 @@ To enable tokenization, follow the instructions below:
 
 ```kotlin
 // Request token and transaction reference by passing tokeniseType and Format
-setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY, PaymentSdkTokenFormat.Hex32Format()) 
+setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY, PaymentSdkTokenFormat.Hex32Format())
 // You will receive token and reference after the first transaction       
 // Pass the token and transaction reference returned from the SDK
-.setTokenisationData(token = "", transactionReference = "") 
+    .setTokenisationData(token = "", transactionReference = "") 
 ```
 
 ## Card Approval
 
-The Payment SDK allows you to customize BIN-based discounts through the `PaymentSdkCardApproval` class, which collects approval details via an API.
+The Payment SDK allows you to customize BIN-based discounts through the `PaymentSdkCardApproval`
+class, which collects approval details via an API.
 
 ### Example Usage
 
@@ -383,9 +394,11 @@ val configData = PaymentSdkConfigBuilder(profileId, serverKey, clientKey, amount
     .build()
 ```
 
-- **`validationUrl`**: The endpoint provided by the business where the Payment SDK will pass transaction information and receive a response.
+- **`validationUrl`**: The endpoint provided by the business where the Payment SDK will pass
+  transaction information and receive a response.
 - **`binLength`**: The length of the BIN (default is 6 digits, can be set to 8).
-- **`blockIfNoResponse`**: Determines whether to block the transaction if there is no response from the validation endpoint.
+- **`blockIfNoResponse`**: Determines whether to block the transaction if there is no response from
+  the validation endpoint.
 
 ## Card Discount
 
@@ -410,7 +423,8 @@ val cardDiscount = listOf(
 
 ## Samsung Pay
 
-1. To enable payments with Samsung Pay, first integrate with the Samsung Pay API. Follow the [Samsung Pay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
+1. To enable payments with Samsung Pay, first integrate with the Samsung Pay API. Follow
+   the [Samsung Pay Integration Guide](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/samsung_pay.md).
 
 2. Pass the returned JSON token from Samsung Pay to the following method:
 
@@ -429,7 +443,8 @@ Add your custom font files with the following names:
 
 ### Overriding Strings, Colors, or Dimens
 
-To override strings, colors, or dimens, add the resource you need to override from the resources below:
+To override strings, colors, or dimens, add the resource you need to override from the resources
+below:
 
 ![UI guide](theme_demo.png)
 
@@ -499,6 +514,9 @@ You can find the keys with the default values here:
 
 - [English Strings](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings.xml)
 - [Arabic Strings](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ar.xml)
+- [French Strings](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-fr.xml)
+- [Turkish Strings](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-tr.xml)
+- [Urdu Strings](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/res/strings-ur.xml)
 
 ### Overriding Drawables
 
@@ -510,11 +528,13 @@ payment_sdk_back_arrow.xml
 
 ## Common Issues
 
-For a list of common issues, refer to [Common Issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md).
+For a list of common issues, refer
+to [Common Issues](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/common_issues.md).
 
 ## License
 
-For licensing information, see [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/LICENSE).
+For licensing information,
+see [License](https://github.com/paytabscom/paytabs-android-library-sample/blob/master/LICENSE).
 
 ## PayTabs
 

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="payment_sdk_3d_secure_title">"3D محفوظ"</string>
+    <string name="payment_sdk_credit_card_screen_title">"کریڈٹ کارڈ"</string>
+    <string name="payment_sdk_card_name_on_card_title">"کارڈ پر نام"</string>
+    <string name="payment_sdk_card_name_on_card_hint">"جان اسمتھ"</string>
+    <string name="payment_sdk_card_number">"کارڈ نمبر"</string>
+    <string name="payment_sdk_card_number_hint">"0000 0000 0000 0000"</string>
+    <string name="payment_sdk_card_expiry_date">"ختم ہونے کی تاریخ"</string>
+    <string name="payment_sdk_card_pay_button">"اب ادائیگی کریں"</string>
+    <string name="payment_sdk_credit_card_pay_amount">"آپ کی ادائیگی ہے"</string>
+    <string name="payment_sdk_billing_details">"بلنگ کی تفصیلات"</string>
+    <string name="payment_sdk_billing_address_full_name">"پورا نام"</string>
+    <string name="payment_sdk_billing_address_email">"ای میل"</string>
+    <string name="payment_sdk_billing_address_phone">"فون نمبر"</string>
+    <string name="payment_sdk_billing_address_street">"گلی"</string>
+    <string name="payment_sdk_billing_address_city">"شہر"</string>
+    <string name="payment_sdk_billing_address_state">"صوبہ"</string>
+    <string name="payment_sdk_billing_address_country">"ملک"</string>
+    <string name="payment_sdk_billing_address_zip">"زپ کوڈ"</string>
+    <string name="payment_sdk_billing_select_country">"ملک منتخب کریں"</string>
+    <string name="payment_sdk_shipping_details">"شپنگ کی تفصیلات"</string>
+    <string name="payment_sdk_shipping_address_full_name">"پورا نام"</string>
+    <string name="payment_sdk_shipping_address_email">"ای میل"</string>
+    <string name="payment_sdk_shipping_address_phone">"فون نمبر"</string>
+    <string name="payment_sdk_shipping_address_street">"گلی"</string>
+    <string name="payment_sdk_shipping_address_city">"شہر"</string>
+    <string name="payment_sdk_shipping_address_state">"صوبہ"</string>
+    <string name="payment_sdk_shipping_address_country">"ملک"</string>
+    <string name="payment_sdk_shipping_address_zip">"زپ کوڈ"</string>
+    <string name="payment_sdk_shipping_select_country">"ملک منتخب کریں"</string>
+    <string name="payment_sdk_card_error_empty_name_on_card">"کارڈ ہولڈر کا نام خالی ہے!"</string>
+    <string name="payment_sdk_card_error_empty_card_number">"کارڈ نمبر خالی ہے!"</string>
+    <string name="payment_sdk_card_error_empty_expiry_date">"ختم ہونے کی تاریخ خالی ہے!"</string>
+    <string name="payment_sdk_card_error_empty_cvc">"CVC خالی ہے!"</string>
+    <string name="payment_sdk_card_error_empty_cid">"CID خالی ہے!"</string>
+    <string name="payment_sdk_card_error_empty_cvn">"CVN خالی ہے!"</string>
+    <string name="payment_sdk_card_error_invalid_name_on_card">"غلط کارڈ ہولڈر کا نام"</string>
+    <string name="payment_sdk_card_error_invalid_card_number">"غلط کارڈ نمبر"</string>
+    <string name="payment_sdk_card_error_invalid_expiry_date">"غلط ختم ہونے کی تاریخ"</string>
+    <string name="payment_sdk_card_error_expired_expiry_date">"ختم شدہ کریڈٹ کارڈ"</string>
+    <string name="payment_sdk_card_cvv">"CVV"</string>
+    <string name="payment_sdk_card_error_invalid_cvv">"غلط CVV!"</string>
+    <string name="payment_sdk_card_error_invalid_cvc">"غلط CVC!"</string>
+    <string name="payment_sdk_card_error_invalid_cid">"غلط CID!"</string>
+    <string name="payment_sdk_card_error_invalid_cvn">"غلط CVN!"</string>
+    <string name="payment_sdk_error_missing_profile_id">"پروفائل آئی ڈی خالی ہے!"</string>
+    <string name="payment_sdk_error_missing_server_key">"سرور کلید غائب ہے!"</string>
+    <string name="payment_sdk_error_invalid_amount">"غلط رقم"</string>
+    <string name="payment_sdk_error_missing_cart_id">"کارٹ آئی ڈی خالی ہے!"</string>
+    <string name="payment_sdk_error_missing_cart_description">"کارٹ کی تفصیل خالی ہے!"</string>
+    <string name="payment_sdk_error_missing_currency">"کرنسی خالی ہے!"</string>
+    <string name="payment_sdk_error_invalid_currency">"غلط کرنسی"</string>
+    <string name="payment_sdk_error_empty_billing_address">"بلنگ کا پتہ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_city">"بلنگ شہر خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_country_code">"بلنگ کا ملک کوڈ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_state">"بلنگ صوبہ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_zip_code">"بلنگ زپ کوڈ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_full_name">"بلنگ پورا نام خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_email">"بلنگ ای میل خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_billing_phone">"بلنگ فون نمبر خالی ہے!"</string>
+    <string name="payment_sdk_error_invalid_billing_address">"غلط بلنگ پتہ"</string>
+    <string name="payment_sdk_error_invalid_billing_city">"غلط بلنگ شہر"</string>
+    <string name="payment_sdk_error_invalid_billing_country_code">"غلط بلنگ ملک کوڈ"</string>
+    <string name="payment_sdk_error_invalid_billing_state">"غلط بلنگ صوبہ"</string>
+    <string name="payment_sdk_error_invalid_billing_zip_code">"غلط بلنگ زپ کوڈ"</string>
+    <string name="payment_sdk_error_invalid_billing_full_name">"غلط بلنگ پورا نام"</string>
+    <string name="payment_sdk_error_invalid_billing_email">"غلط بلنگ ای میل"</string>
+    <string name="payment_sdk_error_invalid_billing_phone">"غلط بلنگ فون نمبر"</string>
+    <string name="payment_sdk_error_empty_shipping_full_name">"شپنگ پورا نام خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_email">"شپنگ ای میل خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_address">"شپنگ پتہ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_phone">"شپنگ فون نمبر خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_city">"شپنگ شہر خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_country_code">"شپنگ ملک کوڈ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_state">"شپنگ صوبہ خالی ہے!"</string>
+    <string name="payment_sdk_error_empty_shipping_zip_code">"شپنگ زپ کوڈ خالی ہے!"</string>
+    <string name="payment_sdk_error_invalid_shipping_full_name">"غلط شپنگ پورا نام"</string>
+    <string name="payment_sdk_error_invalid_shipping_email">"غلط شپنگ ای میل"</string>
+    <string name="payment_sdk_error_invalid_shipping_address">"غلط شپنگ پتہ"</string>
+    <string name="payment_sdk_error_invalid_shipping_phone">"غلط شپنگ فون نمبر"</string>
+    <string name="payment_sdk_error_invalid_shipping_city">"غلط شپنگ شہر"</string>
+    <string name="payment_sdk_error_invalid_shipping_country_code">"غلط شپنگ ملک کوڈ"</string>
+    <string name="payment_sdk_error_invalid_shipping_state">"غلط شپنگ صوبہ"</string>
+    <string name="payment_sdk_error_invalid_shipping_zip_code">"غلط شپنگ زپ کوڈ"</string>
+    <string name="payment_sdk_apple_pay_error_missing_merchant_identifier">"ایپل پے شناخت خالی
+        ہے!"
+    </string>
+    <string name="payment_sdk_apple_pay_error_unauthorized_networks">"غیر مجاز ایپل پے نیٹ ورکس"
+    </string>
+    <string name="payment_sdk_apple_pay_error_missing_country_code">"ایپل پے ملک کوڈ خالی ہے!"
+    </string>
+    <string name="payment_sdk_error_generic">"کچھ غلط ہو گیا!"</string>
+    <string name="payment_sdk_card_scanner_line_up_hint">"کارڈ کو لکیروں میں سیدھ میں کریں"</string>
+    <string name="payment_sdk_error_card_scanner_failed">"سکین ناکام"</string>
+    <string name="payment_sdk_error_missing_tokenization_token">"ٹوکین غائب ہے"</string>
+    <string name="payment_sdk_error_missing_transaction_reference">"ٹرانزیکشن حوالہ غائب ہے"
+    </string>
+    <string name="payment_sdk_error_network">"نیٹ ورک کی خرابی، براہ کرم دوبارہ کوشش کریں!"</string>
+    <string name="payment_sdk_powered_by">"پیش کردہ"</string>
+    <string name="payment_sdk_error_missing_billing_info">"براہ کرم بلنگ معلومات فراہم کریں"
+    </string>
+    <string name="payment_sdk_error_missing_shipping_info">"براہ کرم شپنگ معلومات فراہم کریں"
+    </string>
+    <string name="payment_sdk_error_missing_data_title">"ڈیٹا غائب ہے"</string>
+    <string name="payment_sdk_save_continue">"محفوظ کریں اور جاری رکھیں"</string>
+    <string name="payment_sdk_error_missing_config_data">"غلط ترتیب کا ڈیٹا"</string>
+    <string name="payment_sdk_error_missing_server_ip">"سرور کا IP غلط ہے"</string>
+    <string name="payment_sdk_error_validation_title">"تصدیق کی خرابی"</string>
+    <string name="payment_sdk_ok">"ٹھیک ہے"</string>
+    <string name="payment_sdk_samsung_pay_error_missing_token">"SamsungPay ٹوکن غلط ہے"</string>
+    <string name="payment_sdk_error_missing_merchant_country_code">"مرچنٹ ملک کا کوڈ غائب ہے!"
+    </string>
+    <string name="payment_sdk_error_invalid_merchant_country_code">"مرچنٹ ملک کا کوڈ غلط ہے (یہ ایک
+        alpha-2 ISO کوڈ ہونا چاہیے)"
+    </string>
+    <string name="payment_sdk_error_no_apms">"متبادل ادائیگی کے طریقے غائب ہیں"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_title">"کارڈ اسکینر"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_message">"براہ کرم کیمرے کے استعمال کی
+        اجازت دیں تاکہ آپ کارڈ اسکین کر سکیں"
+    </string>
+    <string name="payment_sdk_card_scanner_camera_permission_settings">"سیٹنگز کھولیں"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_dismiss">"ابھی نہیں"</string>
+    <string name="payment_sdk_credit_card_screen_dismiss">"منسوخ کریں"</string>
+    <string name="payment_sdk_error_missing_client_key">"کلائنٹ کیی غائب ہے!"</string>
+    <string name="payment_sdk_credit_card_screen_save_card_label">کارڈ کی معلومات محفوظ کریں.
+    </string>
+    <string name="payment_sdk_credit_card_screen_save_card_mandatory_error">"جاری رکھنے کے لیے آپ کو
+        کارڈ کی معلومات محفوظ کرنی ہوں گی!"
+    </string>
+    <string name="payment_sdk_error_missing_payment_callback">"ادائیگی کال بیک غائب ہے"</string>
+    <string name="payment_sdk_click_back_again">"خارج ہونے کے لیے دوبارہ بیک دبائیں۔"</string>
+    <string name="payment_sdk_yes">"جی ہاں"</string>
+    <string name="payment_sdk_no">"نہیں"</string>
+    <string name="payment_sdk_confirmation">"تصدیق"</string>
+    <string name="payment_sdk_cancel_alert">"کیا آپ واقعی ادائیگی منسوخ کرنا چاہتے ہیں؟"</string>
+    <string name="payment_sdk_error_missing_saved_card_info">"براہ کرم محفوظ کردہ کارڈ کی معلومات
+        فراہم کریں"
+    </string>
+    <string name="payment_sdk_error_missing_card_token">"براہ کرم ٹوکن فراہم کریں"</string>
+    <string name="payment_sdk_ssl_error">"غیر محفوظ کنکشن۔"</string>
+    <string name="payment_sdk_discount_title">"چھوٹ"</string>
+    <string name="payment_sdk_error_invalid_discount">"چھوٹ غلط ہے"</string>
+    <string name="payment_sdk_error_invalid_discount_value">"چھوٹ کی قدر غلط ہے۔"</string>
+    <string name="payment_sdk_error_invalid_discount_title">"چھوٹ کا عنوان خالی ہے۔"</string>
+    <string name="payment_sdk_error_invalid_discount_cards">"چھوٹ کارڈز کی فہرست یا تو خالی ہے، اس
+        میں خالی عنوان شامل ہے، یا اس میں ایک کارڈ نمبر ہے جس کی لمبائی غلط ہے (یہ 4 سے 10 حروف کے
+        درمیان ہونا چاہیے)۔"
+    </string>
+    <string name="payment_sdk_discount_see_all">"سب دیکھیں (%1$d)"</string>
+</resources>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="payment_sdk_3d_secure_title">"3D Güvenlik"</string>
+    <string name="payment_sdk_credit_card_screen_title">"Kredi Kartı"</string>
+    <string name="payment_sdk_card_name_on_card_title">"Kart Üzerindeki İsim"</string>
+    <string name="payment_sdk_card_name_on_card_hint">"John Smith"</string>
+    <string name="payment_sdk_card_number">"Kart Numarası"</string>
+    <string name="payment_sdk_card_number_hint">"0000 0000 0000 0000"</string>
+    <string name="payment_sdk_card_expiry_date">"Son Kullanma Tarihi"</string>
+    <string name="payment_sdk_card_pay_button">"ŞİMDİ ÖDE"</string>
+    <string name="payment_sdk_credit_card_pay_amount">"Ödediğiniz tutar"</string>
+    <string name="payment_sdk_billing_details">"Fatura Bilgileri"</string>
+    <string name="payment_sdk_billing_address_full_name">"Tam Adı"</string>
+    <string name="payment_sdk_billing_address_email">"E-posta"</string>
+    <string name="payment_sdk_billing_address_phone">"Telefon Numarası"</string>
+    <string name="payment_sdk_billing_address_street">"Sokak"</string>
+    <string name="payment_sdk_billing_address_city">"Şehir"</string>
+    <string name="payment_sdk_billing_address_state">"Eyalet"</string>
+    <string name="payment_sdk_billing_address_country">"Ülke"</string>
+    <string name="payment_sdk_billing_address_zip">"Posta Kodu"</string>
+    <string name="payment_sdk_billing_select_country">"Ülke Seç"</string>
+    <string name="payment_sdk_shipping_details">"Kargo Bilgileri"</string>
+    <string name="payment_sdk_shipping_address_full_name">"Tam Adı"</string>
+    <string name="payment_sdk_shipping_address_email">"E-posta"</string>
+    <string name="payment_sdk_shipping_address_phone">"Telefon Numarası"</string>
+    <string name="payment_sdk_shipping_address_street">"Sokak"</string>
+    <string name="payment_sdk_shipping_address_city">"Şehir"</string>
+    <string name="payment_sdk_shipping_address_state">"Eyalet"</string>
+    <string name="payment_sdk_shipping_address_country">"Ülke"</string>
+    <string name="payment_sdk_shipping_address_zip">"Posta Kodu"</string>
+    <string name="payment_sdk_shipping_select_country">"Ülke Seç"</string>
+    <string name="payment_sdk_card_error_empty_name_on_card">"Kart sahibinin adı boş!"</string>
+    <string name="payment_sdk_card_error_empty_card_number">"Kart numarası boş!"</string>
+    <string name="payment_sdk_card_error_empty_expiry_date">"Son kullanma tarihi boş!"</string>
+    <string name="payment_sdk_card_error_empty_cvc">"CVC boş!"</string>
+    <string name="payment_sdk_card_error_empty_cid">"CID boş!"</string>
+    <string name="payment_sdk_card_error_empty_cvn">"CVN boş!"</string>
+    <string name="payment_sdk_card_error_invalid_name_on_card">"Geçersiz kart sahibi adı"</string>
+    <string name="payment_sdk_card_error_invalid_card_number">"Geçersiz kart numarası"</string>
+    <string name="payment_sdk_card_error_invalid_expiry_date">"Geçersiz son kullanma tarihi"
+    </string>
+    <string name="payment_sdk_card_error_expired_expiry_date">"Süresi dolmuş kredi kartı"</string>
+    <string name="payment_sdk_card_cvv">"CVV"</string>
+    <string name="payment_sdk_card_error_invalid_cvv">"Geçersiz CVV!"</string>
+    <string name="payment_sdk_card_error_invalid_cvc">"Geçersiz CVC!"</string>
+    <string name="payment_sdk_card_error_invalid_cid">"Geçersiz CID!"</string>
+    <string name="payment_sdk_card_error_invalid_cvn">"Geçersiz CVN!"</string>
+    <string name="payment_sdk_error_missing_profile_id">"Profil ID boş!"</string>
+    <string name="payment_sdk_error_missing_server_key">"Sunucu anahtarı eksik!"</string>
+    <string name="payment_sdk_error_invalid_amount">"Geçersiz tutar"</string>
+    <string name="payment_sdk_error_missing_cart_id">"Sepet ID boş!"</string>
+    <string name="payment_sdk_error_missing_cart_description">"Sepet açıklaması boş!"</string>
+    <string name="payment_sdk_error_missing_currency">"Para birimi boş!"</string>
+    <string name="payment_sdk_error_invalid_currency">"Geçersiz para birimi"</string>
+    <string name="payment_sdk_error_empty_billing_address">"Fatura adresi boş!"</string>
+    <string name="payment_sdk_error_empty_billing_city">"Fatura şehri boş!"</string>
+    <string name="payment_sdk_error_empty_billing_country_code">"Fatura ülke kodu boş!"</string>
+    <string name="payment_sdk_error_empty_billing_state">"Fatura eyaleti boş!"</string>
+    <string name="payment_sdk_error_empty_billing_zip_code">"Fatura posta kodu boş!"</string>
+    <string name="payment_sdk_error_empty_billing_full_name">"Fatura tam adı boş!"</string>
+    <string name="payment_sdk_error_empty_billing_email">"Fatura e-postası boş!"</string>
+    <string name="payment_sdk_error_empty_billing_phone">"Fatura telefon numarası boş!"</string>
+    <string name="payment_sdk_error_invalid_billing_address">"Geçersiz fatura adresi"</string>
+    <string name="payment_sdk_error_invalid_billing_city">"Geçersiz fatura şehri"</string>
+    <string name="payment_sdk_error_invalid_billing_country_code">"Geçersiz fatura ülke kodu"
+    </string>
+    <string name="payment_sdk_error_invalid_billing_state">"Geçersiz fatura eyaleti"</string>
+    <string name="payment_sdk_error_invalid_billing_zip_code">"Geçersiz fatura posta kodu"</string>
+    <string name="payment_sdk_error_invalid_billing_full_name">"Geçersiz fatura tam adı"</string>
+    <string name="payment_sdk_error_invalid_billing_email">"Geçersiz fatura e-postası"</string>
+    <string name="payment_sdk_error_invalid_billing_phone">"Geçersiz fatura telefon numarası"
+    </string>
+    <string name="payment_sdk_error_empty_shipping_full_name">"Kargo tam adı boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_email">"Kargo e-postası boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_address">"Kargo adresi boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_phone">"Kargo telefon numarası boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_city">"Kargo şehri boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_country_code">"Kargo ülke kodu boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_state">"Kargo eyaleti boş!"</string>
+    <string name="payment_sdk_error_empty_shipping_zip_code">"Kargo posta kodu boş!"</string>
+    <string name="payment_sdk_error_invalid_shipping_full_name">"Geçersiz kargo tam adı"</string>
+    <string name="payment_sdk_error_invalid_shipping_email">"Geçersiz kargo e-postası"</string>
+    <string name="payment_sdk_error_invalid_shipping_address">"Geçersiz kargo adresi"</string>
+    <string name="payment_sdk_error_invalid_shipping_phone">"Geçersiz kargo telefon numarası"
+    </string>
+    <string name="payment_sdk_error_invalid_shipping_city">"Geçersiz kargo şehri"</string>
+    <string name="payment_sdk_error_invalid_shipping_country_code">"Geçersiz kargo ülke kodu"
+    </string>
+    <string name="payment_sdk_error_invalid_shipping_state">"Geçersiz kargo eyaleti"</string>
+    <string name="payment_sdk_error_invalid_shipping_zip_code">"Geçersiz kargo posta kodu"</string>
+    <string name="payment_sdk_apple_pay_error_missing_merchant_identifier">"Apple Pay kimliği
+        boş!"
+    </string>
+    <string name="payment_sdk_apple_pay_error_unauthorized_networks">"Yetkisiz Apple Pay ağları"
+    </string>
+    <string name="payment_sdk_apple_pay_error_missing_country_code">"Apple Pay ülke kodu boş!"
+    </string>
+    <string name="payment_sdk_error_generic">"Bir hata oluştu!"</string>
+    <string name="payment_sdk_card_scanner_line_up_hint">"Kartı çizgiler arasında hizalayın"
+    </string>
+    <string name="payment_sdk_error_card_scanner_failed">"Tarama başarısız"</string>
+    <string name="payment_sdk_error_missing_tokenization_token">"Jeton eksik"</string>
+    <string name="payment_sdk_error_missing_transaction_reference">"İşlem referansı eksik"</string>
+    <string name="payment_sdk_error_network">"Ağ hatası, lütfen tekrar deneyin!"</string>
+    <string name="payment_sdk_powered_by">"Tarafından sağlanıyor"</string>
+    <string name="payment_sdk_error_missing_billing_info">"Lütfen fatura bilgilerini sağlayın"
+    </string>
+    <string name="payment_sdk_error_missing_shipping_info">"Lütfen kargo bilgilerini sağlayın"
+    </string>
+    <string name="payment_sdk_error_missing_data_title">"Eksik veri"</string>
+    <string name="payment_sdk_save_continue">"Kaydet ve Devam Et"</string>
+    <string name="payment_sdk_error_missing_config_data">"Geçersiz yapılandırma verisi"</string>
+    <string name="payment_sdk_error_missing_server_ip">"Geçersiz sunucu IP'si"</string>
+    <string name="payment_sdk_error_validation_title">"Doğrulama Hatası"</string>
+    <string name="payment_sdk_ok">"Tamam"</string>
+    <string name="payment_sdk_samsung_pay_error_missing_token">"SamsungPay belirteci geçersiz"
+    </string>
+    <string name="payment_sdk_error_missing_merchant_country_code">"Satıcı ülke kodu eksik!"
+    </string>
+    <string name="payment_sdk_error_invalid_merchant_country_code">"Geçersiz satıcı ülke kodu
+        (alfa-2 ISO kodu olmalıdır)"
+    </string>
+    <string name="payment_sdk_error_no_apms">"Alternatif Ödeme Yöntemleri Eksik"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_title">"Kart Tarayıcı"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_message">"Kartları tarayabilmek için
+        lütfen Kamera izni verin"
+    </string>
+    <string name="payment_sdk_card_scanner_camera_permission_settings">"Ayarları Aç"</string>
+    <string name="payment_sdk_card_scanner_camera_permission_dismiss">"Şimdi Değil"</string>
+    <string name="payment_sdk_credit_card_screen_dismiss">"İptal"</string>
+    <string name="payment_sdk_error_missing_client_key">"Müşteri anahtarı eksik!"</string>
+    <string name="payment_sdk_credit_card_screen_save_card_label">Kart Bilgilerini Kaydet.</string>
+    <string name="payment_sdk_credit_card_screen_save_card_mandatory_error">"Devam etmek için kart
+        bilgilerini kaydetmeniz gerekmektedir!"
+    </string>
+    <string name="payment_sdk_error_missing_payment_callback">"Ödeme Geri Çağrılması Eksik"</string>
+    <string name="payment_sdk_click_back_again">"Çıkmak için tekrar GERİ'ye basın."</string>
+    <string name="payment_sdk_yes">"Evet"</string>
+    <string name="payment_sdk_no">"Hayır"</string>
+    <string name="payment_sdk_confirmation">"Onay"</string>
+    <string name="payment_sdk_cancel_alert">"Ödemeyi iptal etmek istediğinize emin misiniz?"
+    </string>
+    <string name="payment_sdk_error_missing_saved_card_info">"Lütfen kaydedilen kart bilgilerini
+        sağlayın"
+    </string>
+    <string name="payment_sdk_error_missing_card_token">"Lütfen belirteci sağlayın"</string>
+    <string name="payment_sdk_ssl_error">"Güvenli olmayan bağlantı."</string>
+    <string name="payment_sdk_discount_title">"İndirimler"</string>
+    <string name="payment_sdk_error_invalid_discount">"Geçersiz indirim"</string>
+    <string name="payment_sdk_error_invalid_discount_value">"İndirim değeri geçersiz."</string>
+    <string name="payment_sdk_error_invalid_discount_title">"İndirim başlığı boş."</string>
+    <string name="payment_sdk_error_invalid_discount_cards">"İndirim kartları dizisi boş veya başlık
+        boş içeriyor veya kart numarası geçersiz uzunluktadır (4 ile 10 karakter arasında
+        olmalıdır)."
+    </string>
+    <string name="payment_sdk_discount_see_all">"Tümünü Gör (%1$d)"</string>
+</resources>
