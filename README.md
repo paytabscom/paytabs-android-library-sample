@@ -10,7 +10,7 @@
 Include the following dependency in your project:
 
 ```groovy
-implementation 'com.paytabs:payment-sdk:6.6.13'
+implementation 'com.paytabs:payment-sdk:6.7.0'
 ```
 
 ### Known Coroutine Issue
@@ -185,19 +185,6 @@ start3DSecureTokenizedCardPayment(
 
 ![Recurring 3DS](https://user-images.githubusercontent.com/17829232/188836295-d8d48978-a80f-40d3-bda3-439423fcdec0.png)
 
-4. **Recurring Payment with Saved Cards:**
-
-```kotlin
-startPaymentWithSavedCards(
-    context = this,
-    ptConfigData = configData,
-    support3DS = true,
-    callback = this
-)
-```
-
-![Saved Cards](https://user-images.githubusercontent.com/17829232/188843928-46f801d4-4dbc-4db6-a982-5297127752a6.jpeg)
-
 ## Querying Transaction Status
 
 1. **Create a Query Configuration:**
@@ -343,16 +330,6 @@ PaymentSdkActivity.start3DSecureTokenizedCardPayment(
     configData,
     new PaymentSDKSavedCardInfo("Masked card", "Visa or MC or card type"),
     "Token",
-            this);
-```
-
-4. **Recurring Payment with Saved Cards:**
-
-```java
-PaymentSdkActivity.startPaymentWithSavedCards(
-    this,
-    configData,
-    true,
             this);
 ```
 
