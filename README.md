@@ -4,13 +4,13 @@
 
 ### Requirements
 
-- Minimum Java 8 or Android 5.1
-- `targetSdk` and `compileSdk` should be set to 34.
+- Minimum Java 17 or Android 5.1
+- `targetSdk` and `compileSdk` should be set to 36.
 
 Include the following dependency in your project:
 
 ```groovy
-implementation 'com.paytabs:payment-sdk:6.7.0'
+implementation 'com.paytabs:payment-sdk:6.8.1'
 ```
 
 ### Known Coroutine Issue
@@ -151,7 +151,7 @@ PaymentSdkActivity.cancelPayment()
 
 ### Starting the Payment Process
 
-1. **Normal Card Payment:**
+**Normal Card Payment:**
 
 ```kotlin
 startCardPayment(context = this, ptConfigData = configData, callback = this)
@@ -159,7 +159,7 @@ startCardPayment(context = this, ptConfigData = configData, callback = this)
 
 ![Card Payment](https://user-images.githubusercontent.com/17829232/188835902-c50f41d1-5e3d-4d4c-a49a-e75b81480b75.png)
 
-2. **Recurring Payment:**
+**Recurring Payment:**
 
 ```kotlin
 startTokenizedCardPayment(
@@ -171,7 +171,7 @@ startTokenizedCardPayment(
 )
 ```
 
-3. **Recurring Payment with 3DS Feature Enabled (Request CVV):**
+**Recurring Payment with 3DS Feature Enabled (Request CVV):**
 
 ```kotlin
 start3DSecureTokenizedCardPayment(
@@ -187,7 +187,7 @@ start3DSecureTokenizedCardPayment(
 
 ## Querying Transaction Status
 
-1. **Create a Query Configuration:**
+**Create a Query Configuration:**
 
 ```kotlin
 val queryConfig = PaymentSDKQueryConfiguration(
@@ -199,7 +199,7 @@ val queryConfig = PaymentSDKQueryConfiguration(
 )
 ```
 
-2. **Execute the Query:**
+**Execute the Query:**
 
 ```kotlin
 QuerySdkActivity.queryTransaction(
@@ -300,7 +300,7 @@ public void onPaymentFinish(@NotNull PaymentSdkTransactionDetails paymentSdkTran
 
 ### Starting the Payment Process
 
-1. **Normal Card Payment:**
+**Normal Card Payment:**
 
 ```java
 PaymentSdkActivity.startCardPayment(
@@ -309,7 +309,7 @@ PaymentSdkActivity.startCardPayment(
     this);
 ```
 
-2. **Recurring Payment:**
+**Recurring Payment:**
 
 ```java
 PaymentSdkActivity.startTokenizedCardPayment(
@@ -320,9 +320,7 @@ PaymentSdkActivity.startTokenizedCardPayment(
             this);
 ```
 
-3. **Recurring Payment with 3DS Feature Enabled (Request CVV):
-
-**
+**Recurring Payment with 3DS Feature Enabled (Request CVV):**
 
 ```java
 PaymentSdkActivity.start3DSecureTokenizedCardPayment(
@@ -415,8 +413,8 @@ startSamsungPayment(this, configData, "samsungpay token", callback = this)
 
 Add your custom font files with the following names:
 
-- `payment_sdk_primary_font.tff`
-- `payment_sdk_secondary_font.tff`
+- `payment_sdk_primary_font.ttf`
+- `payment_sdk_secondary_font.ttf`
 
 ### Overriding Strings, Colors, or Dimens
 
