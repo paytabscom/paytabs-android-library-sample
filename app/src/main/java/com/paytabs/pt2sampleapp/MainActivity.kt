@@ -14,6 +14,7 @@ import com.payment.paymentsdk.sharedclasses.interfaces.CallbackPaymentInterface
 import com.payment.paymentsdk.sharedclasses.interfaces.CallbackQueryInterface
 import com.payment.paymentsdk.sharedclasses.model.response.TransactionResponseBody
 import com.paytabs.pt2sampleapp.databinding.ActivityMainBinding
+import com.paytabs.pt2sampleapp.R
 import com.paytabs.samsungpay.sample.SamsungPayActivity
 
 /**
@@ -23,45 +24,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
 
     companion object {
         private const val TAG = "MainActivity"
-
-        // Payment Configuration Constants
-        private const val PROFILE_ID = "your_profile_id"
-        private const val SERVER_KEY = "your_server_key"
-        private const val CLIENT_KEY = "your_client_key"
-        private const val MERCHANT_COUNTRY_CODE = "AE" // ISO2 country code for UAE
-        private const val CURRENCY = "AED"
-        private const val AMOUNT = 20.0
-        private const val TRANSACTION_TITLE = "SDK sample"
-        private const val CART_ID = "123456"
-        private const val CART_DESCRIPTION = "Cart description"
         private val LANGUAGE_CODE = PaymentSdkLanguageCode.EN
-
-        // Billing Details Constants
-        private const val BILLING_CITY = "Dubai"
-        private const val BILLING_COUNTRY_CODE = "AE" // ISO2 country code for UAE
-        private const val BILLING_EMAIL = "testuser@example.com"
-        private const val BILLING_NAME = "Ali Ahmed"
-        private const val BILLING_PHONE = "+971501234567"
-        private const val BILLING_STATE = "Dubai"
-        private const val BILLING_ADDRESS = "1234 Test Street"
-        private const val BILLING_ZIP = "00000"
-
-        // Shipping Details Constants
-        private const val SHIPPING_CITY = "Abu Dhabi"
-        private const val SHIPPING_COUNTRY_CODE = "AE" // ISO2 country code for UAE
-        private const val SHIPPING_EMAIL = "testrecipient@example.com"
-        private const val SHIPPING_NAME = "Ali Ahmed"
-        private const val SHIPPING_PHONE = "+971501234568"
-        private const val SHIPPING_STATE = "Abu Dhabi"
-        private const val SHIPPING_ADDRESS = "5678 Sample Avenue"
-        private const val SHIPPING_ZIP = "00000"
-
-        // Query Configuration Constants
-        private const val QUERY_SERVER_KEY = "your_query_server_key"
-        private const val QUERY_CLIENT_KEY = "your_query_client_key"
-        private const val QUERY_MERCHANT_COUNTRY_CODE = "AE"
-        private const val QUERY_PROFILE_ID = "your_query_profile_id"
-        private const val TRANSACTION_REFERENCE = "your_transaction_reference"
     }
 
     private var token: String? = null
@@ -71,6 +34,8 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initializeBinding()
+        setupCurrencySpinner()
+        setupSectionSwitches()
         setupClickListeners()
     }
 
@@ -80,6 +45,47 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     private fun initializeBinding() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    /**
+     * Sets up the currency spinner dropdown.
+     */
+    private fun setupCurrencySpinner() {
+        val currencies = resources.getStringArray(R.array.currencies)
+        val adapter = android.widget.ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            currencies
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spCurrency.adapter = adapter
+        
+        // Set default selection to AED if available
+        val defaultCurrency = "AED"
+        val defaultIndex = currencies.indexOf(defaultCurrency)
+        if (defaultIndex >= 0) {
+            binding.spCurrency.setSelection(defaultIndex)
+        }
+    }
+
+    /**
+     * Sets up switches to toggle section visibility.
+     */
+    private fun setupSectionSwitches() {
+        // Transaction Details Switch
+        binding.switchTransactionDetails.setOnCheckedChangeListener { _, isChecked ->
+            binding.llTransactionDetails.visibility = if (isChecked) android.view.View.VISIBLE else android.view.View.GONE
+        }
+
+        // Billing Information Switch
+        binding.switchBilling.setOnCheckedChangeListener { _, isChecked ->
+            binding.llBillingDetails.visibility = if (isChecked) android.view.View.VISIBLE else android.view.View.GONE
+        }
+
+        // Shipping Information Switch
+        binding.switchShipping.setOnCheckedChangeListener { _, isChecked ->
+            binding.llShippingDetails.visibility = if (isChecked) android.view.View.VISIBLE else android.view.View.GONE
+        }
     }
 
     /**
@@ -99,7 +105,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
      */
     private fun initiateCardPayment() {
         val configData = generatePaymentConfiguration()
-        startCardPayment(this, configData, this)
+        configData?.let {
+            startCardPayment(this, it, this)
+        }
     }
 
     /**
@@ -108,7 +116,9 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
      */
     private fun initiateAlternativePayment(apm: PaymentSdkApms) {
         val configData = generatePaymentConfiguration(apm)
-        startAlternativePaymentMethods(this, configData, this)
+        configData?.let {
+            startAlternativePaymentMethods(this, it, this)
+        }
     }
 
     /**
@@ -116,14 +126,35 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
      */
     private fun initiateSamsungPay() {
         val configData = generatePaymentConfiguration()
-        SamsungPayActivity.start(this, configData)
+        configData?.let {
+            SamsungPayActivity.start(this, it)
+        }
     }
 
     /**
      * Queries a transaction.
      */
     private fun queryTransaction() {
-        val queryConfig = generateQueryConfiguration()
+        // For query, we'll use the same credentials from the input fields
+        val serverKey = binding.etServerKey.text.toString().trim()
+        val clientKey = binding.etClientKey.text.toString().trim()
+        val profileId = binding.etProfileId.text.toString().trim()
+        val merchantCountryCode = binding.etMerchantCountryCode.text.toString().trim()
+        
+        if (serverKey.isEmpty() || clientKey.isEmpty() || profileId.isEmpty()) {
+            showToast("Please enter credentials for query")
+            return
+        }
+        
+        // Note: Transaction reference would need to be entered separately for query
+        // For now, using a placeholder - you may want to add an input field for this
+        val queryConfig = PaymentSDKQueryConfiguration(
+            serverKey = serverKey,
+            clientKey = clientKey,
+            merchantCountryCode = merchantCountryCode.ifEmpty { "AE" },
+            profileID = profileId,
+            transactionReference = "your_transaction_reference" // Add input field for this if needed
+        )
         QuerySdkActivity.queryTransaction(this, queryConfig, this)
     }
 
@@ -134,32 +165,76 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
      */
     private fun generatePaymentConfiguration(
         selectedApm: PaymentSdkApms? = null
-    ): PaymentSdkConfigurationDetails {
+    ): PaymentSdkConfigurationDetails? {
+        // Validate required fields
+        val profileId = binding.etProfileId.text.toString().trim()
+        val serverKey = binding.etServerKey.text.toString().trim()
+        val clientKey = binding.etClientKey.text.toString().trim()
+        val amountStr = binding.etAmount.text.toString().trim()
+        val currency = binding.spCurrency.selectedItem?.toString() ?: ""
+        
+        if (profileId.isEmpty()) {
+            showToast("Please enter Profile ID")
+            return null
+        }
+        if (serverKey.isEmpty()) {
+            showToast("Please enter Server Key")
+            return null
+        }
+        if (clientKey.isEmpty()) {
+            showToast("Please enter Client Key")
+            return null
+        }
+        if (amountStr.isEmpty()) {
+            showToast("Please enter Amount")
+            return null
+        }
+        val amount = try {
+            amountStr.toDouble()
+        } catch (e: NumberFormatException) {
+            showToast("Please enter a valid amount")
+            return null
+        }
+        if (currency.isEmpty()) {
+            showToast("Please select Currency")
+            return null
+        }
+        
+        val cartId = binding.etCartId.text.toString().trim()
+        val cartDescription = binding.etCartDescription.text.toString().trim()
+        val transactionTitle = binding.etTransactionTitle.text.toString().trim()
+        val merchantCountryCode = binding.etMerchantCountryCode.text.toString().trim()
+        
         val configBuilder = PaymentSdkConfigBuilder(
-            profileId = PROFILE_ID,
-            serverKey = SERVER_KEY,
-            clientKey = CLIENT_KEY,
-            amount = AMOUNT,
-            currencyCode = CURRENCY
+            profileId = profileId,
+            serverKey = serverKey,
+            clientKey = clientKey,
+            amount = amount,
+            currencyCode = currency
         ).apply {
-            setCartDescription(CART_DESCRIPTION)
+            if (cartDescription.isNotEmpty()) {
+                setCartDescription(cartDescription)
+            }
             setLanguageCode(LANGUAGE_CODE)
-            setMerchantIcon(
-                ContextCompat.getDrawable(
-                    this@MainActivity, R.drawable.payment_sdk_adcb_logo
-                )
-            )
+            // Optional: Set merchant icon if available
+            // setMerchantIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.paytabs))
             setBillingData(getBillingDetails())
-            setMerchantCountryCode(MERCHANT_COUNTRY_CODE)
+            if (merchantCountryCode.isNotEmpty()) {
+                setMerchantCountryCode(merchantCountryCode)
+            }
             setTransactionType(PaymentSdkTransactionType.SALE)
             setTransactionClass(PaymentSdkTransactionClass.ECOM)
             setShippingData(getShippingDetails())
             setTokenise(PaymentSdkTokenise.MERCHANT_MANDATORY)
-            setCartId(CART_ID)
+            if (cartId.isNotEmpty()) {
+                setCartId(cartId)
+            }
             showBillingInfo(true)
             showShippingInfo(false)
             forceShippingInfo(false)
-            setScreenTitle(TRANSACTION_TITLE)
+            if (transactionTitle.isNotEmpty()) {
+                setScreenTitle(transactionTitle)
+            }
             hideCardScanner(false)
             linkBillingNameWithCard(false)
             setCardDiscount(getCardDiscounts())
@@ -169,36 +244,36 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     }
 
     /**
-     * Generates billing details.
+     * Generates billing details from input fields.
      * @return Configured PaymentSdkBillingDetails object.
      */
     private fun getBillingDetails(): PaymentSdkBillingDetails {
         return PaymentSdkBillingDetails(
-            city = BILLING_CITY,
-            countryCode = BILLING_COUNTRY_CODE,
-            email = BILLING_EMAIL,
-            name = BILLING_NAME,
-            phone = BILLING_PHONE,
-            state = BILLING_STATE,
-            addressLine = BILLING_ADDRESS,
-            zip = BILLING_ZIP
+            city = binding.etBillingCity.text.toString().trim().ifEmpty { "Dubai" },
+            countryCode = binding.etBillingCountry.text.toString().trim().ifEmpty { "AE" },
+            email = binding.etBillingEmail.text.toString().trim().ifEmpty { "testuser@example.com" },
+            name = binding.etBillingName.text.toString().trim().ifEmpty { "Ali Ahmed" },
+            phone = binding.etBillingPhone.text.toString().trim().ifEmpty { "+971501234567" },
+            state = binding.etBillingState.text.toString().trim().ifEmpty { "Dubai" },
+            addressLine = binding.etBillingAddress.text.toString().trim().ifEmpty { "1234 Test Street" },
+            zip = binding.etBillingZip.text.toString().trim().ifEmpty { "00000" }
         )
     }
 
     /**
-     * Generates shipping details.
+     * Generates shipping details from input fields.
      * @return Configured PaymentSdkShippingDetails object.
      */
     private fun getShippingDetails(): PaymentSdkShippingDetails {
         return PaymentSdkShippingDetails(
-            city = SHIPPING_CITY,
-            countryCode = SHIPPING_COUNTRY_CODE,
-            email = SHIPPING_EMAIL,
-            name = SHIPPING_NAME,
-            phone = SHIPPING_PHONE,
-            state = SHIPPING_STATE,
-            addressLine = SHIPPING_ADDRESS,
-            zip = SHIPPING_ZIP
+            city = binding.etShippingCity.text.toString().trim().ifEmpty { "Abu Dhabi" },
+            countryCode = binding.etShippingCountry.text.toString().trim().ifEmpty { "AE" },
+            email = binding.etShippingEmail.text.toString().trim().ifEmpty { "testrecipient@example.com" },
+            name = binding.etShippingName.text.toString().trim().ifEmpty { "Ali Ahmed" },
+            phone = binding.etShippingPhone.text.toString().trim().ifEmpty { "+971501234568" },
+            state = binding.etShippingState.text.toString().trim().ifEmpty { "Abu Dhabi" },
+            addressLine = binding.etShippingAddress.text.toString().trim().ifEmpty { "5678 Sample Avenue" },
+            zip = binding.etShippingZip.text.toString().trim().ifEmpty { "00000" }
         )
     }
 
@@ -217,19 +292,6 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         )
     }
 
-    /**
-     * Generates query configuration for transaction querying.
-     * @return Configured PaymentSDKQueryConfiguration object.
-     */
-    private fun generateQueryConfiguration(): PaymentSDKQueryConfiguration {
-        return PaymentSDKQueryConfiguration(
-            serverKey = QUERY_SERVER_KEY,
-            clientKey = QUERY_CLIENT_KEY,
-            merchantCountryCode = QUERY_MERCHANT_COUNTRY_CODE,
-            profileID = QUERY_PROFILE_ID,
-            transactionReference = TRANSACTION_REFERENCE
-        )
-    }
 
     /**
      * Handles cancellation of the payment process.

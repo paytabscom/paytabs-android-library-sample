@@ -121,4 +121,13 @@
     <string name="customer_billing_email">billing email</string>
     <string name="customer_billing_name">billing email</string>
     <string name="transaction_title">Transaction title</string>
+    <string name="credentials_section">Credentials</string>
+    <string name="profile_id">Profile ID</string>
+    <string name="server_key">Server Key</string>
+    <string name="client_key">Client Key</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="billing_information">Billing Information</string>
+    <string name="shipping_information">Shipping Information</string>
+    <string name="fawry_pay">PAY With Fawry</string>
+    <string name="app_name">PayTabs Sample</string>
 </resources>
