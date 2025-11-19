@@ -30,6 +30,7 @@ workflows:
           failure: true
       firebase:
         firebase_service_account: $FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
-        android_app_id: $FIREBASE_ANDROID_APP_ID
-        test_groups:
-          - Testers
+        android:
+          app_id: $FIREBASE_ANDROID_APP_ID
+          groups:
+            - Testers
