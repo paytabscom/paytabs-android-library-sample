@@ -3,7 +3,7 @@ workflows:
     name: Android Workflow
     environment:
       android_signing:
-        - keystore_reference
+        - AndroidSampleKey
       groups:
         - firebase
       vars:
