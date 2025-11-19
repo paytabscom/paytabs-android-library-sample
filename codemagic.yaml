@@ -1,0 +1,35 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+    environment:
+      android_signing:
+        - keystore_reference
+      groups:
+        - firebase
+      vars:
+        PACKAGE_NAME: "com.paytabs.pt2sampleapp"
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Build Android release
+        script: |
+          cd android
+          ./gradlew assembleRelease \
+              -PversionCode=$BUILD_NUMBER \
+              -PversionName=1.0.$BUILD_NUMBER
+
+    artifacts:
+      - app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - mobile.devop@paytabs.com
+        notify:
+          success: true
+          failure: true
+      firebase:
+        firebase_service_account: $FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
+        android_app_id: $FIREBASE_ANDROID_APP_ID
+        test_groups:
+          - Testers
