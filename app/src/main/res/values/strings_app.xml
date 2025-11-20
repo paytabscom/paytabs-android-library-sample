@@ -130,4 +130,27 @@
     <string name="shipping_information">Shipping Information</string>
     <string name="fawry_pay">PAY With Fawry</string>
     <string name="app_name">PayTabs Sample</string>
+    <string name="select_merchant_country">Select Merchant Country</string>
+    <string-array name="merchant_country_names">
+        <item>AE - United Arab Emirates</item>
+        <item>SA - Saudi Arabia</item>
+        <item>EG - Egypt</item>
+        <item>OM - Oman</item>
+        <item>JO - Jordan</item>
+        <item>KW - Kuwait</item>
+        <item>BH - Bahrain</item>
+        <item>QA - Qatar</item>
+        <item>IN - India</item>
+    </string-array>
+    <string-array name="merchant_country_codes">
+        <item>AE</item>
+        <item>SA</item>
+        <item>EG</item>
+        <item>OM</item>
+        <item>JO</item>
+        <item>KW</item>
+        <item>BH</item>
+        <item>QA</item>
+        <item>IN</item>
+    </string-array>
 </resources>

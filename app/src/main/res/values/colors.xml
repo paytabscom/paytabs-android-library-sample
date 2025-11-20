@@ -15,7 +15,9 @@
     <!-- Modern gradient colors -->
     <color name="gradient_start">#3B82F6</color>
     <color name="gradient_end">#2563EB</color>
+    <color name="app_background">#F8FAFC</color>
     <color name="card_background">#FFFFFF</color>
+    <color name="component_background">#FFFFFF</color>
     <color name="text_primary">#1F2937</color>
     <color name="text_secondary">#6B7280</color>
     <color name="divider_color">#E5E7EB</color>

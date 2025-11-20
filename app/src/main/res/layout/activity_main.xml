@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC"
+    android:background="@color/app_background"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Payment Configuration"
-                android:textColor="#E0E7FF"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"
                 app:layout_constraintStart_toStartOf="@id/tvAppTitle"
@@ -69,7 +69,7 @@
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 app:strokeWidth="0dp"
                 app:cardMaxElevation="8dp">
 
@@ -121,6 +121,8 @@
                             android:inputType="text"
                             android:text="your_profile_id"
                             android:textSize="16sp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary"
                             android:padding="16dp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -147,6 +149,8 @@
                             android:inputType="text"
                             android:text="your_server_key"
                             android:textSize="16sp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary"
                             android:padding="16dp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -172,6 +176,8 @@
                             android:inputType="text"
                             android:text="your_client_key"
                             android:textSize="16sp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary"
                             android:padding="16dp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -187,7 +193,7 @@
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 app:strokeWidth="0dp"
                 app:cardMaxElevation="8dp">
 
@@ -282,7 +288,8 @@
                             android:background="@drawable/spinner_background"
                             android:paddingStart="16dp"
                             android:paddingEnd="16dp"
-                            android:layout_marginBottom="16dp" />
+                            android:layout_marginBottom="16dp"
+                            android:popupBackground="@color/card_background" />
 
                         <com.google.android.material.textfield.TextInputLayout
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -374,7 +381,7 @@
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 app:strokeWidth="0dp"
                 app:cardMaxElevation="8dp">
 
@@ -666,7 +673,7 @@
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 app:strokeWidth="0dp"
                 app:cardMaxElevation="8dp">
 
@@ -958,7 +965,7 @@
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 app:strokeWidth="0dp"
                 app:cardMaxElevation="8dp">
 
@@ -968,30 +975,23 @@
                     android:orientation="vertical"
                     android:padding="24dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/customer_country_code"
-                        app:boxStrokeColor="@color/colorPrimary"
-                        app:hintTextColor="@color/colorPrimary"
-                        app:boxCornerRadiusTopStart="16dp"
-                        app:boxCornerRadiusTopEnd="16dp"
-                        app:boxCornerRadiusBottomStart="16dp"
-                        app:boxCornerRadiusBottomEnd="16dp"
-                        app:boxStrokeWidth="2dp"
-                        app:boxStrokeWidthFocused="2dp">
+                        android:text="@string/select_merchant_country"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.02"
+                        android:layout_marginBottom="8dp" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etMerchantCountryCode"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:text="AE"
-                            android:textSize="16sp"
-                            android:padding="16dp" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <Spinner
+                        android:id="@+id/spMerchantCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="@drawable/spinner_background"
+                        android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:popupBackground="@color/card_background" />
 
                 </LinearLayout>
 
@@ -1004,7 +1004,7 @@
                 android:layout_marginBottom="20dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/card_background"
                 app:strokeWidth="0dp"
                 app:cardMaxElevation="8dp">
 
@@ -1035,6 +1035,7 @@
                         android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:background="@drawable/button_gradient_primary"
+                        app:backgroundTint="@null"
                         app:cornerRadius="18dp"
                         app:elevation="6dp" />
 
@@ -1049,6 +1050,7 @@
                         android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:background="@drawable/button_gradient_orange"
+                        app:backgroundTint="@null"
                         app:cornerRadius="18dp"
                         app:elevation="6dp" />
 
@@ -1063,6 +1065,7 @@
                         android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:background="@drawable/button_gradient_green"
+                        app:backgroundTint="@null"
                         app:cornerRadius="18dp"
                         app:elevation="6dp" />
 
@@ -1077,6 +1080,7 @@
                         android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:background="@drawable/button_gradient_purple"
+                        app:backgroundTint="@null"
                         app:cornerRadius="18dp"
                         app:elevation="6dp" />
 
@@ -1091,6 +1095,7 @@
                         android:textStyle="bold"
                         android:letterSpacing="0.05"
                         android:background="@drawable/button_gradient_blue"
+                        app:backgroundTint="@null"
                         app:cornerRadius="18dp"
                         app:elevation="6dp" />
 

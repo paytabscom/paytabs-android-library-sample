@@ -12,6 +12,20 @@
     <color name="colorPrimaryDark">#2563EB</color>
     <color name="colorAccent">#3B82F6</color>
 
+    <!-- Modern gradient colors -->
+    <color name="gradient_start">#1E3A8A</color>
+    <color name="gradient_end">#1D4ED8</color>
+    <color name="app_background">#111827</color>
+    <color name="card_background">#1F2937</color>
+    <color name="component_background">#1F2937</color>
+    <color name="text_primary">#F9FAFB</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="divider_color">#374151</color>
+    <color name="success_green">#10B981</color>
+    <color name="warning_orange">#FBBF24</color>
+    <color name="error_red">#F87171</color>
+    <color name="info_blue">#60A5FA</color>
+
     //
     <color name="payment_sdk_primary_color">#000000</color>
     <color name="payment_sdk_secondary_color">#1B1B1B</color>

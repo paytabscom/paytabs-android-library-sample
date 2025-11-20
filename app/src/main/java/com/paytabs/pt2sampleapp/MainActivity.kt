@@ -2,6 +2,9 @@ package com.paytabs.pt2sampleapp
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -30,11 +33,14 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     private var token: String? = null
     private var transRef: String? = null
     private lateinit var binding: ActivityMainBinding
+    private lateinit var merchantRegions: List<MerchantRegion>
+    private lateinit var selectedMerchantRegion: MerchantRegion
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initializeBinding()
         setupCurrencySpinner()
+        setupMerchantCountrySpinner()
         setupSectionSwitches()
         setupClickListeners()
     }
@@ -45,6 +51,11 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     private fun initializeBinding() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        merchantRegions = buildMerchantRegions()
+        if (merchantRegions.isEmpty()) {
+            merchantRegions = listOf(MerchantRegion("AE - United Arab Emirates", "AE"))
+        }
+        selectedMerchantRegion = merchantRegions.first()
     }
 
     /**
@@ -65,6 +76,37 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         val defaultIndex = currencies.indexOf(defaultCurrency)
         if (defaultIndex >= 0) {
             binding.spCurrency.setSelection(defaultIndex)
+        }
+    }
+
+    /**
+     * Sets up the merchant country spinner and base URL display.
+     */
+    private fun setupMerchantCountrySpinner() {
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            merchantRegions.map { it.displayName }
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spMerchantCountry.adapter = adapter
+        binding.spMerchantCountry.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                selectedMerchantRegion = merchantRegions[position]
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+        // Initialize display
+        binding.spMerchantCountry.setSelection(0)
+    }
+
+    private fun buildMerchantRegions(): List<MerchantRegion> {
+        val names = resources.getStringArray(R.array.merchant_country_names)
+        val codes = resources.getStringArray(R.array.merchant_country_codes)
+        return names.mapIndexed { index, name ->
+            val code = codes.getOrElse(index) { "AE" }
+            MerchantRegion(name, code)
         }
     }
 
@@ -139,7 +181,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         val serverKey = binding.etServerKey.text.toString().trim()
         val clientKey = binding.etClientKey.text.toString().trim()
         val profileId = binding.etProfileId.text.toString().trim()
-        val merchantCountryCode = binding.etMerchantCountryCode.text.toString().trim()
+        val merchantCountryCode = selectedMerchantRegion.countryCode
         
         if (serverKey.isEmpty() || clientKey.isEmpty() || profileId.isEmpty()) {
             showToast("Please enter credentials for query")
@@ -203,7 +245,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         val cartId = binding.etCartId.text.toString().trim()
         val cartDescription = binding.etCartDescription.text.toString().trim()
         val transactionTitle = binding.etTransactionTitle.text.toString().trim()
-        val merchantCountryCode = binding.etMerchantCountryCode.text.toString().trim()
+        val merchantCountryCode = selectedMerchantRegion.countryCode
         
         val configBuilder = PaymentSdkConfigBuilder(
             profileId = profileId,
@@ -219,9 +261,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
             // Optional: Set merchant icon if available
             // setMerchantIcon(ContextCompat.getDrawable(this@MainActivity, R.drawable.paytabs))
             setBillingData(getBillingDetails())
-            if (merchantCountryCode.isNotEmpty()) {
-                setMerchantCountryCode(merchantCountryCode)
-            }
+            setMerchantCountryCode(merchantCountryCode)
             setTransactionType(PaymentSdkTransactionType.SALE)
             setTransactionClass(PaymentSdkTransactionClass.ECOM)
             setShippingData(getShippingDetails())
@@ -344,3 +384,8 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
+
+data class MerchantRegion(
+    val displayName: String,
+    val countryCode: String
+)
