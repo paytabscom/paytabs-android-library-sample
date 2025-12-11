@@ -28,6 +28,14 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     companion object {
         private const val TAG = "MainActivity"
         private val LANGUAGE_CODE = PaymentSdkLanguageCode.EN
+        
+        // Default Payment Configuration Constants
+        const val PROFILE_ID = "100181"
+        const val SERVER_KEY = "SRJNGJBG2D-JDRGZTMJBB-LHLJJBZJLB"
+        const val CLIENT_KEY = "CBKMN9-Q2GP6D-RT97N6-72HNHM"
+        const val DEFAULT_CURRENCY = "EGP"
+        const val DEFAULT_AMOUNT = 1.0
+        const val DEFAULT_MERCHANT_COUNTRY_CODE = "EG"
     }
 
     private var token: String? = null
@@ -41,6 +49,7 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         initializeBinding()
         setupCurrencySpinner()
         setupMerchantCountrySpinner()
+        setupDefaultValues()
         setupSectionSwitches()
         setupClickListeners()
     }
@@ -59,6 +68,25 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     }
 
     /**
+     * Sets up default values for input fields.
+     */
+    private fun setupDefaultValues() {
+        binding.etProfileId.setText(PROFILE_ID)
+        binding.etServerKey.setText(SERVER_KEY)
+        binding.etClientKey.setText(CLIENT_KEY)
+        binding.etAmount.setText(DEFAULT_AMOUNT.toString())
+        
+        // Set default merchant country
+        val defaultCountryIndex = merchantRegions.indexOfFirst { 
+            it.countryCode == DEFAULT_MERCHANT_COUNTRY_CODE 
+        }
+        if (defaultCountryIndex >= 0) {
+            binding.spMerchantCountry.setSelection(defaultCountryIndex)
+            selectedMerchantRegion = merchantRegions[defaultCountryIndex]
+        }
+    }
+
+    /**
      * Sets up the currency spinner dropdown.
      */
     private fun setupCurrencySpinner() {
@@ -71,9 +99,8 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spCurrency.adapter = adapter
         
-        // Set default selection to AED if available
-        val defaultCurrency = "AED"
-        val defaultIndex = currencies.indexOf(defaultCurrency)
+        // Set default selection to DEFAULT_CURRENCY if available
+        val defaultIndex = currencies.indexOf(DEFAULT_CURRENCY)
         if (defaultIndex >= 0) {
             binding.spCurrency.setSelection(defaultIndex)
         }
@@ -177,16 +204,11 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
      * Queries a transaction.
      */
     private fun queryTransaction() {
-        // For query, we'll use the same credentials from the input fields
-        val serverKey = binding.etServerKey.text.toString().trim()
-        val clientKey = binding.etClientKey.text.toString().trim()
-        val profileId = binding.etProfileId.text.toString().trim()
-        val merchantCountryCode = selectedMerchantRegion.countryCode
-        
-        if (serverKey.isEmpty() || clientKey.isEmpty() || profileId.isEmpty()) {
-            showToast("Please enter credentials for query")
-            return
-        }
+        // For query, use values from input fields with constants as fallback
+        val serverKey = binding.etServerKey.text.toString().trim().ifEmpty { SERVER_KEY }
+        val clientKey = binding.etClientKey.text.toString().trim().ifEmpty { CLIENT_KEY }
+        val profileId = binding.etProfileId.text.toString().trim().ifEmpty { PROFILE_ID }
+        val merchantCountryCode = selectedMerchantRegion.countryCode.ifEmpty { DEFAULT_MERCHANT_COUNTRY_CODE }
         
         // Note: Transaction reference would need to be entered separately for query
         // For now, using a placeholder - you may want to add an input field for this
@@ -208,38 +230,22 @@ class MainActivity : AppCompatActivity(), CallbackPaymentInterface, CallbackQuer
     private fun generatePaymentConfiguration(
         selectedApm: PaymentSdkApms? = null
     ): PaymentSdkConfigurationDetails? {
-        // Validate required fields
-        val profileId = binding.etProfileId.text.toString().trim()
-        val serverKey = binding.etServerKey.text.toString().trim()
-        val clientKey = binding.etClientKey.text.toString().trim()
+        // Get values from input fields, use constants as fallback
+        val profileId = binding.etProfileId.text.toString().trim().ifEmpty { PROFILE_ID }
+        val serverKey = binding.etServerKey.text.toString().trim().ifEmpty { SERVER_KEY }
+        val clientKey = binding.etClientKey.text.toString().trim().ifEmpty { CLIENT_KEY }
         val amountStr = binding.etAmount.text.toString().trim()
-        val currency = binding.spCurrency.selectedItem?.toString() ?: ""
+        val currency = binding.spCurrency.selectedItem?.toString() ?: DEFAULT_CURRENCY
         
-        if (profileId.isEmpty()) {
-            showToast("Please enter Profile ID")
-            return null
-        }
-        if (serverKey.isEmpty()) {
-            showToast("Please enter Server Key")
-            return null
-        }
-        if (clientKey.isEmpty()) {
-            showToast("Please enter Client Key")
-            return null
-        }
-        if (amountStr.isEmpty()) {
-            showToast("Please enter Amount")
-            return null
-        }
-        val amount = try {
-            amountStr.toDouble()
-        } catch (e: NumberFormatException) {
-            showToast("Please enter a valid amount")
-            return null
-        }
-        if (currency.isEmpty()) {
-            showToast("Please select Currency")
-            return null
+        val amount = if (amountStr.isEmpty()) {
+            DEFAULT_AMOUNT
+        } else {
+            try {
+                amountStr.toDouble()
+            } catch (e: NumberFormatException) {
+                showToast("Please enter a valid amount")
+                return null
+            }
         }
         
         val cartId = binding.etCartId.text.toString().trim()
